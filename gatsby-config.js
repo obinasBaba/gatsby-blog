@@ -19,12 +19,5 @@ module.exports = {
         path: `./src/posts`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `JsonData`,
-        path: `./data/`,
-      },
-    },
   ]
 }
