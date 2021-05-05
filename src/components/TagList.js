@@ -6,7 +6,6 @@ import { kebabCase } from 'lodash';
 const TagList = ({ tags }) => {
   var tmpArr = [];
 
-  console.log(tags);
 
   tags.forEach( edge => {
     if(edge.node.frontmatter.tags === null )

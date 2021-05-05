@@ -1,8 +1,8 @@
-const _ = require('lodash');
+const _ = require( "lodash" );
 
+
+//creating post page
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
-
-  console.log( "inside gatsby-node-config ------" );
 
   const {
     data: {
@@ -16,6 +16,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
            frontmatter {
                       slug
                       tags 
+                      series
                   }
               }
           }
@@ -23,6 +24,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       }
   ` );
 
+  //creating post-template
   posts.forEach( ({ node }) => {
     const { slug } = node.frontmatter;
     createPage( {
@@ -41,19 +43,41 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     tempArr = [...tempArr, ...tags];
 
   } );
-
-  tempArr = [...new Set(tempArr)] //clearing the duplicates
+  tempArr = [...new Set( tempArr )]; //clearing the duplicates
   tempArr.forEach( tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
-      component: require.resolve('./src/templates/tag-template.js'),
+    createPage( {
+      path: `/tags/${ _.kebabCase( tag ) }/`,
+      component: require.resolve( "./src/templates/tag-template.js" ),
       context: {
         tag
-      },
-    })
+      }
+    } );
+  } );
+
+
+  //creating series-template
+  let seriesArr = new Set();
+  posts.forEach(({ node }) => {
+    const { series } = node.frontmatter;
+    seriesArr.add(series);
   })
 
-  //creating product pages
+  seriesArr.forEach( series => {
+
+    if (series === null)
+      return;
+
+    createPage( {
+      path: `/series/${  series  }/`,
+      component: require.resolve( "./src/templates/series-template.js" ),
+      context: {
+        series
+      }
+    } );
+  } );
+
+
+  /*//creating product pages
   const results = await graphql( `
   {
     allProductJson {
@@ -76,6 +100,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         slug: node.slug
       }
     } );
-  } );
+  } );*/
 
 };
+

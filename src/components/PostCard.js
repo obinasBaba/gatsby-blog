@@ -29,7 +29,7 @@ const PostCard = ({ post }) => {
             }
           </h4>
 
-          <p style={{border: 'thin solid red'}} >{post.excerpt}</p>
+          <p>{post.excerpt}</p>
 
           <Link to={slug} className={styles.link}>read more</Link>
         </div>
