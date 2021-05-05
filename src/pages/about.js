@@ -13,16 +13,12 @@ export const result = graphql`
 `;
 
 
-const About = ({ data }) => {
+const About = () => {
 
-  const { customTxt, title, description } = data.site.siteMetadata;
 
   return (
     <Layout>
       <h1>About</h1>
-
-      <h2> {customTxt} </h2>
-
     </Layout>
   );
 };

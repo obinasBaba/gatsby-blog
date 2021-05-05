@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   console.log( "inside gatsby-node-config ------" );
@@ -13,6 +15,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
               node {
            frontmatter {
                       slug
+                      tags 
                   }
               }
           }
@@ -31,31 +34,26 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     } );
   } );
 
-  /*  createPage( {
-      path: "/no-data/",
-      component: require.resolve( "./src/templates/no-data.js" ),
+  //creating tags pages
+  let tempArr = [];
+  posts.forEach( ({ node }) => {
+    const { tags } = node.frontmatter;
+    tempArr = [...tempArr, ...tags];
+
+  } );
+
+  tempArr = [...new Set(tempArr)] //clearing the duplicates
+  tempArr.forEach( tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag)}/`,
+      component: require.resolve('./src/templates/tag-template.js'),
       context: {
-        title: "we dont need graphql",
-        content: "<p>this is page content</p>"
-      }
-    } );
+        tag
+      },
+    })
+  })
 
-    const products = require( "./data/product.json" );
-
-    products.forEach( product => {
-      createPage( {
-        path: `/product/${ product.slug }/`,
-        component: require.resolve( "./src/templates/product.js" ),
-        context: {
-          title: product.title,
-          description: product.description,
-          image: product.image,
-          price: product.price
-        }
-      } );
-    } );*/
-
-
+  //creating product pages
   const results = await graphql( `
   {
     allProductJson {
@@ -72,7 +70,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   results.data.allProductJson.edges.forEach( ({ node }) => {
     createPage( {
-      path: `/product/${node.slug}/`,
+      path: `/product/${ node.slug }/`,
       component: require.resolve( "./src/templates/product.js" ),
       context: {
         slug: node.slug
