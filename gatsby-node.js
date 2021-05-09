@@ -4,7 +4,7 @@ const _ = require( "lodash" );
 //creating post page
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
-  const {
+ /* const {
     data: {
       allMdx: { edges: posts }
     }
@@ -72,32 +72,6 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       component: require.resolve( "./src/templates/series-template.js" ),
       context: {
         series
-      }
-    } );
-  } );
-
-
-  /*//creating product pages
-  const results = await graphql( `
-  {
-    allProductJson {
-      edges {
-        node {
-          slug
-        }
-      }
-    }
-  }` );
-
-  if (results.error)
-    console.error( "something went wrong!" );
-
-  results.data.allProductJson.edges.forEach( ({ node }) => {
-    createPage( {
-      path: `/product/${ node.slug }/`,
-      component: require.resolve( "./src/templates/product.js" ),
-      context: {
-        slug: node.slug
       }
     } );
   } );*/
