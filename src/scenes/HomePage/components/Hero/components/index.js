@@ -17,6 +17,7 @@ export const HeroWrapperGird = styled.section`
 
   ${ ({ theme }) => `
       ${ theme.breakpoints.up( "sm" ) } {
+
          grid-template-areas: 
               'hello-txt   hello-txt'
               'img         aboutS'
@@ -62,6 +63,7 @@ export const HelloTxt = styled.div`
   align-items: center;
   gap: 1rem;
   grid-area: hello-txt;
+  margin-bottom: 2em;
 
   & > :first-child {
     white-space: nowrap;
@@ -75,6 +77,11 @@ export const AboutText = styled( Typography )`
   font-weight: 900;
 `;
 
-export const AboutParagraph = styled( Typography )`
+export const AboutParagraph = styled.div`
   grid-area: aboutL;
+  align-self: start;
+  
+  & > :first-child{
+    margin-bottom: .5em;
+  }
 `;

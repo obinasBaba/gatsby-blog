@@ -1,14 +1,16 @@
 import React from "react";
-import { Container, Typography, useMediaQuery } from "@material-ui/core";
+import { Container, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import { StaticImage } from "gatsby-plugin-image";
 import { AboutParagraph, AboutText, HelloTxt, HeroWrapperGird } from "./components";
 
 
 const Hero = () => {
 
-  const media = useMediaQuery( "(min-width: 632px) and (max-width: 960px)" );
+  // const media = useMediaQuery( "(min-width: 632px) and (max-width: 960px)" );
 
-  console.log( media, "matches min-width:632px" );
+  const theme = useTheme();
+  const media2 = useMediaQuery( theme.breakpoints.up( "md" ) );
+
 
   return (
 
@@ -21,7 +23,7 @@ const Hero = () => {
             Hi, I'm Henok
           </Typography>
 
-          <svg xmlns="http://www.w3.org/2000/svg" width='49px' viewBox="0 0 80.738 80.738">
+          <svg xmlns="http://www.w3.org/2000/svg" width="49px" viewBox="0 0 80.738 80.738">
             <g id="_1f44b-1" data-name="1f44b-1" transform="translate(0 -0.042)">
               <path id="Path_1" data-name="Path 1"
                     d="M6.187,17.616a6.237,6.237,0,0,1,7.187.373L11.2,14.83c-1.749-2.495-1.123-5.193,1.374-6.945a5.527,5.527,0,0,1,7.693,1.358L40.091,37.494l.157-.07-18.1-26.594a5.194,5.194,0,0,1,1.084-7.479,5.574,5.574,0,0,1,7.76,1.372l23.4,33.051a5.606,5.606,0,0,1-1.619,7.74,5.455,5.455,0,0,1-1.363.671v20.5H28.952v-6.99a32.021,32.021,0,0,1-2.432-2.086L4.815,25.426A5.6,5.6,0,0,1,6.187,17.616Z"
@@ -46,34 +48,43 @@ const Hero = () => {
 
         <StaticImage src="https://i0.wp.com/tilomitra.com/wp-content/uploads/2019/10/1P0A8024.jpg?resize=627%2C940"
                      placeholder="blurred"
-                     className='hero'
+                     className="hero"
                      imgStyle={ {
-                       borderRadius: ".5em",
+                       borderRadius: ".5em"
                      } }
 
                      style={ {
-                       border: `1em solid white`,
+                       border: `.5em solid white`,
                        borderRadius: ".5em",
                        boxShadow: "0 0.5em 1em rgba(0, 0, 0, .15)",
                        gridArea: "img",
                        maxWidth: "400px",
+                       alignSelf: "start"
                      } }
 
-                     formats={['AUTO', 'WEBP', 'AVIF']}
+                     formats={ ["AUTO", "WEBP", "AVIF"] }
 
                      alt="hero img" />
 
 
-        <AboutText gutterBottom={ true } variant="h4">
+        <AboutText gutterBottom={ true } variant={ `${ media2 ? "h5" : "h4" }` }>
           Full-Stack developer working with
           startups to create growth-driven products and Brands
         </AboutText>
 
-        <AboutParagraph gutterBottom={ true }>
-          I learned to make website on my own. i know how fun and rewarding
-          its, but i also know that it can be incredibly frustrating.
-          I'm here to help make your journey into web development as easy and as
-          fun as possible.
+        <AboutParagraph>
+
+          <Typography gutterBottom={true}>
+            I love coding and the feeling that comes with building something by yourself.
+            When I build something new, I usually learn something in the process.
+          </Typography>
+
+          <Typography>
+            This website is a way for me to chronicle these lessons and ideas. Most of my
+            articles are around solutions to problems that we face when building great web products.
+          </Typography>
+
+
         </AboutParagraph>
 
       </HeroWrapperGird>
