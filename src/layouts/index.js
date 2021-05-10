@@ -7,6 +7,7 @@ import { createGlobalStyle, ThemeProvider as StyledThemeProvider } from "styled-
 import theme from "../../src/theme";
 import "../styles/index.scss";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -45,6 +46,8 @@ export default function TopLayout(props) {
           <Header />
 
           { props.children }
+
+          <Footer />
 
         </ThemeProvider>
       </StyledThemeProvider>

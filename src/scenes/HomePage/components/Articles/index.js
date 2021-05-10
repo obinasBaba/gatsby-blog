@@ -1,68 +1,11 @@
 import React from "react";
-import { Button, Container, Grid, Typography } from "@material-ui/core";
-import styled from "styled-components";
-import ProjectCard from "./components/Card";
+import { Grid, Typography } from "@material-ui/core";
+import ProjectCard from "./ProjectCard";
 import p from "../../../../images/youtube-1.jpeg";
 import p2 from "../../../../images/youtube-2.jpg";
 import p3 from "../../../../images/youtube-3.jpeg";
+import { CardWrapper, Header, PaddingContainer, ReadMoreBtn, TextWrapper } from "./components";
 
-
-const PaddingContainer = styled( Grid )`
-  padding: 3.5rem 1.5rem;
-  row-gap: 2em;
-
-  ${ ({ theme }) => `
-      ${ theme.breakpoints.up( "md" ) } {
-         flex-wrap: nowrap;
-      }
-  ` }
-`;
-
-const TextWrapper = styled( Grid )`
-  gap: 1em;
-  position: relative;
-  
-  &::before{
-    content: 'A';
-    position: relative;
-    display: block;
-    font-size: 25rem;
-    line-height: 0;
-    font-family: Poppins, sans-serif;
-    font-weight: 900;
-    opacity: .1;
-    left: -80%;
-    top: 40%;
-
-    ${ ({ theme }) => `
-      ${ theme.breakpoints.down( "sm" ) } {
-         left: -40%;
-      }
-  ` }
-    
-  }
-  
-`
-
-const CardWrapper = styled( Grid )`
-  gap: 1em;
-`
-
-const Header = styled.header`
-  align-self: start;
-  
-  & > :first-child{
-    margin-bottom: -5px;
-  }
-`
-
-const ReadMoreBtn = styled( Button)`
-  align-self: start;
-  border-radius: 400px;
-  font-size: 0.8rem;
-  font-family: Sofia Pro Soft, sans-serif;
-  font-weight: 300;
-`
 
 const Articles = () => {
   return (

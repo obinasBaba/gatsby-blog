@@ -44,6 +44,7 @@ export const HeroWrapperGird = styled.section`
     grid-row: 3/4;
     z-index: -999;
     border-radius: 1em;
+    
     background-image: linear-gradient(to bottom right, #1c1b1b -10%, #ebf9ff 130%);
 
     ${ ({ theme }) => `
@@ -64,9 +65,18 @@ export const HelloTxt = styled.div`
   gap: 1rem;
   grid-area: hello-txt;
   margin-bottom: 2em;
+  
 
   & > :first-child {
     white-space: nowrap;
+    margin-left: -20px;
+
+    ${ ({ theme }) => `
+      ${ theme.breakpoints.up( "sm" ) } {   
+              margin-left: 0px;
+
+      }
+  ` }
   }
 
 `;
@@ -75,6 +85,7 @@ export const AboutText = styled( Typography )`
   grid-area: aboutS;
   font-family: Poppins, sans-serif;
   font-weight: 900;
+  padding: 1em;
 `;
 
 export const AboutParagraph = styled.div`
