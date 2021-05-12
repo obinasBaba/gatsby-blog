@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, Input, TextField, Typography } from "@material-ui/core";
-import { ReadMoreBtn } from "../../scenes/HomePage/components/Articles/components";
+import { Button, TextField, Typography } from "@material-ui/core";
 
 
 const Form = styled.form`
@@ -20,9 +19,7 @@ const SubmitBtn = styled( Button)`
 `
 
 const StyledTextField = styled(TextField)`
-  & .MuiInputBase-root{
-    border-radius: 500px;
-  }
+  
 `
 
 const ContactForm = () => {

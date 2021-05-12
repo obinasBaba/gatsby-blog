@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import { StaticImage } from "gatsby-plugin-image";
-import { AboutParagraph, AboutText, HelloTxt, HeroWrapperGird } from "./components";
+import { AboutParagraph, AboutText, HelloTxt, HeroWrapperGird, PaddingContainer } from "./components";
 
-import s from '../../../../images/1f44b.svg';
+import s from '../../../../assets/images/hand2.svg';
+import heroPic from '../../../../images/heroPic.jpg';
+import useHeroAssets from "../../../../hooks/queries/useHeroAssets";
 
 const Hero = () => {
 
@@ -12,10 +14,13 @@ const Hero = () => {
   const theme = useTheme();
   const media2 = useMediaQuery( theme.breakpoints.up( "md" ) );
 
+  const { heroImg } = useHeroAssets();
+  console.log( heroImg.publicURL );
+
 
   return (
 
-    < Container maxWidth="md">
+    < PaddingContainer maxWidth="md">
 
       <HeroWrapperGird>
 
@@ -24,7 +29,7 @@ const Hero = () => {
             Hi, I'm Henok
           </Typography>
 
-          <img src={s}
+          <img src={heroImg.publicURL}
                        placeholder='blurred'
                        style={{
                          width: 'clamp(1.5em, 2em, 43em)'
@@ -34,7 +39,7 @@ const Hero = () => {
 
         </HelloTxt>
 
-        <StaticImage src="https://i0.wp.com/tilomitra.com/wp-content/uploads/2019/10/1P0A8024.jpg?resize=627%2C940"
+        <StaticImage src={ "../../../../images/heroPic.jpg" }
                      placeholder="blurred"
                      className="hero"
                      imgStyle={ {
@@ -77,7 +82,7 @@ const Hero = () => {
 
       </HeroWrapperGird>
 
-    </Container>
+    </PaddingContainer>
   );
 };
 

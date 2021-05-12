@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import { Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
+
+export const PaddingContainer = styled( Container )`
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+
+`
 
 export const HeroWrapperGird = styled.section`
-  margin-bottom: 3.5rem;
   position: relative;
   display: grid;
   justify-items: center;

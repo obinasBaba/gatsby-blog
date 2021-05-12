@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Divider, Grid, IconButton } from "@material-ui/core";
+import { Avatar, Divider } from "@material-ui/core";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/all";
 import styled from "styled-components";
 

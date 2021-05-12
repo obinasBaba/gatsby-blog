@@ -2,13 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import NavLinks from "../NavLinks";
 import styled from "styled-components";
 import AvatarWithSocial from "./AvatarWithSocial";
-import { BiNavigation, RiNavigationLine } from "react-icons/all";
+import { RiNavigationLine } from "react-icons/all";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 
 function HideOnScroll(props) {
@@ -19,7 +18,7 @@ function HideOnScroll(props) {
   const trigger = useScrollTrigger( { target: window ? window() : undefined } );
 
   return (
-    <Slide appear={ false } direction="down" in={ !trigger }>
+    <Slide  appear={ false } direction="down" in={ !trigger }>
       { children }
     </Slide>
   );
@@ -27,10 +26,6 @@ function HideOnScroll(props) {
 
 HideOnScroll.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func
 };
 
@@ -47,7 +42,7 @@ function HideAppBar(props) {
     <React.Fragment>
 
       <HideOnScroll { ...props }>
-        <AppBar color="transparent">
+        <AppBar >
           <StyledToolbar>
             <AvatarWithSocial />
 
@@ -60,7 +55,7 @@ function HideAppBar(props) {
       </HideOnScroll>
 
       <Toolbar style={ {
-        marginBottom: "2.5rem"
+        // marginBottom: "2.5rem"
       } } />
 
     </React.Fragment>
