@@ -53,7 +53,7 @@ let theme = createMuiTheme({
     h1: {
       // fontFamily: 'Gramatika, sans-serif',
       fontFamily: 'Poppins, sans-serif',
-      fontWeight: "bolder",
+      fontWeight: "900",
       fontSize: '3.3rem'
     }
   }
