@@ -54,6 +54,7 @@ module.exports = {
         name: `fonts`,
         path: `${ __dirname }/src/assets/fonts/`
       }
-    }
+    },
+    `gatsby-plugin-netlify-cms`
   ]
 };
