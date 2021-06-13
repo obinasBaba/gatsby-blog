@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 const Overline = styled( Typography )`
   font-size: .75rem;
@@ -19,13 +20,13 @@ const Body = styled( Typography )`
   flex: 1 1 auto;
 `;
 
-const TextInfoContent = ({ overline, heading, body }) => {
+const TextInfoContent = ({ overline, title, body, slug }) => {
 
   return (
     <>
 
       <Overline variant="subtitle2" color="textSecondary"> {overline} </Overline>
-      <Heading variant='h1' >{ heading }</Heading>
+      <Heading variant='h1' > <Link to={slug}>{ title }</Link> </Heading>
       <Body  variant='body2' gutterBottom={true}>{ body }</Body>
 
     </>

@@ -23,7 +23,7 @@ const ReadMoreBtn = styled( Button )`
   align-self: start;
 `;
 
-const ArticleCard = ({ date, title, body }) => {
+const ArticleCard = ({ date, title, body, slug }) => {
 
   return (
     <BlogCard>
@@ -42,8 +42,9 @@ const ArticleCard = ({ date, title, body }) => {
 
         <TextInfoContent
           overline={date}
-          heading={title }
+          title={title }
           body={body }
+          slug={slug}
         />
         <ReadMoreBtn>Read more</ReadMoreBtn>
 
