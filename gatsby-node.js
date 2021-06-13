@@ -48,7 +48,33 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           slug: node.fields.slug,
         }
       })
-    })
+    });
+
+
+  // Pagination
+
+  const posts = result.data.allMarkdownRemark.edges;
+  const pageSize = 3;
+  const pageCount = Math.ceil(posts.length / pageSize); //for 12 = 4
+  const templatePath = path.resolve('./src/template/blog-list.js');
+
+  for (let i = 0; i < pageCount; i++) {
+
+    let path = '/blog';
+    if (i > 0)
+      path += `/${i + 1}`
+
+    createPage({
+      path,
+      component: templatePath,
+      context: {
+        limit: pageSize,
+        skip: i * pageSize,
+        pageCount,
+        currentPage: i + 1,
+      }
+    });
+  }
 
 };
 

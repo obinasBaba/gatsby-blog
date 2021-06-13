@@ -40,12 +40,12 @@ const ArticleCardWrapper = () => {
                                  }
                                }) => {
           return (
-            <>
+            <div>
               <ArticleCard key={ id } title={ title } date={ date }
                            body={ excerpt } slug={ slug} />
 
               <Divider key={`div${id.toString()}`} orientation="horizontal" />
-            </>
+            </div>
 
           );
         } )
