@@ -5,26 +5,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { createGlobalStyle, ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "../../src/theme";
-import "../styles/index.scss";
+import "../styles/index.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-const GlobalStyle = createGlobalStyle`
-
-  body {
-    //background-color: palevioletred;
-  }
-
-  .hero.gatsby-image-wrapper {
-    
-    
-    @media (min-width: 600px) and (max-width: 960px) {
-      height: 330px;
-    }
-  }
-
-`;
-
+import { GlobalStyle } from "../styles/globalStyle";
 
 export default function TopLayout(props) {
   return (
