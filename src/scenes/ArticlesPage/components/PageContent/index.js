@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
-import ArticleCard from "../ArticleCard";
-import Divider from "@material-ui/core/Divider";
 import styled, { css } from "styled-components";
 import { largeUp, mediumUp, smallUp } from "../../../../styles/mixins";
 import ArticlePagination from "./ArticlePagination";
@@ -13,20 +11,23 @@ const StyledPageContent = styled.main`
   flex-grow: 1;
   position: relative;
   margin-right: 0;
-  
-  ${ largeUp(css`
+
+  ${ largeUp( css`
     margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
-  `)}
+  ` ) }
 
-  transition: ${ ({ theme, open }) => open ? theme.transitions.create( "margin", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen
-  } ) :
+  transition: ${ ({ theme, open }) => open ?
+          theme.transitions.create( "margin", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+          } )
 
-  theme.transitions.create( "margin", {
-    easing: theme.transitions.easing.easeOut,
-    duration: theme.transitions.duration.enteringScreen
-  } ) };
+          :
+
+          theme.transitions.create( "margin", {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+          } ) };
 
 `;
 
@@ -36,7 +37,7 @@ const PaddingContainer = styled( Container )`
   display: flex;
   flex-flow: column;
   gap: 4rem;
-  
+
   //border: 2px dashed red;
 
   ${ smallUp( css`
@@ -45,20 +46,20 @@ const PaddingContainer = styled( Container )`
 `;
 
 const MyArticles = styled( Typography )`
-  ${mediumUp( css`
+  ${ mediumUp( css`
     margin-left: -2rem;
-  ` )}
-`
+  ` ) }
+`;
 
-const PageContent = ( { open } ) => {
+const PageContent = ({ open }) => {
   return (
 
     <StyledPageContent open={ open }>
 
 
-      <PaddingContainer fixed={ false } maxWidth={'md'}>
+      <PaddingContainer fixed={ false } maxWidth={ "md" }>
 
-        <MyArticles variant="h1"  >
+        <MyArticles variant="h1">
           My Articles
         </MyArticles>
 

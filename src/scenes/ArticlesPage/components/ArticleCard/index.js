@@ -23,7 +23,7 @@ const ReadMoreBtn = styled( Button )`
   align-self: start;
 `;
 
-const ArticleCard = () => {
+const ArticleCard = ({ date, title, body }) => {
 
   return (
     <BlogCard>
@@ -39,14 +39,14 @@ const ArticleCard = () => {
         paddingBottom: '0',
         zIndex: 11,
       }} >
+
         <TextInfoContent
-          overline={ "28 MAR 2019" }
-          heading={ "What is Git ?" }
-          body={
-            "Git is a Lorem ipsum doldistributed version control system. Every dev has a working copy of the code and..."
-          }
+          overline={date}
+          heading={title }
+          body={body }
         />
         <ReadMoreBtn>Read more</ReadMoreBtn>
+
       </CardContent>
 
     </BlogCard>

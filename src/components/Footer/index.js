@@ -80,7 +80,7 @@ const Footer = () => {
 
         <Typography variant="body1">
           &copy;
-          <pre style={ { display: "inline", marginLeft: '-7px' } }> 2021 </pre>
+          2021
           Henok Get
         </Typography>
 

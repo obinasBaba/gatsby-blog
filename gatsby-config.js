@@ -15,7 +15,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
 
     "gatsby-plugin-styled-components",
-    `gatsby-plugin-mdx`,  //smart enough to use the plugin-sharp if it find any image ref in the mdx file
+    {
+      //smart enough to use the plugin-sharp if it find any image ref in the mdx file
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+
+
     `gatsby-plugin-netlify-cms`,
 
     {
@@ -55,6 +63,14 @@ module.exports = {
       options: {
         name: `fonts`,
         path: `${ __dirname }/src/assets/fonts/`
+      }
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${ __dirname }/src/blog`
       }
     },
 

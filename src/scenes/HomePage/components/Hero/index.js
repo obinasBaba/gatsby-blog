@@ -1,10 +1,7 @@
 import React from "react";
-import { Container, Typography, useMediaQuery, useTheme } from "@material-ui/core";
+import { Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import { StaticImage } from "gatsby-plugin-image";
 import { AboutParagraph, AboutText, HelloTxt, HeroWrapperGird, PaddingContainer } from "./components";
-
-import s from '../../../../assets/images/hand2.svg';
-import heroPic from '../../../../images/heroPic.jpg';
 import useHeroAssets from "../../../../hooks/queries/useHeroAssets";
 
 const Hero = () => {
@@ -15,7 +12,6 @@ const Hero = () => {
   const media2 = useMediaQuery( theme.breakpoints.up( "md" ) );
 
   const { heroImg } = useHeroAssets();
-  console.log( heroImg.publicURL );
 
 
   return (

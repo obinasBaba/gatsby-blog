@@ -11,7 +11,7 @@ const Articles = () => {
   return (
     <PaddingContainer container>
 
-      <Grid item xs={0} md={1} lg={2} />
+      <Grid item xs md={1} lg={2} />
 
       <TextWrapper item container xs={12} sm={5} md={4} direction="column">
 
@@ -40,7 +40,7 @@ const Articles = () => {
 
       </TextWrapper>
 
-      <Grid item xs={0} sm={1} md={0}  />
+      <Grid item xs sm={1} md  />
 
 
       <CardWrapper item xs={12} sm={6} md={5} lg={4}
@@ -61,7 +61,7 @@ const Articles = () => {
 
       </CardWrapper>
 
-      <Grid item xs={0} md={1} lg={2}/>
+      <Grid item xs md={1} lg={2}/>
 
 
     </PaddingContainer>
