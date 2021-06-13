@@ -21,5 +21,10 @@ export const GlobalStyle = createGlobalStyle`
       height: 330px;
     }
   }
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
 
 `;
