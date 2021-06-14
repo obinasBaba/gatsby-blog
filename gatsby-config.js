@@ -7,8 +7,8 @@ module.exports = {
   plugins: [
 
     "gatsby-plugin-react-helmet",
-
     `gatsby-transformer-json`,
+    "gatsby-plugin-layout",
 
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -16,6 +16,8 @@ module.exports = {
     `gatsby-transformer-remark`,
 
     "gatsby-plugin-styled-components",
+    `gatsby-plugin-netlify-cms`,
+
     {
       //smart enough to use the plugin-sharp if it find any image ref in the mdx file
       resolve: `gatsby-plugin-mdx`,
@@ -24,25 +26,6 @@ module.exports = {
       },
     },
 
-
-    `gatsby-plugin-netlify-cms`,
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `./src/posts`
-      }
-    },
-
-    "gatsby-plugin-layout",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `./src/assets/images`
-      }
-    },
     {
       resolve: "gatsby-plugin-material-ui",
       // If you want to use styled components you should change the injection order.
@@ -52,18 +35,12 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${ __dirname }/src/assets/images`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `fonts`,
-        path: `${ __dirname }/src/assets/fonts/`
       }
     },
 
