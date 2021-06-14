@@ -1,18 +1,11 @@
-const _ = require( "lodash" );
 const path  = require('path');
 const { createFilePath } = require( "gatsby-source-filesystem" );
 
-
+// creating 'slug' field for URL string
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath( { node, getNode } );
-
-    createNodeField({
-      node,
-      name: 'shiny_doddle',
-      value: ':) doddle'
-    });
 
     createNodeField( {
       node,
@@ -27,7 +20,9 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   const result = await graphql( `
     query{
-      allMarkdownRemark{
+      allMarkdownRemark(
+         filter: {frontmatter: {contentKey: {eq: "blog"}}}
+      ){
         edges {
           node {
             fields {
@@ -39,13 +34,14 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     }
   ` );
 
+  //creating pages for all markdown file with content-key of 'blog'
   result.data.allMarkdownRemark.edges
-    .forEach(({node}) => {
+    .forEach(({node : {fields: {slug}}}) => {
       createPage({
-        path: node.fields.slug,
+        path: slug,
         component: path.resolve('./src/templates/blog.js'),
         context: {
-          slug: node.fields.slug,
+          slug: slug,
         }
       })
     });

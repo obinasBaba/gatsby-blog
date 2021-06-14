@@ -67,12 +67,12 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   );
 };
 
-// The page query.
+// The page query that accept parameter.
 export const query = graphql`
   query BlogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
     
-    filter: {fileAbsolutePath: {regex: "//src/blog/"}}
+    filter: {frontmatter: {contentKey: {eq: "blog"}}}
     sort: {fields: frontmatter___date, order: DESC}
     limit: $limit
     skip: $skip
