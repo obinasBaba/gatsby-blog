@@ -9,4 +9,9 @@ categories:
       - name: coffie-2
         description: coffie-2-desc
         price: coffie-2 -price
+  - name: cold
+    items:
+      - name: ice-tea
+        description: ice-tea-desc
+        price: ice-tea-55cent
 ---
