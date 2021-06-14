@@ -22,7 +22,7 @@ const ArticleEffect = styled( Typography )`
 
 `
 
-export default function PersistentDrawerRight() {
+export default function PersistentDrawerRight({ children }) {
 
   const [open, setOpen] = React.useState( true );
 
@@ -38,7 +38,7 @@ export default function PersistentDrawerRight() {
       overflow: 'hidden',
     } }>
 
-      <PageContent open={open} />
+      <PageContent open={open} children={ children } />
 
       <FilterDrawer open={ open }/>
 

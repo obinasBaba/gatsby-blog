@@ -51,7 +51,7 @@ const MyArticles = styled( Typography )`
   ` ) }
 `;
 
-const PageContent = ({ open }) => {
+const PageContent = ({ open , children}) => {
   return (
 
     <StyledPageContent open={ open }>
@@ -63,9 +63,9 @@ const PageContent = ({ open }) => {
           My Articles
         </MyArticles>
 
-        <ArticleCardWrapper />
+        { children }
 
-        <ArticlePagination />
+        {/*<ArticlePagination />*/}
 
       </PaddingContainer>
 

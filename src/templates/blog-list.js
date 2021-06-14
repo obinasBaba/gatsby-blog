@@ -15,19 +15,21 @@ const PageLinks = styled.div`
 
 const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
-  const previousPage = currentPage === 2 ? "/blog" :
-    `/blog/${ currentPage - 1 }`;
+  const previousPage = currentPage === 2 ? "/articles" :
+    `/articles/${ currentPage - 1 }`;
 
-  const nextPage = `/blog/${ currentPage + 1 }`;
+  const nextPage = `/articles/${ currentPage + 1 }`;
 
   return (
     <div>
-      <Typography variant="h1">Be Stubborn on it.</Typography>
+
       <main>
         {
           data.allMarkdownRemark.edges.map( ({
-                                               node: { id, frontmatter: { title, date } },
-                                               excerpt, fields: { slug }
+                                               node: {
+                                                 id, excerpt, fields: { slug },
+                                                 frontmatter: { title, date }
+                                               }
                                              }) => {
             return (
               <div key={ id }>
@@ -69,25 +71,27 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 export const query = graphql`
   query BlogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { contentKey: { eq: "blog" }}}
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM D, YYYY")
-          }
-          fields {
-            slug
-          }
-          excerpt
+    
+    filter: {fileAbsolutePath: {regex: "//src/blog/"}}
+    sort: {fields: frontmatter___date, order: DESC}
+    limit: $limit
+    skip: $skip
+      
+  ) {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        excerpt
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          title
         }
       }
     }
+  }
   }
 `;
 

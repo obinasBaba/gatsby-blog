@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,8 +9,18 @@ import "../styles/index.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { GlobalStyle } from "../styles/globalStyle";
+import CustomLayout, { LayoutContext } from "../contexts/useCustomLayout";
+import { Typography } from "@material-ui/core";
+import PersistentDrawerRight from "../scenes/ArticlesPage";
 
-export default function TopLayout(props) {
+export default function TopLayout({ path, children, location,
+                                    data, navigate, pageContext, pageResources}) {
+  
+  const [filterBar, setFilterBar] = useState( false );
+
+  const Ctx = React.createContext(true);
+
+
   return (
     <React.Fragment>
       <Helmet>
@@ -29,7 +39,18 @@ export default function TopLayout(props) {
 
           <Header />
 
-          { props.children }
+
+          {
+            (() => {
+
+               if (path.startsWith('/articles'))
+                return <PersistentDrawerRight children={children} />
+
+              return children
+
+
+            })()
+          }
 
           <Footer />
 

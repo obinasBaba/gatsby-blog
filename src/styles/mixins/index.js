@@ -14,21 +14,24 @@ export function Flexi({
 
 export const shadow = (depth) => {
   return css`
-  box-shadow: 0 14px 80px rgba(34, 45, 58, .2);
-  transition: box-shadow .3s;
+    box-shadow: 0 7px 40px rgba(34, 45, 58, .2);
+    transition: box-shadow .3s;
 
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .12);
-  }
-`;
-}
+    &:hover {
+      transform: translateY(2px);
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .12);
+    }
+  `;
+};
 
 export const spacing = (key, value) => {
 
   let propKey;
 
   switch (key) {
+    case "m":
+      propKey = "margin";
+      break;
     case "mt":
       propKey = "margin-top";
       break;

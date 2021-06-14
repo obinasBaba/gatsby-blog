@@ -9,6 +9,10 @@ const StyledBlogCard = styled( Card )`
   margin: auto;
   border-radius: ${ ( {theme: {spacing}} ) => spacing( 2 ) + 'px' }; // 16px
   ${ spacing('br', 2) };
+  
+  ${ spacing('mt', 10) };
+  ${ spacing('mb', 10) };
+  
   ${ shadow() };
   transition: 0.3s;
   position: relative;
