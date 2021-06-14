@@ -2,8 +2,6 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
 import { largeUp, mediumUp, smallUp } from "../../../../styles/mixins";
-import ArticlePagination from "./ArticlePagination";
-import ArticleCardWrapper from "./ArticleCardWrapper";
 
 const drawerWidth = 240;
 
