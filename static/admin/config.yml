@@ -6,9 +6,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/blog"
+  - name: "articles"
+    label: "Articles"
+    folder: "src/cms/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -27,7 +27,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pageData/index.md"
+      - file: "src/cms/pageData/index.md"
         label: "Index Page"
         name: "index-page"
         fields:
@@ -40,3 +40,35 @@ collections:
           - label: "Hero Image"
             name: "heroImage"
             widget: "image"
+      - file: "src/cms/pageData/menu.md"
+        label: "Menu"
+        name: "menu"
+        fields:
+          - name: "contentKey"
+            widget: "hidden"
+            default: "menu"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Categories"
+            label_singular: "Category"
+            name: "categories"
+            widget: "list"
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Items"
+                label_singular: "Item"
+                name: "items"
+                widget: "list"
+                fields:
+                  - label: "Name"
+                    name: "name"
+                    widget: "string"
+                  - label: "Description"
+                    name: "description"
+                    widget: "text"
+                  - label: "Price"
+                    name: "price"
+                    widget: "string"
