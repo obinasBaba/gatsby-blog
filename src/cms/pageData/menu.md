@@ -1,5 +1,6 @@
 ---
 title: OUR MENU
+contentKey: menu
 categories:
   - name: hot
     items:

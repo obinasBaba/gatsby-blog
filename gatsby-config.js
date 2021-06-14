@@ -13,7 +13,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
 
     "gatsby-plugin-styled-components",
     `gatsby-plugin-netlify-cms`,
@@ -36,21 +35,43 @@ module.exports = {
       }
     },
 
-    {
+    { //sourcing markdown images
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `cmsImages`,
+        path: `${ __dirname }/static/img`
+      }
+    },{
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${ __dirname }/src/assets/images`
       }
-    },
-
-    {
+    }, {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `cms`,
         path: `${ __dirname }/src/cms`
       }
     },
+
+
+    {  // markdown file transformer
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1024
+            }
+          },
+
+        ]
+      }
+    }
+
 
   ]
 };
