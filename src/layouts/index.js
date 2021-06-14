@@ -43,8 +43,8 @@ export default function TopLayout({ path, children, location,
           {
             (() => {
 
-               if (path.startsWith('/articles'))
-                return <PersistentDrawerRight children={children} />
+               // if (path.startsWith('/articles'))
+               //  return <PersistentDrawerRight children={children} />
 
               return children
 
