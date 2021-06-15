@@ -56,7 +56,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   for (let i = 0; i < pageCount; i++) {
 
-    let path = '/articles';
+    let path = '/blog';
     if (i > 0)
       path += `/${i + 1}`
 

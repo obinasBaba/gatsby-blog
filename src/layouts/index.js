@@ -26,10 +26,7 @@ export default function TopLayout({
     <React.Fragment>
       <Helmet>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500;900&family=Poppins:wght@100;900&display=swap"
-          rel="stylesheet" />
+
       </Helmet>
 
       <StyledThemeProvider theme={ theme }>

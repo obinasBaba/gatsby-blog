@@ -1,12 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
+import HeadLine from "./components/Headline";
 
 const BlogTemplate = ( { data } ) => {
   return (
-      <div >
+      < >
+        <HeadLine />
         <h1>{data.markdownRemark.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </div>
+      </>
   );
 };
 

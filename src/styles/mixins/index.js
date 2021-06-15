@@ -139,7 +139,7 @@ export const smallUp = content => {
 export const smallDown = content => {
   return css`
     ${({ theme }) => css`
-      ${theme.breakpoints.down('sm')} {
+      ${theme.breakpoints.down('xs')} {
         ${content}
       }
     `}

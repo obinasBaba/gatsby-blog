@@ -73,6 +73,24 @@ export const GlobalStyle = createGlobalStyle`
       height: 330px;
     }
   }
+
+  .pageWrapper {
+    margin: 0 auto;
+    max-width: 1600px;
+    font-family: var(--sofia-pro);
+  }
+
+  .oldPageWrapper {
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 90rem;
+    font-family: var(--sofia-pro);
+    @media screen and (min-width: 768px) {
+      padding-right: 4.28rem;
+      padding-left: 4.28rem;
+    }
+  }
   
 `;
 

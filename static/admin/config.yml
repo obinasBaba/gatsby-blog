@@ -25,7 +25,13 @@ collections:
         label_singular: "Tags"
         name: "tags"
         widget: "list"
-        fields: {label: "Tag", name: "tag", widget: "string"}
+        fields:
+          - label: "Tag"
+            name: "tag"
+            widget: "string"
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
       - label: "Body"
         name: "body"
         widget: "markdown"
