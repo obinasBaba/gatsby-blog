@@ -67,7 +67,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   );
 };
 
-// The page query that accept parameter.
+// The Page query that accept parameter.
 export const query = graphql`
   query BlogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(

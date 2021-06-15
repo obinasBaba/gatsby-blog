@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,19 +6,20 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "../../src/theme";
 import "../styles/index.css";
+import { GlobalStyle, Main } from "../styles/globalStyle";
+import Page from "./components/Page";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { GlobalStyle } from "../styles/globalStyle";
-import CustomLayout, { LayoutContext } from "../contexts/useCustomLayout";
-import { Typography } from "@material-ui/core";
 import PersistentDrawerRight from "../scenes/ArticlesPage";
+import Footer from "../components/Footer";
 
-export default function TopLayout({ path, children, location,
-                                    data, navigate, pageContext, pageResources}) {
-  
+export default function TopLayout({
+                                    path, children, location,
+                                    data, navigate, pageContext, pageResources
+                                  }) {
+
   const [filterBar, setFilterBar] = useState( false );
 
-  const Ctx = React.createContext(true);
+  const Ctx = React.createContext( true );
 
 
   return (
@@ -33,26 +34,25 @@ export default function TopLayout({ path, children, location,
 
       <StyledThemeProvider theme={ theme }>
         <ThemeProvider theme={ theme }>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */ }
           <GlobalStyle />
           <CssBaseline />
 
-          <Header />
+          <Page>
+            <Header />
 
+            <Main>
+              {
+                (() => {
+                  if (path.startsWith( "/articles" ))
+                    return <PersistentDrawerRight children={ children } />;
 
-          {
-            (() => {
+                  return children;
+                })()
+              }
+            </Main>
 
-               if (path.startsWith('/articles'))
-                return <PersistentDrawerRight children={children} />
-
-              return children
-
-
-            })()
-          }
-
-          <Footer />
+            <Footer />
+          </Page>
 
         </ThemeProvider>
       </StyledThemeProvider>
