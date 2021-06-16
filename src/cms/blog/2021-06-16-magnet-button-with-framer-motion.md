@@ -6,4 +6,6 @@ tags:
   - tag: "#framer-motion"
 thumbnail: /img/featured-media.png
 ---
+![](/img/featured-media.png)
+
 lkjsr
