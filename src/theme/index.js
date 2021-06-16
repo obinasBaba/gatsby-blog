@@ -18,7 +18,7 @@ let theme = createMuiTheme({
 
   overrides: {
     MuiCssBaseline: {
-      '@global': {
+      /*'@global': {
         html: {
           fontSize: 'calc(1vw + 0.6em)',
         },
@@ -30,17 +30,12 @@ let theme = createMuiTheme({
         },
 
         [breakpoints.up('xl')]: {
-          ':root': {
-            fontSize: '1.325em !important',
+          html: {
+            fontSize: '21.325em !important',
           },
 
-          body: {
-
-          }
         },
-
-
-      }
+      }*/
     },
 
     MuiContainer: {
@@ -58,19 +53,25 @@ let theme = createMuiTheme({
     ].join(','),
 
     body1: {
-      // letterSpacing: '2px'
+      fontSize: '1.2rem',
+      fontWeight: 300,
+      letterSpacing: .5,
+      // lineHeight: '170%',
+      lineHeight: 1.5
     },
 
     h1: {
       // fontFamily: 'Gramatika, sans-serif',
       fontFamily: 'Poppins, sans-serif',
       fontWeight: "900",
-      fontSize: '3.3rem'
+      // fontSize: '3.3rem'
     }
   }
 })
 
-export default responsiveFontSizes(theme)
+export default responsiveFontSizes(theme, {
+  breakpoints: ['sm', 'md', 'lg', 'xl'],
+})
 
 
 

@@ -1,20 +1,29 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { heightWidth, mediumDown, mediumUp, smallUp, spacing, xLargeUp, xxLargeUp } from "../../../../styles/mixins";
+import {
+  heightWidth,
+  mediumDown,
+  mediumUp, smallDown,
+  smallUp,
+  spacing,
+  text,
+  xLargeUp,
+  xxLargeUp
+} from "../../../../styles/mixins";
 import { Container } from "@material-ui/core";
 
 const ArticleContainer = styled.div`
  
 
-  border: var(--thin);
 
   ${ spacing( "pt", 22 ) };
   ${ spacing( "pb", 10 ) };
   ${ spacing( "mt", -16 ) };
 
   //background-color: #e0e0e0;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 1.13rem;
+   
+  line-height: 170%;
   letter-spacing: 0.5px;
   font-weight: 300;
   //color: $dark-color;
@@ -23,39 +32,22 @@ const ArticleContainer = styled.div`
 `;
 
 const ArticleWrapper = styled ( Container ) `
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 30px;
 
-  // ${ spacing( "max-width", 76 ) };
+  color: #02021e;
 
   ${ xxLargeUp( css`
-      //max-width: 900px;
+      max-width: 900px;
     ` ) };
   
   ${ smallUp( css`
-       ${ spacing( "ph", 3 ) };
+       // ${ spacing( "ph", 3 ) };
 
   ` ) };
 
-  box-sizing: border-box;
-  margin: 0 auto;
   
-  color: #02021e;
-
-  //border: thin solid yellow;
-
-  & > :not(figure) {
-    width: auto;
-    margin: auto;
-    //max-width: 100%;
-
-    
-
-    
-    ${ mediumUp( css`
-
-      //max-width: 720px;
-
-    ` ) };
-  }
 
   blockquote{
     font-family: var(--gramatika);
@@ -114,7 +106,7 @@ const ArticleWrapper = styled ( Container ) `
   
   h2{
     font-family: var(--gramatika);
-    font-size: 30px;
+    font-size: 1.9rem;
     line-height: 45px;
     font-weight: bold;
     margin-top: 3rem;
@@ -129,8 +121,10 @@ const ArticleWrapper = styled ( Container ) `
 
   h3 {
     font-family: var(--gramatika);
-    font-size: 26px;
-    line-height: 40px;
+    font-size: 1.65rem;
+    //font-size: 26px;
+    line-height: 160.6%;
+    //line-height: 40px;
     font-weight: bold;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -139,7 +133,9 @@ const ArticleWrapper = styled ( Container ) `
 
   h4 {
     font-family: var(--gramatika);
-    font-size: 22px;
+    //font-size: 22px;
+    font-size: 1.65rem;
+
     line-height: 35px;
     font-weight: bold;
     margin-top: 2rem;
@@ -149,20 +145,15 @@ const ArticleWrapper = styled ( Container ) `
 
   p {
     font-family: var(--sofia-pro);
-    font-size: 18px;
+    font-size: 1.13rem;
 
-    line-height: 30px;
+    //line-height: 170%;
+    line-height: 1.5;
     font-weight: 300;
     letter-spacing: 0.5px;
     margin-bottom: 1.5rem;
     color: #02021e;
-
     
-    ${ smallUp( css`
-      font-size: 18px;
-      margin-bottom: 1.5rem;
-
-    ` ) };
   }
 
   ul, ol {
@@ -188,7 +179,6 @@ const ArticleWrapper = styled ( Container ) `
     }
   }
 
-
   ul {
 
     & > li {
@@ -213,8 +203,8 @@ const ArticleWrapper = styled ( Container ) `
 
   a {
     font-family: var(--sofia-pro);
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 1.13rem;
+    line-height: 170%;
     font-weight: 300;
     letter-spacing: 0.5px;
     color: rgb(0, 0, 238);
@@ -227,14 +217,15 @@ const ArticleWrapper = styled ( Container ) `
   strong {
     font-weight: 600;
   }
-
+  
+  
 `;
 
 const Article = ({ html }) => {
   return (
     <ArticleContainer>
 
-      <Container disableGutters={true} />
+
 
       <ArticleWrapper dangerouslySetInnerHTML={ { __html: html } }
                       fixed={true}

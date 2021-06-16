@@ -25,7 +25,6 @@ const TextAlign = styled( Container )`
   ${ spacing( "ph", 4 ) };
 
 
-
   ${ mediumUp( css`
     ${ spacing( "ph", 8 ) };
   ` ) };
@@ -34,36 +33,39 @@ const TextAlign = styled( Container )`
 
 const ImageBox = styled.div`
   max-width: 1060px;
-  //border: thin solid red;
   display: flex;
   justify-content: center;
   margin: 0 auto;
   max-height: 530px;
-  
-  & .img-container{
+  width: calc( 100% + 40px );
+  transform: translateX(-20px);
+
+
+
+  ${ smallUp( css`
+    width: calc( 100% );
+    transform: translateX(0);
+  ` ) };
+
+
+  & .img-container {
     width: 100%;
   }
-  
+
   img {
     display: block;
     max-width: 100%;
     width: 100%;
     object-fit: cover;
   }
-  
-  
-  ${
-    smallDown(css`
-      width: 110%;
-      transform: translateX(-5%);
-
-    `)
-  };
-
-  
 
 
-  
+
+
+
+
+
+
 `;
 
 
@@ -86,24 +88,21 @@ const DateAndTags = styled.div`
   align-items: center;
   justify-content: space-between;
   ${ spacing( "mb", 4 ) };
-  //letter-spacing: 0;
-  ${ text(1.5) };
-
-
-  ${ smallUp( css`
-    ${ text(1.7) };
-
-  ` ) };
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  font-family: var(--gramatika);
   
-  ${ mediumUp(css`
+  ${ mediumUp( css`
     ${ spacing( "ph", 3 ) };
-  `) };
+  ` ) };
 
 
   & > :first-child {
     margin-right: .5rem;
+
+
     ${ smallDown( css`
-      letter-spacing: -.3px;
+      
     ` ) };
   }
 
@@ -168,13 +167,12 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
     <HeadLineContainer>
 
 
-
       <TextAlign maxWidth="lg" fixed={ true } disableGutters={ true }>
-        <Title variant="h1"> {title} </Title>
+        <Title variant="h1"> { title } </Title>
         <DateAndTags>
-          <span  > {date} </span>
-          <span  > {
-            tags.map(i => i.tag) .join(', ')
+          <span> { date } </span>
+          <span> {
+            tags.map( i => i.tag ).join( ", " )
           } </span>
         </DateAndTags>
 
@@ -200,7 +198,7 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
       </TextAlign>
 
       <ImageBox>
-        <GatsbyImage alt={'thisis sk si s'} image={getImage(thumbnail)} className='img-container' />
+        <GatsbyImage alt={ "thisis sk si s" } image={ getImage( thumbnail ) } className="img-container" />
       </ImageBox>
 
 

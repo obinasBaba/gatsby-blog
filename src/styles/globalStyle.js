@@ -92,6 +92,11 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
+  h1{
+    font-size: 3rem;
+    display: none;
+  }
+  
 `;
 
 export const Main = styled.main`

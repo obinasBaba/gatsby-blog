@@ -110,7 +110,7 @@ export const heightWidth = (key, value) => {
 
 export const text= ( value ) => {
   return css`
-    font-size: calc(${value * 10}px * var(--size));;
+    font-size: calc(${value * 10}px  * var(--size));;
   `
 }
 
