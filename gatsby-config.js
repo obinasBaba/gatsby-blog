@@ -10,51 +10,39 @@ module.exports = {
     `gatsby-transformer-json`,
     "gatsby-plugin-layout",
 
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-
     "gatsby-plugin-styled-components",
-    `gatsby-plugin-netlify-cms`,
 
-    {
-      //smart enough to use the plugin-sharp if it find any image ref in the mdx file
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
-
-    {
-      resolve: "gatsby-plugin-material-ui",
-      // If you want to use styled components you should change the injection order.
-      options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
 
     { //sourcing markdown images
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `cmsImages`,
-        path: `${ __dirname }/static/img`
+        name: `img`,
+        path: `static/img`
+      }
+    }, { //blog
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `src/cms/blog`
+      }
+    }, { //pageData
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pageData`,
+        path: `src/cms/pageData`
       }
     },{
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${ __dirname }/src/assets/images`
-      }
-    }, {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `cms`,
-        path: `${ __dirname }/src/cms`
+        path: `src/assets/images`
       }
     },
 
+    // `gatsby-transformer-remark`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
 
     {  // markdown file transformer
       resolve: `gatsby-transformer-remark`,
@@ -70,7 +58,20 @@ module.exports = {
 
         ]
       }
-    }
+    },
+
+    `gatsby-plugin-netlify-cms`,
+
+
+    {
+      resolve: "gatsby-plugin-material-ui",
+      // If you want to use styled components you should change the injection order.
+      options: {
+        stylesProvider: {
+          injectFirst: true
+        }
+      }
+    },
 
 
   ]

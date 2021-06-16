@@ -3,6 +3,7 @@ const { createFilePath } = require( "gatsby-source-filesystem" );
 
 // creating 'slug' field for URL string
 exports.onCreateNode = ({ node, getNode, actions }) => {
+  // console.log(node)
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath( { node, getNode } );
