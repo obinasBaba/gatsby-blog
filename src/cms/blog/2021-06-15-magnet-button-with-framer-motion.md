@@ -6,7 +6,7 @@ tags:
   - tag: "#framer-motion"
   - tag: "#React"
   - tag: "#Animation"
-thumbnail: /img/featured-media.png
+thumbnail: /img/featured-media-2x.png
 ---
 ## This is heading two
 
