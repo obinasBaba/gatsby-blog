@@ -8,11 +8,7 @@ tags:
   - tag: "#Animation"
 thumbnail: /img/featured-media-2x.png
 ---
-
-
-![](/img/clip-2x.jpg)
-
-
+![](/img/contact-bg.jpg)
 
 ## This is heading two
 
