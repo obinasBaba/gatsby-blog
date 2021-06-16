@@ -6,9 +6,9 @@ tags:
   - tag: "#framer-motion"
   - tag: "#React"
   - tag: "#Animation"
-thumbnail: /img/group-7-2x.jpg
+thumbnail: /static/img/contact-bg.jpg
 ---
-![](/img/portfolio_.jpg)
+![](/static/img/clip-2x.jpg)
 
 ## This is heading two
 
