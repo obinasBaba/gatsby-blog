@@ -44,8 +44,6 @@ This is to confirm that the software product being developed has the entire rang
 
 Even though Google Chrome is the [most popular browser nowadays](https://gs.statcounter.com/browser-market-share),  there is no monopoly on the browser market, and this is good. So the key task is to make sure that application looks and works properly in a few main browsers, usually it could be the latest versions of Apple Safari, Google Chrome, Mozilla Firefox, and Microsoft Edge. 
 
-
-
 <!--StartFragment-->
 
 ### Mobile devices compatibility
@@ -54,15 +52,9 @@ Even though Google Chrome is the [most popular browser nowadays](https://gs.sta
 
 <!--EndFragment-->
 
-
-
-
-
 ## Ease up, speed up
 
 Optimization during the development process is essential for fast loading of the product on all devices, directly affecting its ranking in search engines. Accordingly, this criterion affects the final monetization one way or another.
-
-
 
 <!--StartFragment-->
 
@@ -93,6 +85,19 @@ Google can improve the quality of your web page. It has audits of performance, a
 
 <!--EndFragment-->
 
-
-
 ![This is text alt for th valar morgulis](/img/447805320_34988.jpg "thisi title and valar morguils valar doharic")
+
+<!--StartFragment-->
+
+### Nice try
+
+It’s not so easy to anticipate success and foresee fame. Apparently, you’ll never know the truth about your genius without any try or effort. Despite of hard working, Uunnic has been frozen. When we finished our part, the client just didn’t launch the new version of the project. It happens when stakeholders have burnt out or they just have financial problems. Nevertheless, it was a great experience for us and the customer left satisfied with our collaboration.
+
+### Getting feedback
+
+> It was a long and ambitious project during which the team at Heyllow always gave us support and advice in terms of design and user experience. The team worked very closely with us to come up with the best designs and create a simple user flow to provide the best experience when using the site. They are very good communicating and offer their advice and expertise for all small and big details. The best thing is we feel like they don’t work FOR us, they work WITH us, which makes them very valuable members of the team.
+>
+> \
+> *Daniel Ramos, CEO & Co-Founder of Uunnic*
+
+<!--EndFragment-->
