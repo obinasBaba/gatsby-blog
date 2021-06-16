@@ -6,9 +6,13 @@ tags:
   - tag: "#framer-motion"
   - tag: "#React"
   - tag: "#Animation"
-thumbnail: /static/img/contact-bg.jpg
+thumbnail: /img/featured-media-2x.png
 ---
-![](/static/img/clip-2x.jpg)
+
+
+![](/img/clip-2x.jpg)
+
+
 
 ## This is heading two
 
@@ -86,8 +90,6 @@ Google can improve the quality of your web page. It has audits of performance, a
 * and in a few more ways, such as in Chrome dev tools, as a NodeJS module, etc. Check out this article for more details [https://developers.google.com/web/tools/lighthouse#devtoolsrel=”nofollow”](https://developers.google.com/web/tools/lighthouse#devtools).
 
 <!--EndFragment-->
-
-![This is text alt for th valar morgulis](/img/clip-2x.jpg "thisi title and valar morguils valar doharic")
 
 <!--StartFragment-->
 
