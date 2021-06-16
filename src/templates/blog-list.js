@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import ArticleCard from "../scenes/ArticlesPage/components/ArticleCard";
 import Divider from "@material-ui/core/Divider";
 import { graphql, Link } from "gatsby";
@@ -30,9 +29,9 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
                                                  id, excerpt, fields: { slug },
                                                  frontmatter: { title, date }
                                                }
-                                             }) => {
+                                             }, index) => {
             return (
-              <div key={ id }>
+              <div key={ `${id} ${index}` }>
                 <ArticleCard title={ title } date={ date }
                              body={ excerpt } slug={ slug } />
 
@@ -70,8 +69,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 // The Page query that accept parameter.
 export const query = graphql`
   query BlogListQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-    
+    allMarkdownRemark(    
     filter: {frontmatter: {contentKey: {eq: "blog"}}}
     sort: {fields: frontmatter___date, order: DESC}
     limit: $limit
@@ -96,3 +94,4 @@ export const query = graphql`
 `;
 
 export default BlogListTemplate;
+

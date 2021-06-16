@@ -3,10 +3,16 @@ import { graphql } from "gatsby";
 import HeadLine from "./components/Headline";
 
 const BlogTemplate = ( { data } ) => {
+  const { title, date, tags, thumbnail } = data.markdownRemark.frontmatter;
+  const { html } = data.markdownRemark.html;
+
+
   return (
       < >
-        <HeadLine />
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
+        <HeadLine title={title} date={date} tags={tags}
+                  thumbnail={thumbnail}
+        />
+
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
       </>
   );
@@ -17,10 +23,20 @@ export const query = graphql`
     markdownRemark(
       fields: {slug: {eq: $slug }}
     ){
-        html
         frontmatter {
+          contentKey
+          date(formatString: "MMMM D, YYYY")
           title
+          tags {
+            tag
+          }
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, quality: 100)
+            }
+          }
         }
+        html
     }
   }
 `;

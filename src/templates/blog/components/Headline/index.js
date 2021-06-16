@@ -4,6 +4,7 @@ import { gridColWidth, gridify, mediumUp, smallDown, smallUp, spacing, text } fr
 import { Container, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import image from "./featured-media.png";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const HeadLineContainer = styled( Container )`
   //border: thick solid red;
@@ -33,7 +34,22 @@ const TextAlign = styled( Container )`
 
 const ImageBox = styled.div`
   max-width: 1060px;
-  //width: 100%;
+  //border: thin solid red;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-height: 530px;
+  
+  & .img-container{
+    width: 100%;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
   
   
   ${
@@ -44,20 +60,10 @@ const ImageBox = styled.div`
     `)
   };
 
-  display: flex;
-  justify-content: center;
-  //border: thick solid yellow;
-  margin: 0 auto;
+  
 
 
-  img {
-    display: block;
-    max-height: 530px;
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-  }
+  
 `;
 
 
@@ -155,7 +161,7 @@ const Category = styled.div`
 `;
 
 
-const HeadLine = ({ categories, title, imgData, date, tags }) => {
+const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
 
 
   return (
@@ -164,10 +170,12 @@ const HeadLine = ({ categories, title, imgData, date, tags }) => {
 
 
       <TextAlign maxWidth="md" fixed={ true } disableGutters={ true }>
-        <Title variant="h1"> Magnet-Button with Framer-motion </Title>
+        <Title variant="h1"> {title} </Title>
         <DateAndTags>
-          <span  >Aug 5 2019 · ( 30 mins read ) </span>
-          <span  >#React, #Js</span>
+          <span  > {date} </span>
+          <span  > {
+            tags.map(i => i.tag) .join(', ')
+          } </span>
         </DateAndTags>
 
         <Category>
@@ -192,7 +200,7 @@ const HeadLine = ({ categories, title, imgData, date, tags }) => {
       </TextAlign>
 
       <ImageBox>
-        <img src={ image } alt={ "featured image" } />
+        <GatsbyImage alt={'thisis sk si s'} image={getImage(thumbnail)} className='img-container' />
       </ImageBox>
 
 

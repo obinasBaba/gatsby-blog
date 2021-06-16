@@ -1,6 +1,5 @@
 const path  = require('path');
 const { createFilePath } = require( "gatsby-source-filesystem" );
-const { FrontMatterOptions } = require('gatsby-remark-relative-images')
 
 // creating 'slug' field for URL string
 exports.onCreateNode = ({ node, getNode, actions }) => {
