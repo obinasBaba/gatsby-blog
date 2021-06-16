@@ -6,7 +6,7 @@ tags:
   - tag: "#framer-motion"
   - tag: "#React"
   - tag: "#Animation"
-thumbnail: /img/featured-media-2x.png
+thumbnail: /img/group-7-2x.jpg
 ---
 ## This is heading two
 
@@ -85,7 +85,7 @@ Google can improve the quality of your web page. It has audits of performance, a
 
 <!--EndFragment-->
 
-![This is text alt for th valar morgulis](/img/447805320_34988.jpg "thisi title and valar morguils valar doharic")
+![This is text alt for th valar morgulis](/img/clip-2x.jpg "thisi title and valar morguils valar doharic")
 
 <!--StartFragment-->
 
