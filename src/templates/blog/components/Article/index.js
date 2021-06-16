@@ -1,12 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { heightWidth, mediumDown, mediumUp, smallUp, spacing, xLargeUp } from "../../../../styles/mixins";
+import { heightWidth, mediumDown, mediumUp, smallUp, spacing, xLargeUp, xxLargeUp } from "../../../../styles/mixins";
+import { Container } from "@material-ui/core";
 
 const ArticleContainer = styled.div`
-  //@include hl-margin('top', -160px);
-  //@include hl-padding('top', 220px);
-  //@include hl-padding('bottom', 100px);
-  //@include hl-font-size-text(18px);
+ 
 
   border: var(--thin);
 
@@ -14,26 +12,32 @@ const ArticleContainer = styled.div`
   ${ spacing( "pb", 10 ) };
   ${ spacing( "mt", -16 ) };
 
-  background-color: #fff;
+  //background-color: #e0e0e0;
   font-size: 18px;
   line-height: 30px;
   letter-spacing: 0.5px;
   font-weight: 300;
   //color: $dark-color;
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
+  //border: thick solid blue;
+
 `;
 
-const ArticleWrapper = styled.div`
+const ArticleWrapper = styled ( Container ) `
 
-  ${ spacing( "max-width", 76 ) };
+  // ${ spacing( "max-width", 76 ) };
+
+  ${ xxLargeUp( css`
+      //max-width: 900px;
+    ` ) };
+  
+  ${ smallUp( css`
+       ${ spacing( "ph", 3 ) };
+
+  ` ) };
 
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0 20px;
+  
   color: #02021e;
 
   //border: thin solid yellow;
@@ -41,15 +45,14 @@ const ArticleWrapper = styled.div`
   & > :not(figure) {
     width: auto;
     margin: auto;
-    max-width: 720px;
-
-    ${ xLargeUp( css`
-      max-width: 900px;
-    ` ) };
+    //max-width: 100%;
 
     
-    ${ mediumDown( css`
-      max-width: 100%;
+
+    
+    ${ mediumUp( css`
+
+      //max-width: 720px;
 
     ` ) };
   }
@@ -231,7 +234,12 @@ const Article = ({ html }) => {
   return (
     <ArticleContainer>
 
+      <Container disableGutters={true} />
+
       <ArticleWrapper dangerouslySetInnerHTML={ { __html: html } }
+                      fixed={true}
+                      maxWidth={'md'}
+                      disableGutters={false}
                       className='article-wrapper' />
 
     </ArticleContainer>

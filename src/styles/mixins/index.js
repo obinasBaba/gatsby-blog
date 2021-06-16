@@ -195,3 +195,13 @@ export const xLargeUp = content => {
     `}
   `
 }
+
+export const xxLargeUp = content => {
+  return css`
+    ${({ theme }) => css`
+      ${theme.breakpoints.up('xxl')} {
+        ${content};
+      }
+    `}
+  `
+}
