@@ -1,9 +1,9 @@
 const path  = require('path');
 const { createFilePath } = require( "gatsby-source-filesystem" );
+const { FrontMatterOptions } = require('gatsby-remark-relative-images')
 
 // creating 'slug' field for URL string
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  // console.log(node)
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath( { node, getNode } );
