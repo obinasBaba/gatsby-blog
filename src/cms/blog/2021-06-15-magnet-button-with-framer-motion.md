@@ -8,6 +8,8 @@ tags:
   - tag: "#Animation"
 thumbnail: /img/group-7-2x.jpg
 ---
+![](/img/screenshot-95-.png)
+
 ## This is heading two
 
 ### This is heading three
