@@ -39,9 +39,9 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 ### Getting feedback
 
 > It was a long and ambitious project during which the team at Heyllow always gave us support and advice in terms of design and user experience. The team worked very closely with us to come up with the best designs and create a simple user flow to provide the best experience when using the site. They are very good communicating and offer their advice and expertise for all small and big details. The best thing is we feel like they don’t work FOR us, they work WITH us, which makes them very valuable members of the team.
->
-> \
-> *Daniel Ramos, CEO & Co-Founder of Uunnic*
+
+\
+*Daniel Ramos, CEO & Co-Founder of Uunnic*
 
 <!--StartFragment-->
 
@@ -70,8 +70,6 @@ The man sees your questions for the first time, many of them he may never have t
 
 Very often, designers do not notice that they are not talking to the decision-maker. And this is the person on whom the whole fate of the project depends. Ideally, to discuss the project with the person who makes the decision.
 
-
-
 <!--StartFragment-->
 
 ### Design testing
@@ -93,8 +91,6 @@ This is to confirm that the software product being developed has the entire rang
 * a login form doesn’t allow the user to login with proper email;
 * it is not possible to open a checkout page even though the products were added to the cart;
 * literally any other functional or logical issue.
-
-   
 
 <!--StartFragment-->
 
@@ -121,7 +117,5 @@ Google can improve the quality of your web page. It has audits of performance, a
 
 ![check
 ](http://api.halo-lab.com/wp-content/uploads/2020/09/Website-elements-1-2.png)
-
-
 
 <!--EndFragment-->
