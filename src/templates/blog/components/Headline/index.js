@@ -37,12 +37,12 @@ const ImageBox = styled.div`
   justify-content: center;
   margin: 0 auto;
   max-height: 530px;
-  width: calc( 100% + 40px );
-  transform: translateX(-20px);
+  width: calc( 100% + 48px );
+  transform: translateX(-24px);
 
 
 
-  ${ smallUp( css`
+  ${ mediumUp( css`
     width: calc( 100% );
     transform: translateX(0);
   ` ) };

@@ -147,8 +147,8 @@ const ArticleWrapper = styled ( Container ) `
     font-family: var(--sofia-pro);
     font-size: 1.13rem;
 
-    //line-height: 170%;
-    line-height: 1.5;
+    line-height: 170%;
+    //line-height: 1.5;
     font-weight: 300;
     letter-spacing: 0.5px;
     margin-bottom: 1.5rem;

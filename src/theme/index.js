@@ -57,7 +57,7 @@ let theme = createMuiTheme({
       fontWeight: 300,
       letterSpacing: .5,
       // lineHeight: '170%',
-      lineHeight: 1.5
+      lineHeight: 1.55
     },
 
     h1: {
