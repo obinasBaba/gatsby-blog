@@ -6,11 +6,9 @@ tags:
   - tag: "#framer-motion"
 thumbnail: /img/featured-media.png
 ---
-![this is alt for imw](/img/featured-media.png "title for figcaption")
-
 <!--StartFragment-->
 
-*
+
 
 # Uunnic Reveals Talents. The Case Story
 
@@ -44,7 +42,7 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 
 
 
-<!--StartFragment-->
+![](/img/clip-2x.jpg)
 
 ### Getting feedback
 
@@ -52,5 +50,3 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 >
 > \
 > *Daniel Ramos, CEO & Co-Founder of Uunnic*
-
-<!--EndFragment-->
