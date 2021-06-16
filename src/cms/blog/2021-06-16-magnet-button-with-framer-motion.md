@@ -8,8 +8,6 @@ thumbnail: /img/featured-media.png
 ---
 <!--StartFragment-->
 
-
-
 # Uunnic Reveals Talents. The Case Story
 
 It’s sometimes really hard for young and blooming artists to get themselves out to the world. Uunnic is a social networking platform to bring talents up. The idea is to gather newbies of Music (musicians & singers) and Acting (dancers & performers) so that they can promote their art, posting videos of what they are good at. The platform helps unknown stars become established.
@@ -40,8 +38,6 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 
 <!--EndFragment-->
 
-
-
 ![](/img/clip-2x.jpg)
 
 ### Getting feedback
@@ -50,3 +46,15 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 >
 > \
 > *Daniel Ramos, CEO & Co-Founder of Uunnic*
+
+<!--StartFragment-->
+
+## Benefits of working in different time zones
+
+All existing conditions should be used to benefit the project. For the time zone to become an advantage rather than a disadvantage of the team, you need to allocate resources correctly and build the process of working with the client logically. This is done at the initial stages when the call days, their time, and other organizational issues are discussed. 
+
+It is worthwhile to create a working schedule from project deadlines and studio staff workloads, as there are always several projects. 
+
+Therefore, it is worth mentioning that *the correct coordination of work creates fantastic conditions for different time zones.* If the client is west of us (USA), our time zone is “ahead” of him, and we have more time for the task
+
+<!--EndFragment-->
