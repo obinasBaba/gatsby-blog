@@ -17,25 +17,25 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `img`,
-        path: `static/img`
+        path: `${__dirname}/static/img`
       }
     }, { //blog
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `src/cms/blog`
+        path: `${__dirname}/src/cms/blog`
       }
     }, { //pageData
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pageData`,
-        path: `src/cms/pageData`
+        path: `${__dirname}/src/cms/pageData`
       }
     },{
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `src/assets/images`
+        path: `${__dirname}/src/assets/images`
       }
     },
 
