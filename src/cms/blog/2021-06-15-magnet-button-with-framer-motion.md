@@ -9,9 +9,7 @@ tags:
 thumbnail: /img/contact-bg.jpg
 ---
 
-
-![](/img/clip-2x.jpg)
-
+![](/img/contact-bg.jpg)
 
 ## This is heading two
 
