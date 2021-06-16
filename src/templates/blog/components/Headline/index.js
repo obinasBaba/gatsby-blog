@@ -27,7 +27,7 @@ const TextAlign = styled( Container )`
 
 
   ${ mediumUp( css`
-    ${ spacing( "ph", 6 ) };
+    ${ spacing( "ph", 8 ) };
   ` ) };
 
 `;
@@ -169,7 +169,7 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
 
 
 
-      <TextAlign maxWidth="md" fixed={ true } disableGutters={ true }>
+      <TextAlign maxWidth="lg" fixed={ true } disableGutters={ true }>
         <Title variant="h1"> {title} </Title>
         <DateAndTags>
           <span  > {date} </span>

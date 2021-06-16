@@ -15,6 +15,7 @@ export const responsiveVar = css`
     --abyss: 'abyssopelagic', sans-serif;
     
     --thin: thin solid crimson;
+    
  
 
     @media screen and (max-width: 1025px) {
