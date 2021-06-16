@@ -8,7 +8,10 @@ tags:
   - tag: "#Animation"
 thumbnail: /img/contact-bg.jpg
 ---
+
+
 ![](/img/clip-2x.jpg)
+
 
 ## This is heading two
 
@@ -86,8 +89,6 @@ Google can improve the quality of your web page. It has audits of performance, a
 * and in a few more ways, such as in Chrome dev tools, as a NodeJS module, etc. Check out this article for more details [https://developers.google.com/web/tools/lighthouse#devtoolsrel=”nofollow”](https://developers.google.com/web/tools/lighthouse#devtools).
 
 <!--EndFragment-->
-
-![This is text alt for th valar morgulis](/img/clip-2x.jpg "thisi title and valar morguils valar doharic")
 
 <!--StartFragment-->
 
