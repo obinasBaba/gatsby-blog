@@ -15,13 +15,22 @@ const HeadLineContainer = styled( Container )`
   flex-flow: column;
 
 
+  & > .tags{
+    display: flex;
+    max-width: min-content;
+    margin-left: auto;
+    margin-right: -18px;
+    
+    ${ mediumUp( css`
+      display: none;
+    ` ) };
+  }
 `;
 
 const TextAlign = styled( Container )`
   display: flex;
   flex-flow: column;
-  //border: thick solid blue;
-  ${ spacing( "ph", 4 ) };
+  //outline: thin solid blue;
 
 
   ${ mediumUp( css`
@@ -63,46 +72,53 @@ const ImageBox = styled.div`
 
 const Title = styled( Typography )`
   ${ spacing( "mt", 1.6 ) };
-  ${ spacing( "mb", 3 ) };
-  font-size: calc( 4.3rem * var(--indent) );
+  ${ spacing( "mb", 4 ) };
+  font-size: calc( 4rem * var(--indent) );
 
   font-weight: 900;
   line-height: 1.25em;
   text-transform: capitalize;
   text-align: center;
+  letter-spacing: -.4px;
+  
+  ${ smallUp( css`
+    font-size: calc( 4.3rem * var(--indent) );
+    letter-spacing: 1px;
+
+  ` ) };
 `;
 
 
 const DateAndTags = styled.div`
   display: flex;
-  flex-flow: wrap;
   align-items: center;
-  justify-content: space-between;
-  ${ spacing( "mb", 5 ) };
-  letter-spacing: 1px;
-  font-size: 1.1rem;
+  justify-content: center;
+  ${ spacing( "mb", 4 ) };
+ 
   font-family: var(--gramatika);
-  
+  letter-spacing: .2px;
+
+
   ${ mediumUp( css`
     ${ spacing( "ph", 3 ) };
-  ` ) };
-
-
-  & > :first-child {
-    margin-right: .5rem;
-
-
-    ${ smallDown( css`
-      
-    ` ) };
-  }
-
-  ${ smallUp( css`
-    flex-flow: row;
-    align-items: center;
+    letter-spacing: 1px;
     justify-content: space-between;
 
   ` ) };
+
+  .published-date{
+    
+  }
+  
+  .tags{
+    width: min-content;
+    display: none;
+    
+    ${ mediumUp( css`
+      display: flex;
+    ` ) };
+  }
+  
 `;
 
 const Category = styled.div`
@@ -122,12 +138,7 @@ const Category = styled.div`
   ${ text( 1.4 ) };
   ${ spacing( "mb", 3 ) };
 
-
-  ${ smallUp( css`
-
-
-  ` ) };
-
+  
   .link {
     text-decoration: none;
 
@@ -136,23 +147,18 @@ const Category = styled.div`
       transition: 0.4s;
     }
   }
-
-  .item {
-    a {
-      //color: white;
-    }
+  
+  a{
+    color: blueviolet;
   }
 
-  .all-posts {
-    a {
-      color: #414162;
-    }
-  }
+  
 `;
 
 
 const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
 
+  console.log(tags);
 
   return (
     <HeadLineContainer>
@@ -161,36 +167,48 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
       <TextAlign maxWidth="lg" fixed={ true } disableGutters={ true }>
         <Title variant="h1"> { title } </Title>
         <DateAndTags>
-          <span> { date } </span>
-          <span> {
-            tags.map( i => i.tag ).join( ", " )
-          } </span>
+          <Typography variant='subtitle2' noWrap={true}
+                      className='published-date' > { date }  &#183; &#128339;30 min read    </Typography>
+          <div className='tags'>
+            {
+              tags
+                .map(( {tag}, i ) => <Typography variant='subtitle2' noWrap={true}
+                                                 key={i}>{`${tag},`}&nbsp;</Typography>)
+            }
+          </div>
         </DateAndTags>
 
         <Category>
-          <span className="all-posts">
+          <Typography variant={"subtitle2"} className="all-posts">
             <Link to="/">
               Home
             </Link>
-          </span>
+          </Typography>
           <span>&nbsp;/&nbsp;</span>
-          <span key="all posts" className="all-posts">
+          <Typography variant={"subtitle2"}   className="all-posts">
             <Link to="/blog">
               Articles
             </Link>
-          </span>
+          </Typography>
           <span>&nbsp;/&nbsp;</span>
-          <span key="all posts" className="item">
+          <Typography variant={"subtitle1"}  className="item">
             <Link to="/blog">
               2021-06 ...
             </Link>
-          </span>
+          </Typography>
         </Category>
       </TextAlign>
 
       <ImageBox>
         <GatsbyImage alt={ "thisis sk si s" } image={ getImage( thumbnail ) } className="img-container" />
       </ImageBox>
+      <div className='tags'>
+        {
+          tags
+            .map(( {tag}, i ) => <Typography variant='subtitle2' noWrap={true}
+                                             key={i}>{`${tag},`}&nbsp;</Typography>)
+        }
+      </div>
 
 
     </HeadLineContainer>

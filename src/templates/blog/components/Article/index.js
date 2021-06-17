@@ -138,8 +138,8 @@ const ArticleWrapper = styled ( Container ) `
     font-family: var(--gramatika);
     ${title(1.65)};
     font-weight: bold;
-    margin-top: calc(2.5rem * var(--halo));
-    margin-bottom: calc(1rem * var(--halo));
+    margin-top: calc(2.5rem * var(--size));
+    margin-bottom: calc(1rem * var(--indent));
     
     
     ${ smallUp( css`
@@ -164,9 +164,9 @@ const ArticleWrapper = styled ( Container ) `
     //font-size: 1.13rem;
     ${ text(1.13) };
 
-    line-height: 1.3;
+    line-height: 1.44;
     font-weight: 300;
-    letter-spacing: -0.2px;
+    letter-spacing: 0.1px;
     margin-bottom: calc(1.5rem * var(--halo));
     
     ${ mediumUp( css`
@@ -179,19 +179,19 @@ const ArticleWrapper = styled ( Container ) `
 
   ul, ol {
     list-style: none;
-    font-family: var(--sofia-pro);
+    font-family: var(--sofia-soft);
     ${ text(1.135) };
-    line-height: 25px;
     font-weight: 300;
     letter-spacing: 0.5px;
     padding-left: 10px;
-    margin-bottom: calc(1.5rem * var(--halo));
+    margin-bottom: calc(1.7rem * var(--halo));
 
 
     & > li {
       position: relative;
-      padding-left: 24px;
-      margin-bottom: 2rem;
+      ${ spacing('mb', 3.2) };
+      ${ heightWidth('padding-left', 2.4) };
+       
 
       &:before {
         position: absolute;
@@ -240,7 +240,14 @@ const ArticleWrapper = styled ( Container ) `
     font-weight: 600;
   }
   
-  
+  ${ smallDown( css`
+
+    .gatsby-resp-image-wrapper{
+      width: calc( 100% + 20px );
+      transform: translateX(-10px);
+    }
+
+  ` ) };
 `;
 
 const Article = ({ html }) => {
