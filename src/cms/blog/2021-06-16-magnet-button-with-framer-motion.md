@@ -39,9 +39,8 @@ Uunnic changes the way artists are discovered and developed. Users can upload vi
 ### Getting feedback
 
 > It was a long and ambitious project during which the team at Heyllow always gave us support and advice in terms of design and user experience. The team worked very closely with us to come up with the best designs and create a simple user flow to provide the best experience when using the site. They are very good communicating and offer their advice and expertise for all small and big details. The best thing is we feel like they don’t work FOR us, they work WITH us, which makes them very valuable members of the team.
-
-\
-*Daniel Ramos, CEO & Co-Founder of Uunnic*
+>
+> <cite>*&mdash;Daniel Ramos, CEO & Co-Founder of Uunnic* </cite>
 
 <!--StartFragment-->
 
