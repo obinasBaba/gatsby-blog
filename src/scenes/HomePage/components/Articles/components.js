@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Button, Grid } from "@material-ui/core";
+import { smallUp, spacing, text } from "../../../../styles/mixins";
 
 export const PaddingContainer = styled( Grid )`
   padding: 3.5rem 1.5rem;
@@ -12,35 +13,43 @@ export const PaddingContainer = styled( Grid )`
       }
   ` }
 
+`;
+
+export const TextWrapper = styled( Grid )`
+  gap: calc( 2rem * var(--size) );
+  position: relative;
+
   &::before{
     content: 'A';
     position: absolute;
     display: block;
-    font-size: 25rem;
+    font-size: 28rem;
     z-index: -9999;
     line-height: 0;
     font-family: Poppins, sans-serif;
     font-weight: 900;
     opacity: .1;
-    left: -20%;
+    left: -50%;
     top: 30%;
 
-    ${ ({ theme }) => `
-      ${ theme.breakpoints.up( "sm" ) } {
-         left: -10%;
-         top: 40%;
-      }
-  ` }
+     
   }
-`;
 
-export const TextWrapper = styled( Grid )`
-  gap: 1em;
-  position: relative;
+
+  ${ smallUp( css`
+    padding-top: 4rem;
+    
+    &::before{
+      top: 40%;
+    }
+    
+  ` ) };
+
+
 `
 
 export const CardWrapper = styled( Grid )`
-  gap: 1em;
+  margin-top: calc(2rem * var( --size ));
 `
 
 export const Header = styled.header`
@@ -54,7 +63,9 @@ export const Header = styled.header`
 export const ReadMoreBtn = styled( Button)`
   align-self: start;
   border-radius: 400px;
-  font-size: 0.8rem;
+  ${ text(.9) };
+  padding: .7rem 1rem;
+  letter-spacing: calc(1px * var(--indent));
   font-family: Sofia Pro Soft, sans-serif;
   font-weight: 300;
 `

@@ -11,13 +11,13 @@ const Articles = () => {
   return (
     <PaddingContainer container>
 
-      <Grid item xs md={1} lg={2} />
+      <Grid item xs md lg={1} />
 
-      <TextWrapper item container xs={12} sm={5} md={4} direction="column">
+      <TextWrapper item container xs={12} sm={5} md={5} direction="column">
 
         <Header>
 
-          <Typography variant="h1">
+          <Typography variant="h1" align='center'>
             Articles
           </Typography>
 
@@ -40,28 +40,28 @@ const Articles = () => {
 
       </TextWrapper>
 
-      <Grid item xs sm={1} md  />
+      <Grid item xs sm={1} md={2} lg={3}  spacing={0} />
 
 
-      <CardWrapper item xs={12} sm={6} md={5} lg={4}
-            container
+      <CardWrapper item container xs={12} sm={6} md={5} lg={7}
+                   spacing={0}
             wrap="nowrap" direction="column">
 
-        <Grid item>
-          <ProjectCard imgSrc={ p } />
-        </Grid>
+          <ProjectCard item
+                       title={'How to check the website before releasing it?'}
+                       imgSrc={ p } />
 
-        <Grid item>
-          <ProjectCard imgSrc={ p2 } />
-        </Grid>
+          <ProjectCard item
+                       title={'Halo Lab Named Top ethiopian b2b company'}
+                       imgSrc={ p2 } />
 
-        <Grid item>
-          <ProjectCard imgSrc={ p3 } />
-        </Grid>
+          <ProjectCard item
+                       title={'Brand analysis: seconde step to the brand identity'}
+                       imgSrc={ p3 } />
 
       </CardWrapper>
 
-      <Grid item xs md={1} lg={2}/>
+      <Grid item xs md lg={1}/>
 
 
     </PaddingContainer>
