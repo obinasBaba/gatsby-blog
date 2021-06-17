@@ -34,7 +34,7 @@ export const shadow = depth => {
   `
 }
 
-export const spacing = (key, value) => {
+export const spacing = (key, value, halo = false) => {
   let propKey;
   let temp;
 
@@ -56,6 +56,13 @@ export const spacing = (key, value) => {
       break
   case 'mv':
     temp = value * 10;
+
+    if (halo)
+      return css`
+        margin-top: calc(${value}rem * var(--halo));
+        margin-bottom: calc(${value}rem * var(--halo));
+      `
+
     return css`
         margin-top: calc(${temp}px * var(--indent));
         margin-bottom: calc(${temp}px * var(--indent));
@@ -78,6 +85,13 @@ export const spacing = (key, value) => {
       break
     case 'ph':
       temp = value * 10
+
+      if (halo)
+        return css`
+          padding-right: calc(${value}rem * var(--halo));
+          padding-left: calc(${value}rem * var(--halo));
+        `
+
       return css`
         padding-right: calc(${temp}px * var(--indent));
         padding-left: calc(${temp}px * var(--indent));
@@ -85,6 +99,12 @@ export const spacing = (key, value) => {
 
     case 'pv':
       temp = value * 10;
+      if (halo)
+        return css`
+          padding-top: calc(${value}rem * var(--halo));
+          padding-bottom: calc(${value}rem * var(--halo));
+        `
+
       return css`
         padding-top: calc(${temp}px * var(--indent));
         padding-bottom: calc(${temp}px * var(--indent));
@@ -96,6 +116,11 @@ export const spacing = (key, value) => {
     default:
       propKey = key
   }
+
+  if (halo)
+    return css`
+      ${propKey}: calc(${value}rem * var(--halo));
+    `
 
   return css`
     ${propKey}: calc(${value * 10}px * var(--indent));
@@ -205,3 +230,5 @@ export const xxLargeUp = content => {
     `}
   `
 }
+
+

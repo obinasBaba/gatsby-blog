@@ -43,12 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 100px;
     transition: background-color 1s ease-in-out;
   }
-
-  a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
+  
 
   body {
     
@@ -93,8 +88,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   h1{
-    font-size: 3rem;
-    display: none;
+    //font-size: 3rem;
+    //display: none;
   }
   
 `;

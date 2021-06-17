@@ -45,6 +45,20 @@ export const responsiveVar = css`
       --text: 1.25;
       --size: 1.25;
     }
+    
+    //responsive threshold for blog-post margin and padding
+    --halo: 1.125;
+
+    @media screen and (max-width: 1920px) {
+      --halo: 1;
+    }
+    @media screen and (max-width: 1400px) {
+      --halo: 0.875;
+    }
+    @media screen and (max-width: 1200px) {
+      --halo: 0.75;
+    }
+    
   }
 `
 

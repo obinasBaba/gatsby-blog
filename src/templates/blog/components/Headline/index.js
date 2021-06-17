@@ -1,9 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { gridColWidth, gridify, mediumUp, smallDown, smallUp, spacing, text } from "../../../../styles/mixins";
+import { mediumUp, smallDown, smallUp, spacing, text } from "../../../../styles/mixins";
 import { Container, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
-import image from "./featured-media.png";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const HeadLineContainer = styled( Container )`
@@ -58,20 +57,11 @@ const ImageBox = styled.div`
     width: 100%;
     object-fit: cover;
   }
-
-
-
-
-
-
-
-
+  
 `;
 
 
 const Title = styled( Typography )`
-  //@include hl-margin('top', 26px);
-  //@include hl-font-size-title(52px);
   ${ spacing( "mt", 1.6 ) };
   ${ spacing( "mb", 3 ) };
 
