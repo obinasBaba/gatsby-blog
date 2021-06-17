@@ -6,7 +6,7 @@ import {
   mediumUp, smallDown,
   smallUp,
   spacing,
-  text,
+  text, title,
   xLargeUp,
   xxLargeUp
 } from "../../../../styles/mixins";
@@ -19,11 +19,8 @@ const ArticleContainer = styled.div`
   ${ spacing( "mt", -16 ) };
 
   //background-color: #e0e0e0;
-  font-size: 1.13rem;
    
-  line-height: 170%;
-  letter-spacing: 0.5px;
-  font-weight: 300;
+ 
   color: var(--dark);
   //border: thick solid blue;
 
@@ -32,7 +29,7 @@ const ArticleContainer = styled.div`
 const ArticleWrapper = styled ( Container ) `
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 20px;
 
   //color: #02021e;
 
@@ -63,8 +60,6 @@ const ArticleWrapper = styled ( Container ) `
 
   blockquote{
     font-family: var(--gramatika);
-    font-size: 1.175rem;
-    line-height: 2.9rem;
     max-width: 35rem;
     text-align: right;
     margin: 2.75rem auto;
@@ -80,15 +75,14 @@ const ArticleWrapper = styled ( Container ) `
     `) };
 
     p {
-      font-weight: 300;
-      line-height: 150%;
-      letter-spacing: 0.5px;
-      font-size: calc( 1.7rem * var(--halo) );
+      ${ text(1.4) };
       color: blue;
+      
     }
     
     em{
-      font-size: 1rem;
+      ${ text(1.13) };
+
       //color: inherit;
       opacity: .8;
     }
@@ -99,7 +93,7 @@ const ArticleWrapper = styled ( Container ) `
       font-weight: 300;
       line-height: 160%;
       letter-spacing: 0.5px;
-      font-size: 1.3rem;
+      ${ text(1.13) };
       font-style: normal;
       color: rgba(0 0 0 / 70%);
 
@@ -123,16 +117,18 @@ const ArticleWrapper = styled ( Container ) `
   
   h2{
     font-family: var(--gramatika);
-    font-size: 1.9rem;
-    line-height: 45px;
+    ${title(1.9)};
+    line-height: 1.3; 
     font-weight: bold;
-    margin-top: calc(3rem * var(--halo)); 
+    letter-spacing: -0.2px;
+    margin-top: calc(3rem * var(--halo));
     margin-bottom: calc(.7rem * var(--halo));
-    letter-spacing: 0.5px;
     
     ${ smallUp(css`
       margin-top: calc(3.7rem * var(--halo));
       margin-bottom: calc(1rem * var(--halo));
+      line-height: 45px;
+      letter-spacing: 0.5px;
 
     `) };
     
@@ -140,20 +136,22 @@ const ArticleWrapper = styled ( Container ) `
 
   h3 {
     font-family: var(--gramatika);
-    font-size: 1.65rem;
-    line-height: 160.6%;
+    ${title(1.65)};
     font-weight: bold;
     margin-top: calc(2.5rem * var(--halo));
     margin-bottom: calc(1rem * var(--halo));
-    letter-spacing: 0.5px;
+    
+    
+    ${ smallUp( css`
+      line-height: 160.6%;
+      letter-spacing: 0.5px;
+    ` ) };
     
   }
 
   h4 {
     font-family: var(--gramatika);
-    //font-size: 22px;
-    font-size: 1.65rem;
-
+    ${title(1.65)};
     line-height: 35px;
     font-weight: bold;
     margin-top: 2rem;
@@ -163,20 +161,26 @@ const ArticleWrapper = styled ( Container ) `
 
   p {
     font-family: var(--sofia-pro);
-    font-size: 1.13rem;
+    //font-size: 1.13rem;
+    ${ text(1.13) };
 
-    line-height: 170%;
-    //line-height: 1.5;
+    line-height: 1.3;
     font-weight: 300;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.2px;
     margin-bottom: calc(1.5rem * var(--halo));
+    
+    ${ mediumUp( css`
+      letter-spacing: .5px;
+      line-height: 161%;
+
+    ` ) };
     
   }
 
   ul, ol {
     list-style: none;
     font-family: var(--sofia-pro);
-    font-size: 1.135rem;
+    ${ text(1.135) };
     line-height: 25px;
     font-weight: 300;
     letter-spacing: 0.5px;
@@ -221,8 +225,8 @@ const ArticleWrapper = styled ( Container ) `
 
   a {
     font-family: var(--sofia-pro);
-    font-size: 1.13rem;
-    line-height: 170%;
+    ${ text(1.13) };
+    line-height: 1.5;
     font-weight: 300;
     letter-spacing: 0.5px;
     color: rgb(0, 0, 238);

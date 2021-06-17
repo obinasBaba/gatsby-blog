@@ -9,7 +9,7 @@ const HeadLineContainer = styled( Container )`
   //border: thick solid red;
   max-width: 1600px;
   font-family: var(--sofia-pro);
-  ${ spacing( "mt", 11 ) };
+  ${ spacing( "mt", 8 ) };
 
   display: flex;
   flex-flow: column;
@@ -64,6 +64,7 @@ const ImageBox = styled.div`
 const Title = styled( Typography )`
   ${ spacing( "mt", 1.6 ) };
   ${ spacing( "mb", 3 ) };
+  font-size: calc( 4.3rem * var(--indent) );
 
   font-weight: 900;
   line-height: 1.25em;
@@ -77,7 +78,7 @@ const DateAndTags = styled.div`
   flex-flow: wrap;
   align-items: center;
   justify-content: space-between;
-  ${ spacing( "mb", 4 ) };
+  ${ spacing( "mb", 5 ) };
   letter-spacing: 1px;
   font-size: 1.1rem;
   font-family: var(--gramatika);
@@ -119,7 +120,7 @@ const Category = styled.div`
   text-transform: uppercase;
   //@include hl-font-size-text(12px);
   ${ text( 1.4 ) };
-  ${ spacing( "mb", 2 ) };
+  ${ spacing( "mb", 3 ) };
 
 
   ${ smallUp( css`

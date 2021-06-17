@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container, Typography } from "@material-ui/core";
+import { spacing } from "../../../../styles/mixins";
 
 export const PaddingContainer = styled( Container )`
   margin-top: 3.5rem;
@@ -67,21 +68,21 @@ export const HelloTxt = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   grid-area: hello-txt;
   margin-bottom: 2em;
+  border: thin solid red;
   
 
-  & > :first-child {
+  &  h1 {
     white-space: nowrap;
-    margin-left: -20px;
-
-    ${ ({ theme }) => `
-      ${ theme.breakpoints.up( "sm" ) } {   
-              margin-left: 0px;
-
-      }
-  ` }
+    font-size: calc(4.5rem * var(--indent));
+    letter-spacing: -1.3px;
+  }
+  
+  & svg{
+    ${ spacing('max-width', 7) };
+    ${ spacing('max-height', 7) };
+    ${ spacing('mr', 2) };
   }
 
 `;
