@@ -189,8 +189,12 @@ const ArticleWrapper = styled ( Container ) `
 
     & > li {
       position: relative;
+      word-break: break-word;
+      //overflow-wrap: anywhere;
+      
       ${ spacing('mb', 3.2) };
       ${ heightWidth('padding-left', 2.4) };
+      
        
 
       &:before {
@@ -228,8 +232,11 @@ const ArticleWrapper = styled ( Container ) `
     ${ text(1.13) };
     line-height: 1.5;
     font-weight: 300;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     color: rgb(0, 0, 238);
+    //white-space: pre-wrap;
+    //overflow-wrap: break-word;
+    word-break: break-all;
 
     &:hover {
       text-decoration: underline;

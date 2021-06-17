@@ -49,7 +49,7 @@ let theme = createMuiTheme({
   typography: {
 
     fontFamily: [
-      "Sofia Pro Soft, sans-serif",
+      "Sofia Pro, sans-serif",
     ].join(','),
 
     body1: {
@@ -57,7 +57,7 @@ let theme = createMuiTheme({
       fontWeight: 300,
       letterSpacing: .5,
       // lineHeight: '170%',
-      lineHeight: 1.55
+      lineHeight: 1.5
     },
 
     h1: {

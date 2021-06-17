@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
 
-    < PaddingContainer maxWidth="md">
+    < PaddingContainer maxWidth="lg">
 
       <HeroWrapperGird>
 
@@ -45,28 +45,18 @@ const Hero = () => {
 
         <StaticImage src={ "../../../../images/heroPic.jpg" }
                      placeholder="blurred"
-                     className="hero"
-                     imgStyle={ {
-                       borderRadius: ".5em"
-                     } }
+                     className="hero-image"
 
-                     style={ {
-                       border: `.5em solid white`,
-                       borderRadius: ".5em",
-                       boxShadow: "0 0.5em 1em rgba(0, 0, 0, .15)",
-                       gridArea: "img",
-                       maxWidth: "330px",
-                       alignSelf: "start"
-                     } }
 
                      formats={ ["AUTO", "WEBP", "AVIF"] }
 
                      alt="hero img" />
 
 
-        <AboutText gutterBottom={ true } variant={ `${ media2 ? "h5" : "h4" }` }>
-          Full-Stack developer working with
-          startups to create growth-driven products and Brands
+        <AboutText variant='h4'>
+          I'm Front-end developer with a little bit of
+          backend knowledge, working with
+          startups to create growth&#8209;driven products and Brands
         </AboutText>
 
         <AboutParagraph>
