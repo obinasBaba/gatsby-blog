@@ -12,7 +12,7 @@ Anyone who works on projects applies project management (PM). Any PM life-cycle 
 
 All great things are done by a series of small things brought together. So the first face of your plan reveals when you take the stack of labour and deconstruct it on stages and tasks considering timing and resources. It’s really worth to document everything. For instance, you can form a Kanban in Asana with backlog for the whole list of steps, allocate duties and responsibilities for a week and a month and make columns for approval and done. Determine genuine success criteria of your project — be honest and objective.
 
-![](http://api.halo-lab.com/wp-content/uploads/2019/04/1_7L2JmgwEVufAv0jqKFk6Ow-1024x430.jpeg)
+<figure class="aligncenter"> <img src="http://api.halo-lab.com/wp-content/uploads/2019/04/1_7L2JmgwEVufAv0jqKFk6Ow-1024x430.jpe" /> </figure>
 
 And no matter what application or method you use to manage the project, you face the first great obstacle for sure — not so many people really can set tasks and share roles correctly. In the long run, it always twists your plan in an unpredictable and nasty way. Then let’s go back to basics to avoid the trouble.
 
@@ -44,6 +44,8 @@ Keep in mind, the more you decompose a task, the more you control it. On the oth
 ### Setting tasks: priorities
 
 In traditional sequential methodologies of PM, when one task must be completed before the next begins, your priorities laid out in the proper sequence. In the Agile family of PM approaches your priorities respond changes of a current iterative cycle. In the change management methodologies, you extra focus on potential risks, so you prioritize your tasks at the moment of massive changes to get them under control. To make a long story short, just remember that the end justifies the means.
+
+
 
 ![](http://api.halo-lab.com/wp-content/uploads/2019/04/1_yKvKMv-oVEJgfduTfpRoyA-1024x683.jpeg)
 
