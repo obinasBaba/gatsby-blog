@@ -8,7 +8,7 @@ import theme from "../../src/theme";
 import "../styles/index.css";
 import { GlobalStyle, Main } from "../styles/globalStyle";
 import Page from "./components/Page";
-import Header from "../components/Header";
+import Header from "../components/Header2";
 import PersistentDrawerRight from "../scenes/ArticlesPage";
 import Footer from "../components/Footer";
 

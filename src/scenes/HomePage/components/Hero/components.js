@@ -3,9 +3,12 @@ import { Container, Typography } from "@material-ui/core";
 import { heightWidth, mediumUp, smallUp, spacing, text } from "../../../../styles/mixins";
 
 export const PaddingContainer = styled( Container )`
-  margin-top: 3.5rem;
   margin-bottom: 3.5rem;
-
+  margin-top: 6rem;
+  
+  ${mediumUp(css`
+      ${ spacing('mt', 9) };
+  `)};
 `;
 
 export const HeroWrapperGird = styled.section`
@@ -83,8 +86,11 @@ export const HelloTxt = styled.div`
   justify-content: center;
   align-items: center;
   grid-area: hello-txt;
-  //margin-bottom: 2em;
-  //border: thin solid red;
+  
+  ${ smallUp( css`
+    ${ spacing('mb', 2) };
+
+  ` ) };
 
 
   & h1 {
@@ -115,6 +121,7 @@ export const AboutText = styled( Typography )`
   
   ${ smallUp( css`
     ${ text( 2.0243 ) };
+    line-height: 1.3;
 
   ` ) };
 `;

@@ -6,11 +6,17 @@ import { Typography } from "@material-ui/core";
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  & > :not( :first-child){
+    margin-left: 1rem;
+  }
 
   & a {
     text-decoration: none;
     color: initial;
+  }
+  
+  p{
+    font-weight: 400;
   }
 
 `;
@@ -19,7 +25,7 @@ const NavLinks = () => {
   return (
     <Nav>
 
-      <Link to="/articles">
+      <Link to="/blog">
         <Typography variant="body1">
           Articles
         </Typography>

@@ -2,10 +2,10 @@ import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import ContactForm from "./ContactForm";
-import NavLinks from "../NavLinks";
+import NavLinks from "../Header2/components/NavLinks";
 
 const PaddingContainer = styled( Grid )`
-  padding: 3.5rem 1.5rem 0;
+  padding: 3.5rem  0;
   z-index: 1300;
   position: relative;
   background-color: white;
@@ -23,10 +23,9 @@ const CopyRightWrapper = styled.div`
 
 const LetsTalkContainer = styled( Container )`
   background-color: #ebf9ff;
-  //max-width: 900px;
   border-radius: 1rem;
-  //background-color: darkgray;
   padding: 1rem;
+  //border: thick solid red;
 
 
   ${ ({ theme }) => `
@@ -40,6 +39,7 @@ const LetsTalkContainer = styled( Container )`
         padding: 5rem;
       }
   ` }
+  
 
 `;
 

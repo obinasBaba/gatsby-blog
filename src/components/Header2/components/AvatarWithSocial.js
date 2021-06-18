@@ -8,6 +8,7 @@ const AvatarSocial = styled.div`
   justify-content: center;
   align-items: center;
   gap: .5em;
+  margin-right: auto;
 `;
 
 const AvatarWithSocial = () => {

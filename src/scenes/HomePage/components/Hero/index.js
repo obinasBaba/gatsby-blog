@@ -43,7 +43,7 @@ const Hero = () => {
 
         </HelloTxt>
 
-        <StaticImage src={ "../../../../images/heroPic.jpg" }
+        <StaticImage src={ "./img_1.png" }
                      placeholder="blurred"
                      className="hero-image"
 
@@ -56,7 +56,7 @@ const Hero = () => {
         <AboutText variant='h4'>
           I'm Front-end developer with a little bit of
           backend knowledge, working with
-          startups to create growth&#8209;driven products and Brands
+          startups to create growth&#8209;driven products and Brands.
         </AboutText>
 
         <AboutParagraph>

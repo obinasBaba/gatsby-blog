@@ -45,19 +45,15 @@ const CardContainer = styled( Grid )`
 `
 
 const ImageBox = styled.div`
-  //flex: 0 0 auto;
   width: calc(100% + 48px);
   transform: translateX(-24px);
   height: 100%;
-  
   
   ${ smallUp( css`
     ${ heightWidth('max-width', 20 ) };
     width: calc(100%);
     transform: translateX(0);
   ` ) };
-
-   
   
   img{
     width: 100%;
