@@ -14,15 +14,14 @@ const PageLinks = styled.div`
 
 const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
-  const previousPage = currentPage === 2 ? "/articles" :
-    `/articles/${ currentPage - 1 }`;
+  const previousPage = currentPage === 2 ? "/blog" : `/blog/${ currentPage - 1 }`;
 
-  const nextPage = `/articles/${ currentPage + 1 }`;
+  const nextPage = `/blog/${ currentPage + 1 }`;
 
   return (
-    <div>
+    <main>
 
-      <main>
+      <>
         {
           data.allMarkdownRemark.edges.map( ({
                                                node: {
@@ -41,7 +40,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
           } )
         }
-      </main>
+      </>
 
       <PageLinks>
         {
@@ -62,7 +61,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
       </PageLinks>
 
-    </div>
+    </main>
   );
 };
 

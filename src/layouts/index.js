@@ -9,7 +9,7 @@ import "../styles/index.css";
 import { GlobalStyle, Main } from "../styles/globalStyle";
 import Page from "./components/Page";
 import Header from "../components/Header2";
-import PersistentDrawerRight from "../scenes/ArticlesPage";
+import DrawerLayout from "../scenes/ArticlesPage";
 import Footer from "../components/Footer";
 
 export default function TopLayout({
@@ -21,6 +21,11 @@ export default function TopLayout({
 
   const Ctx = React.createContext( true );
 
+  console.log('TOP_LAYOUT :: ---', );
+  console.log('Path ---', path, ', data: ', data, 'page Resources : ', pageResources,
+    ', pageContext: ', pageContext );
+
+  console.log();
 
   return (
     <React.Fragment>
@@ -40,8 +45,8 @@ export default function TopLayout({
             <Main>
               {
                 (() => {
-                  if (path.startsWith( "/articles" ))
-                    return <PersistentDrawerRight children={ children } />;
+                  if (pageContext.layout === 'drawer')
+                    return <DrawerLayout children={ children } />;
 
                   return children;
                 })()

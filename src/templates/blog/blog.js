@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import HeadLine from "./components/Headline";
 import Article from "./components/Article";
 import styled from "styled-components";
+import MoreBlog from "./components/MoreBlog";
 
 const DIV = styled.div``
 
@@ -12,13 +13,13 @@ const BlogTemplate = ({ data }) => {
 
   return (
     < >
-      <HeadLine title={ title } date={ date } tags={ tags }
+      <HeadLine title={ title } date={ date } tags={ tags ? tags : [] }
                 thumbnail={ thumbnail }
       />
 
       <Article html={ data.markdownRemark.html } />
 
-      <footer/>
+      <MoreBlog  />
     </>
   );
 };

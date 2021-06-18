@@ -61,7 +61,6 @@ const ArticleWrapper = styled ( Container ) `
   blockquote{
     font-family: var(--gramatika);
     max-width: 35rem;
-    text-align: right;
     margin: 2.75rem auto;
     //border: thin solid red;
     
@@ -77,7 +76,8 @@ const ArticleWrapper = styled ( Container ) `
     p {
       ${ text(1.4) };
       color: blue;
-      
+      text-align: right;
+
     }
     
     em{
@@ -245,6 +245,17 @@ const ArticleWrapper = styled ( Container ) `
 
   strong {
     font-weight: 600;
+  }
+  
+  img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  em{
+    text-align: right;
+    padding: 5px;
   }
   
   ${ smallDown( css`

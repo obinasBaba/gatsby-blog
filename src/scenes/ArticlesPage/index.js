@@ -22,7 +22,13 @@ const ArticleEffect = styled( Typography )`
 
 `
 
-export default function PersistentDrawerRight({ children }) {
+const DrawerContainer = styled.div`
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+`
+
+export default function DrawerLayout({ children }) {
 
   const [open, setOpen] = React.useState( true );
 
@@ -31,12 +37,7 @@ export default function PersistentDrawerRight({ children }) {
   };
 
   return (
-    <div style={ {
-      display: "flex",
-      position: "relative",
-      minHeight: '100vh',
-      overflow: 'hidden',
-    } }>
+    <DrawerContainer>
 
       <PageContent open={open} children={ children } />
 
@@ -57,6 +58,6 @@ export default function PersistentDrawerRight({ children }) {
         BLOG
       </ArticleEffect>
 
-    </div>
+    </DrawerContainer>
   );
 }

@@ -12,17 +12,19 @@ import { largeUp } from "../../../../styles/mixins";
 const drawerWidth = 300;
 
 
-const FilterDrawerStyled = styled( Drawer )`
+const DrawerContainer = styled( Drawer )`
   padding-top: 4rem;
   width: ${ 0 }px;
 
+
   //backdrop-filter: blur(5px);
-  //background-color: rgba( 255, 255, 255 , 0);
+  background-color: rgba(130, 107, 107, 0.24);
   border: solid 2px transparent;
   background-clip: padding-box;
 
+  border: thick solid palevioletred;
 
-
+  background: palegoldenrod;
 
   ${ largeUp( css`
     width: ${ drawerWidth }px;
@@ -32,13 +34,13 @@ const FilterDrawerStyled = styled( Drawer )`
     width: ${ drawerWidth }px;
     padding-top: 3rem;
     top: 70px;
-    
-    background: transparent;
-    backdrop-filter: blur(5.45px);
-     border: solid 2px transparent;
-    background-clip: padding-box;
-    box-shadow: 10px 80px 20px rgba( 0, 0, 0, .14);
 
+    backdrop-filter: blur(5.45px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 80px 20px rgba(0, 0, 0, .14);
+
+    background: rgba(128, 128, 128, 0.38);
 
     opacity: 1;
     z-index: 999;
@@ -49,7 +51,7 @@ const FilterDrawerStyled = styled( Drawer )`
 
 const FilterDrawer = ( {open} ) => {
   return (
-    <FilterDrawerStyled variant="persistent" anchor="right" open={ open }>
+    <DrawerContainer variant="persistent" anchor="right" open={ open }>
 
 
       <Divider />
@@ -70,7 +72,7 @@ const FilterDrawer = ( {open} ) => {
           </ListItem>
         ) ) }
       </List>
-    </FilterDrawerStyled>
+    </DrawerContainer>
   );
 };
 

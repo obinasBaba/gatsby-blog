@@ -29,9 +29,11 @@ const Articles = () => {
         </Header>
 
         <Typography >
-          i come across a lot of fun snippets of information.
-          i share these little bits of information-plus the occasional
-          deep dive-through my articles.
+          I come across a lot of fun snippets of information.
+
+          As i learn things, my notes turn into articles to share.
+
+          i share these little bits of information through my articles.
         </Typography>
 
         <ReadMoreBtn variant="outlined" color='secondary' >

@@ -5,13 +5,18 @@ import { largeUp, mediumUp, smallUp } from "../../../../styles/mixins";
 
 const drawerWidth = 240;
 
-const StyledPageContent = styled.main`
+const ContentContainer = styled.main`
   flex-grow: 1;
   position: relative;
   margin-right: 0;
+  border: thick solid teal;
+  margin: 1rem;
+  transition: all .5s;
+  
+  transform-origin: left;
 
   ${ largeUp( css`
-    margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
+     margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
   ` ) }
 
   transition: ${ ({ theme, open }) => open ?
@@ -39,20 +44,20 @@ const PaddingContainer = styled( Container )`
   //border: 2px dashed red;
 
   ${ smallUp( css`
-    padding-left: 3rem;
+    //padding-left: 3rem;
   ` ) };
 `;
 
 const MyArticles = styled( Typography )`
   ${ mediumUp( css`
-    margin-left: -2rem;
+    //margin-left: -2rem;
   ` ) }
 `;
 
 const PageContent = ({ open , children}) => {
   return (
 
-    <StyledPageContent open={ open }>
+    <ContentContainer open={ open }>
 
 
       <PaddingContainer fixed={ false } maxWidth={ "md" }>
@@ -67,7 +72,7 @@ const PageContent = ({ open , children}) => {
 
       </PaddingContainer>
 
-    </StyledPageContent>
+    </ContentContainer>
 
   );
 };

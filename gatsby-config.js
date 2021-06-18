@@ -44,7 +44,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          // "gatsby-remark-relative-images",
+          "gatsby-remark-relative-images",
           `gatsby-plugin-netlify-cms-paths`,
 
           {

@@ -15,6 +15,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
+//called for every created pages useful for further customization
+/*exports.onCreatePage = ({page, actions}) => {
+
+  actions.createPage(page)
+}*/
+
 //creating post Page
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
@@ -47,7 +53,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     });
 
 
-  // Pagination
+  // Pagination,
 
   const posts = result.data.allMarkdownRemark.edges;
   const pageSize = 3;
@@ -64,6 +70,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       path,
       component: templatePath,
       context: {
+        layout: 'drawer',
         limit: pageSize,
         skip: i * pageSize,
         pageCount,
