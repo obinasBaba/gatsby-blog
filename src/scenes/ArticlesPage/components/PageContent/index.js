@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
 import { largeUp, mediumUp, smallUp } from "../../../../styles/mixins";
+import { motion } from "framer-motion";
 
 const drawerWidth = 240;
 
@@ -9,27 +10,29 @@ const ContentContainer = styled.main`
   flex-grow: 1;
   position: relative;
   margin-right: 0;
-  border: thick solid teal;
-  margin: 1rem;
+  //border: thick solid teal;
+  //margin: 1rem;
   transition: all .5s;
   
-  transform-origin: left;
 
   ${ largeUp( css`
-     margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
+      margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
   ` ) }
 
   transition: ${ ({ theme, open }) => open ?
           theme.transitions.create( "margin", {
             easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
+            duration: theme.transitions.duration.leavingScreen,
+            delay: 200
           } )
 
           :
 
           theme.transitions.create( "margin", {
             easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
+            duration: theme.transitions.duration.enteringScreen,
+            delay: 200
+
           } ) };
 
 `;
@@ -39,7 +42,7 @@ const PaddingContainer = styled( Container )`
   padding-top: 3.5rem;
   display: flex;
   flex-flow: column;
-  gap: 4rem;
+  gap: 2rem;
 
   //border: 2px dashed red;
 
@@ -53,6 +56,7 @@ const MyArticles = styled( Typography )`
     //margin-left: -2rem;
   ` ) }
 `;
+
 
 const PageContent = ({ open , children}) => {
   return (

@@ -3,6 +3,7 @@ import ArticleCard from "../scenes/ArticlesPage/components/ArticleCard";
 import Divider from "@material-ui/core/Divider";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
+import {motion} from "framer-motion";
 
 const PageLinks = styled.div`
   padding: 1rem;
@@ -19,7 +20,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   const nextPage = `/blog/${ currentPage + 1 }`;
 
   return (
-    <main>
+    <motion.div >
 
       <>
         {
@@ -61,7 +62,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
       </PageLinks>
 
-    </main>
+    </motion.div>
   );
 };
 

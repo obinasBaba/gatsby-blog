@@ -4,6 +4,7 @@ import { Fab, Typography } from "@material-ui/core";
 import PageContent from "./components/PageContent";
 import FilterDrawer from "./components/FilterDrawer";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 
 const ArticleEffect = styled( Typography )`
@@ -22,7 +23,7 @@ const ArticleEffect = styled( Typography )`
 
 `
 
-const DrawerContainer = styled.div`
+const DrawerContainer = styled( motion.div )`
   display: flex;
   position: relative;
   min-height: 100vh;
@@ -37,27 +38,29 @@ export default function DrawerLayout({ children }) {
   };
 
   return (
-    <DrawerContainer>
 
-      <PageContent open={open} children={ children } />
+      <DrawerContainer >
 
-      <FilterDrawer open={ open }/>
+        <PageContent open={ open } children={ children } />
 
-      <Fab color='primary'
-           onClick={ handleDrawerOpen }
-           style={{
-        position: 'fixed',
-        right: '5%',
-        bottom: '5%',
-        zIndex: 99999
-      }}>
-        < FaTwitter />
-      </Fab>
+        <FilterDrawer open={ open } />
 
-      <ArticleEffect variant='h1' open={open}   >
-        BLOG
-      </ArticleEffect>
+        <Fab color="primary"
+             onClick={ handleDrawerOpen }
+             style={ {
+               position: "fixed",
+               right: "5%",
+               bottom: "5%",
+               zIndex: 99999
+             } }>
+          < FaTwitter />
+        </Fab>
 
-    </DrawerContainer>
+        <ArticleEffect variant="h1" open={ open }>
+          BLOG
+        </ArticleEffect>
+
+      </DrawerContainer>
+
   );
 }
