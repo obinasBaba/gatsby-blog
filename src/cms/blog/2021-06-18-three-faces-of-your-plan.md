@@ -29,7 +29,7 @@ Setting tasks incorrectly you force your individual contributors to work slowly 
 
 Words are extremely important in this story. Try to start your titles with verbs. “Feedback form” is a bad task. “Design the feedback form” is a good task. The final goal of any task is a result, not a process. If you have identical tasks, form them identically for easier parsing. It’s also efficient to form a task as a clear sequence — a type of work, a name of work, timing.
 
-![](http://api.halo-lab.com/wp-content/uploads/2019/04/1_sjeDK7x4oSmRPtFOtktJaQ.png)
+![this is alt text](http://api.halo-lab.com/wp-content/uploads/2019/04/1_sjeDK7x4oSmRPtFOtktJaQ.png "this is title text")
 
 ### Setting tasks: time
 
