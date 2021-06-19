@@ -13,7 +13,7 @@ const Overline = styled.div`
   ${ spacing( "ph", 2 ) };
 `;
 
-const Date = styled( Typography )`
+const MetaTxt = styled( Typography )`
   font-size: .75rem;
   letter-spacing: .5px;
   //text-transform: uppercase;
@@ -82,8 +82,8 @@ const CardContents = ({ overline, title, body, slug }) => {
 
 
       <Overline variant="subtitle2" color="textSecondary">
-        <Date>{ overline }</Date>
-        <Date> #React, #Js </Date>
+        <MetaTxt>{ overline }</MetaTxt>
+        <MetaTxt> #React, #Js </MetaTxt>
       </Overline>
 
       <Heading variant="h4"> <Link to={ slug }>{ title }</Link> </Heading>

@@ -18,7 +18,6 @@ const StyledBlogCard = styled( motion.div )`
   //backdrop-filter: blur(10px);
   //background-color: rgba( 255, 255, 255 , .2);
    //border: solid 2px transparent;
-  background-attachment: fixed;
   background-clip: padding-box;
   background-image: url( ${ ({media}) => media } );
   background-position: 80% 1%;

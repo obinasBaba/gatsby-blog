@@ -49,9 +49,10 @@ export default function DrawerLayout({ children }) {
              onClick={ handleDrawerOpen }
              style={ {
                position: "fixed",
-               right: "7%",
-               bottom: "5%",
-               zIndex: 99999
+               right: "3%",
+               bottom: "4%",
+               zIndex: 99999,
+               opacity: .7,
              } }>
           < FaTwitter />
         </Fab>

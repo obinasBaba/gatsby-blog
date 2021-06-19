@@ -1,17 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { FaLinkedin } from "react-icons/all";
-import ListItemText from "@material-ui/core/ListItemText";
 import { heightWidth, largeUp, spacing } from "../../../../styles/mixins";
 import { motion } from "framer-motion";
-import { TextField, Typography } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import TagChips from "./TagChips";
+import SeriesPosts from "./SeriesPosts";
 
-const drawerWidth = 280;
+const drawerWidth = 300;
 
 const containerVariant = {
   initial: {
@@ -27,7 +22,7 @@ const containerVariant = {
     };
 
     return {
-      x: 280,
+      x: 300,
       transition: {
         delay: .3
       }
@@ -40,6 +35,7 @@ const containerVariant = {
 
 const DrawerContainer = styled( motion.div )`
   width: 0;
+  z-index: 999;
 
   ${ largeUp( css`
     width: ${ drawerWidth }px;
@@ -47,15 +43,19 @@ const DrawerContainer = styled( motion.div )`
 
 
   & .inner-container {
-    background: rgba(238, 232, 170, 0.71);
+    background: rgba(238, 232, 170, 0.8);
     padding-top: 4rem;
-    ${ heightWidth( 'width', 28 ) };
+    ${ heightWidth( 'width', 30 ) };
     position: fixed;
     right: 0;
     bottom: 0;
     top: 0;
 
     ${ spacing( 'ph', 2 ) };
+
+    & > :nth-child( n + 1 ) {
+      ${ spacing('mt', 3) };
+    }
 
   }
 
@@ -79,9 +79,10 @@ const FilterDrawer = ( {open} ) => {
                    fullWidth={true}
         />
 
-        <Typography variant={'h6'}> Include Category : </Typography>
 
         <TagChips />
+
+        <SeriesPosts />
 
 
       </motion.div>

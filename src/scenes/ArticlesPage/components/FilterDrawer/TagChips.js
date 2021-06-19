@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Avatar, Chip } from "@material-ui/core";
+import { Avatar, Chip, Typography } from "@material-ui/core";
+import { spacing } from "../../../../styles/mixins";
 
 const ChipsContainer = styled.div`
   & > * {
@@ -17,6 +18,9 @@ const TagChips = () => {
 
   return (
     <ChipsContainer>
+
+      <Typography variant={'h6'}> Include Category : </Typography>
+
 
       {
 
