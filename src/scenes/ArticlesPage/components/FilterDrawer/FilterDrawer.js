@@ -6,8 +6,10 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { FaLinkedin } from "react-icons/all";
 import ListItemText from "@material-ui/core/ListItemText";
-import { heightWidth, largeUp } from "../../../../styles/mixins";
+import { heightWidth, largeUp, spacing } from "../../../../styles/mixins";
 import { motion } from "framer-motion";
+import { TextField, Typography } from "@material-ui/core";
+import TagChips from "./TagChips";
 
 const drawerWidth = 280;
 
@@ -52,6 +54,9 @@ const DrawerContainer = styled( motion.div )`
     right: 0;
     bottom: 0;
     top: 0;
+
+    ${ spacing( 'ph', 2 ) };
+
   }
 
 `;
@@ -68,24 +73,17 @@ const FilterDrawer = ( {open} ) => {
                   exit='exit'
                   custom={{ open }}
       >
-        <Divider />
-        <List>
-          { ["Inbox", "Starred", "Send email", "Drafts"].map( (text, index) => (
-            <ListItem button key={ text }>
-              <ListItemIcon>{ index % 2 === 0 ? <FaLinkedin /> : <FaLinkedin /> }</ListItemIcon>
-              <ListItemText primary={ text } />
-            </ListItem>
-          ) ) }
-        </List>
-        <Divider />
-        <List>
-          { ["All mail", "Trash", "Spam"].map( (text, index) => (
-            <ListItem button key={ text }>
-              <ListItemIcon>{ index % 2 === 0 ? <FaLinkedin /> : <FaLinkedin /> }</ListItemIcon>
-              <ListItemText primary={ text } />
-            </ListItem>
-          ) ) }
-        </List>
+
+        <TextField label='search-post'
+                   variant='outlined'
+                   fullWidth={true}
+        />
+
+        <Typography variant={'h6'}> Include Category : </Typography>
+
+        <TagChips />
+
+
       </motion.div>
 
 
