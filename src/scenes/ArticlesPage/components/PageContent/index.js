@@ -1,17 +1,16 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
-import { largeUp, mediumUp, smallUp } from "../../../../styles/mixins";
+import { largeUp, mediumUp, smallUp, text } from "../../../../styles/mixins";
 import { motion } from "framer-motion";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const ContentContainer = styled.main`
   flex-grow: 1;
   position: relative;
   margin-right: 0;
   //border: thick solid teal;
-  //margin: 1rem;
   transition: all .5s;
   
 
@@ -23,7 +22,7 @@ const ContentContainer = styled.main`
           theme.transitions.create( "margin", {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
-            delay: 200
+            delay: 280
           } )
 
           :
@@ -52,8 +51,11 @@ const PaddingContainer = styled( Container )`
 `;
 
 const MyArticles = styled( Typography )`
+  ${ text(4) };
+  
   ${ mediumUp( css`
-    //margin-left: -2rem;
+    ${ text(5) };
+
   ` ) }
 `;
 

@@ -6,10 +6,10 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { FaLinkedin } from "react-icons/all";
 import ListItemText from "@material-ui/core/ListItemText";
-import { largeUp } from "../../../../styles/mixins";
+import { heightWidth, largeUp } from "../../../../styles/mixins";
 import { motion } from "framer-motion";
 
-const drawerWidth = 300;
+const drawerWidth = 280;
 
 const containerVariant = {
   initial: {
@@ -20,12 +20,12 @@ const containerVariant = {
       return {
       x: 0,
         transition: {
-          delay: .3
+          delay: .2
         }
     };
 
     return {
-      x: 300,
+      x: 280,
       transition: {
         delay: .3
       }
@@ -38,23 +38,22 @@ const containerVariant = {
 
 const DrawerContainer = styled( motion.div )`
   width: 0;
-  
+
   ${ largeUp( css`
     width: ${ drawerWidth }px;
-    
   ` ) };
-  
-  
-  & .inner-container{
-    background: palegoldenrod;
+
+
+  & .inner-container {
+    background: rgba(238, 232, 170, 0.71);
     padding-top: 4rem;
-    width: ${ drawerWidth }px;
+    ${ heightWidth( 'width', 28 ) };
     position: fixed;
     right: 0;
     bottom: 0;
     top: 0;
   }
-  
+
 `;
 
 

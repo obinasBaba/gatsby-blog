@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   
 
   body {
-    
+
     &.locked{
       overflow: hidden;
       height: 100vh;
@@ -87,15 +87,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
-  h1{
-    //font-size: 3rem;
-    //display: none;
-  }
-  
 `;
 
 export const Main = styled.main`
   flex: 1;
   position: relative;
-
 `

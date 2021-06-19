@@ -5,6 +5,7 @@ import PageContent from "./components/PageContent";
 import FilterDrawer from "./components/FilterDrawer";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { spacing } from "../../styles/mixins";
 
 
 const ArticleEffect = styled( Typography )`
@@ -13,25 +14,24 @@ const ArticleEffect = styled( Typography )`
   font-size: 12rem;
   right: -5%;
   font-weight: 900;
-  opacity: .09;
+  opacity: .1;
   z-index: -9999;
   background-image:
           linear-gradient(to right, #e8e8e8 10%, #ff0808 ${ ({open}) => open ? '70%': '170%' });
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-
 `
 
 const DrawerContainer = styled( motion.div )`
   display: flex;
   position: relative;
   min-height: 100vh;
+  ${ spacing('mt', 5) };
 `
 
 export default function DrawerLayout({ children }) {
 
-  const [open, setOpen] = React.useState( true );
+  const [open, setOpen] = React.useState( false );
 
   const handleDrawerOpen = () => {
     setOpen( !open );
@@ -49,7 +49,7 @@ export default function DrawerLayout({ children }) {
              onClick={ handleDrawerOpen }
              style={ {
                position: "fixed",
-               right: "5%",
+               right: "7%",
                bottom: "5%",
                zIndex: 99999
              } }>

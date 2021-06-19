@@ -2,8 +2,9 @@ import React from "react";
 import ArticleCard from "../scenes/ArticlesPage/components/ArticleCard";
 import Divider from "@material-ui/core/Divider";
 import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import {motion} from "framer-motion";
+import { useMediaQuery } from "@material-ui/core";
 
 const PageLinks = styled.div`
   padding: 1rem;
@@ -18,30 +19,38 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   const previousPage = currentPage === 2 ? "/blog" : `/blog/${ currentPage - 1 }`;
 
   const nextPage = `/blog/${ currentPage + 1 }`;
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.up('sm'))
+
+  function truncateText(txt){
+    return txt.substr(0, 270)
+  }
 
   return (
     <motion.div >
 
-      <>
         {
           data.allMarkdownRemark.edges.map( ({
                                                node: {
                                                  id, excerpt, fields: { slug },
-                                                 frontmatter: { title, date }
+                                                 frontmatter: {
+                                                   title,
+                                                   thumbnail: {
+                                                     publicURL
+                                                   },
+                                                   date
+                                                 }
                                                }
                                              }, index) => {
             return (
-              <div key={ `${id} ${index}` }>
-                <ArticleCard title={ title } date={ date }
-                             body={ excerpt } slug={ slug } />
+                <ArticleCard title={ title } date={ date } key={excerpt}
+                             featuredMedia={publicURL}
+                             body={ match ? excerpt : `${excerpt.substr(0, 220)}...` } slug={ slug } />
 
-                <Divider orientation="horizontal" />
-              </div>
             );
 
           } )
         }
-      </>
 
       <PageLinks>
         {
@@ -82,10 +91,20 @@ export const query = graphql`
         fields {
           slug
         }
-        excerpt
+        excerpt(pruneLength: 350, truncate: false)
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
+          thumbnail {
+            publicURL
+            childImageSharp {
+              gatsbyImageData(
+                aspectRatio: 1.5
+                placeholder: BLURRED
+                webpOptions: {quality: 100}
+              )
+            }
+          }
         }
       }
     }
