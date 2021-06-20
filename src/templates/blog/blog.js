@@ -2,10 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import HeadLine from "./components/Headline";
 import Article from "./components/Article";
-import styled from "styled-components";
 import MoreBlog from "./components/MoreBlog";
 
-const DIV = styled.div``
 
 const BlogTemplate = ({ data }) => {
   const { title, date, tags, thumbnail } = data.markdownRemark.frontmatter;

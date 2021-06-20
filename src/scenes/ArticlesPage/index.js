@@ -1,9 +1,9 @@
 import React from "react";
-import { FaTwitter } from "react-icons/all";
-import { Fab, Typography } from "@material-ui/core";
+import { FaAdobe, FaExpand } from "react-icons/all";
+import { Fab, Typography, useMediaQuery, Zoom } from "@material-ui/core";
 import PageContent from "./components/PageContent";
 import FilterDrawer from "./components/FilterDrawer";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { motion } from "framer-motion";
 import { spacing } from "../../styles/mixins";
 
@@ -26,16 +26,38 @@ const DrawerContainer = styled( motion.div )`
   display: flex;
   position: relative;
   min-height: 100vh;
-  ${ spacing('mt', 5) };
+  ${ spacing('mt', 16) };
 `
 
 export default function DrawerLayout({ children }) {
 
   const [open, setOpen] = React.useState( false );
+  const [fabIndex, setFabIndex] = React.useState( 0 );
+  // let fabIndex = 0;
 
-  const handleDrawerOpen = () => {
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.up('sm'))
+
+  const handleDrawerOpen = (index) => {
     setOpen( !open );
+    setFabIndex(index)
   };
+
+  const fabs = [{
+    color: "primary",
+    icon: <FaExpand />,
+    label: "expand"
+  }, {
+    color: "#123",
+    icon: <FaAdobe />,
+    label: "colapse"
+  }
+  ];
+
+  const transitionDuration = {
+    enter: theme.transitions.duration.enteringScreen,
+    exit: theme.transitions.duration.leavingScreen,
+  }
 
   return (
 
@@ -45,17 +67,35 @@ export default function DrawerLayout({ children }) {
 
         <FilterDrawer open={ open } />
 
-        <Fab color="primary"
-             onClick={ handleDrawerOpen }
-             style={ {
-               position: "fixed",
-               right: "3%",
-               bottom: "4%",
-               zIndex: 99999,
-               opacity: .7,
-             } }>
-          < FaTwitter />
-        </Fab>
+
+
+        {
+          fabs.map( (fab, i) => (
+
+            <Zoom key={fab.label}
+                  in={fabIndex === i}
+                  timeout={transitionDuration}
+
+                  unmountOnExit
+            >
+
+              <Fab color="primary"
+                   size={ match ? 'medium' : 'small' }
+                   onClick={ () => handleDrawerOpen(i) }
+                   style={ {
+                     position: "fixed",
+                     right: "7%",
+                     bottom: "4%",
+                     zIndex: 99999,
+                     opacity: .7,
+                   } }>
+                {fab.icon}
+              </Fab>
+
+            </Zoom>
+
+          ) )
+        }
 
         <ArticleEffect variant="h1" open={ open }>
           BLOG

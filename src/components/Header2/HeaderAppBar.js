@@ -9,13 +9,14 @@ import Menu from './components/Menu'
 import AvatarWithSocial from "./components/AvatarWithSocial";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import NavLinks from "./components/NavLinks";
+import ToggleSvg from "./components/ToggleSvg";
 
 const transition = css`
   transition: all 0.3s;
 `
 
 function HideOnScroll(props) {
-  const { children, window } = props
+  const { children } = props
   const trigger = useScrollTrigger({
     threshold: 50,
   })
@@ -50,9 +51,10 @@ const NavContainer = styled.div`
     z-index: 100;
 
     ${transition};
+    backdrop-filter: saturate(180%) blur(11px);
     background: ${({ isWhite }) =>
       isWhite
-        ? 'linear-gradient(180deg, rgba(243, 243, 243, 1) 0%, rgba(243, 243, 243, 0) 98%)'
+        ? 'linear-gradient(180deg, var(--clr-nav) 0%, rgba(243, 243, 243, 0) 98%)'
         : 'linear-gradient(0deg, rgba(2, 2, 30, 0.0001) 0%, #02021e 98%)'};
   }
 
@@ -105,6 +107,10 @@ function HeaderAppBar({ isGradient = true, isWhite = true }) {
 
             <AvatarWithSocial isWhite={isWhite} />
 
+
+            <ToggleSvg />
+
+
             <AnimatePresence>
               { media ? <NavLinks /> :
 
@@ -115,6 +121,8 @@ function HeaderAppBar({ isGradient = true, isWhite = true }) {
                 />
               }
             </AnimatePresence>
+
+
 
           </ToolBarWrapper>
         </NavContainer>

@@ -7,18 +7,22 @@ const CloseContainer = styled( motion.div )`
   //border: thin solid crimson;
   position: absolute;
   cursor: pointer;
-  top: 2.2rem;
-  right: 2rem;
   
-  ${heightWidth('height', 6)};
-  ${heightWidth('width', 6)};
+  ${spacing('right', 3)};
+  ${spacing('top', 3.4)};
+  
+  
+  ${heightWidth('height', 5)};
+  ${heightWidth('width', 5)};
   
   ${mediumUp(css`
-    ${spacing('descTopVariant', 2)};
-    ${spacing('right', 6.5)};
+    ${spacing('top', 2)};
+    ${spacing('right', 8)};
   `)};
   
-  
+  .menu-txt{
+    color: var(--clr-title)!important;
+  }
   
 `
 
@@ -96,6 +100,7 @@ const path2Variants = {
 
 const CloseBtn = ( { toggler, state} ) => {
   return (
+
     <CloseContainer onClick={ () => toggler && toggler( !state ) } >
 
       <motion.svg xmlns="http://www.w3.org/2000/svg"

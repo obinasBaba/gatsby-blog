@@ -2,11 +2,10 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
 import { largeUp, mediumUp, smallUp, text } from "../../../../styles/mixins";
-import { motion } from "framer-motion";
 
 const drawerWidth = 300;
 
-const ContentContainer = styled.main`
+const ContentContainer = styled.div`
   flex-grow: 1;
   position: relative;
   margin-right: 0;
@@ -36,9 +35,10 @@ const ContentContainer = styled.main`
 
 `;
 
-const PaddingContainer = styled( Container )`
-  padding-bottom: 5.5rem;
-  padding-top: 3.5rem;
+const ArticleCardWrapper = styled( Container )`
+
+  //padding-bottom: 5.5rem;
+  //padding-top: 3.5rem;
   display: flex;
   flex-flow: column;
   gap: 2rem;
@@ -66,7 +66,10 @@ const PageContent = ({ open , children}) => {
     <ContentContainer open={ open }>
 
 
-      <PaddingContainer fixed={ false } maxWidth={ "md" }>
+      <ArticleCardWrapper fixed={ false } maxWidth={ "md" }>
+
+
+        {/*<ToggleSvg/>*/}
 
         <MyArticles variant="h1">
           My Articles
@@ -76,7 +79,7 @@ const PageContent = ({ open , children}) => {
 
         {/*<ArticlePagination />*/}
 
-      </PaddingContainer>
+      </ArticleCardWrapper>
 
     </ContentContainer>
 

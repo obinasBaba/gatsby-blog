@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components";
 import { Button, Grid } from "@material-ui/core";
-import { smallUp, spacing, text } from "../../../../styles/mixins";
+import { mediumUp, smallUp, spacing, text } from "../../../../styles/mixins";
 
 export const PaddingContainer = styled( Grid )`
   padding: 3.5rem 1.5rem;
   row-gap: 2em;
   position: relative;
-
-  ${ ({ theme }) => `
-      ${ theme.breakpoints.up( "md" ) } {
-         flex-wrap: nowrap;
-      }
-  ` }
+  
+  
+  ${ mediumUp( css`
+    flex-wrap: nowrap;
+  ` ) };
 
 `;
 

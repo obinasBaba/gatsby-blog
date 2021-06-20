@@ -5,10 +5,10 @@ import ContactForm from "./ContactForm";
 import NavLinks from "../Header2/components/NavLinks";
 
 const PaddingContainer = styled( Grid )`
-  padding: 3.5rem  0;
+  padding: 4rem  0;
   z-index: 1300;
   position: relative;
-  background-color: white;
+  //background-color: white;
 `;
 
 const CopyRightWrapper = styled.div`

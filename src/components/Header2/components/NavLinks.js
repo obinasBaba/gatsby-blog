@@ -12,7 +12,7 @@ const Nav = styled.nav`
 
   & a {
     text-decoration: none;
-    color: initial;
+    color: var( --clr-title );
   }
   
   p{

@@ -1,7 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core";
-import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 
-const breakpoints = createBreakpoints({});
 
 let theme = createMuiTheme({
 
@@ -44,6 +42,19 @@ let theme = createMuiTheme({
         paddingRight: '1.5rem',
       }
     },
+
+  },
+
+  palette: {
+      primary: {
+        main: '#EEE8AAFF'
+      },
+      secondary: {
+        main: '#EEE8AAFF'
+      },
+    text: {
+        // primary: '#939393'
+    }
   },
 
   typography: {

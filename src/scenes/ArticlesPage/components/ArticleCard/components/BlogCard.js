@@ -26,7 +26,7 @@ const StyledBlogCard = styled( motion.div )`
   
 
 
-  ${ spacing( "br", 2 ) };
+  ${ spacing( "br", 3 ) };
   ${ spacing( "mv", 10 ) };
   ${ spacing( "mb", 15 ) };
 
@@ -38,7 +38,7 @@ const StyledBlogCard = styled( motion.div )`
     bottom: 0;
     left: 0;
     right: 0;
-    border-radius: ${ ({ theme: { spacing } }) => spacing( 2 ) + "px" }; // 16px
+    ${ spacing( "br", 3 ) };
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, .8);
     overflow: hidden;

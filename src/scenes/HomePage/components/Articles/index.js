@@ -1,13 +1,15 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ProjectCard from "./ProjectCard";
-import p from "../../../../images/youtube-1.jpeg";
-import p2 from "../../../../images/youtube-2.jpg";
-import p3 from "../../../../images/youtube-3.jpeg";
 import { CardWrapper, Header, PaddingContainer, ReadMoreBtn, TextWrapper } from "./components";
+import { useFeaturedArticlesAssets } from "../../../../hooks/queries/useFeaturedArticlesAssets";
 
 
 const Articles = () => {
+
+  const { featuredArticles: {edges} } = useFeaturedArticlesAssets();
+  console.log(edges);
+
   return (
     <PaddingContainer container>
 
@@ -21,7 +23,7 @@ const Articles = () => {
             Articles
           </Typography>
 
-          <Typography variant="subtitle2" color="textSecondary" align='right' >
+          <Typography variant="subtitle2"  align='right' >
             quick hit tips & tricks
           </Typography>
 
@@ -42,24 +44,27 @@ const Articles = () => {
 
       </TextWrapper>
 
-      <Grid item xs sm={1} md={2} lg={3}  spacing={0} />
+      <Grid item xs sm={1} md={2} lg={3}  />
 
 
       <CardWrapper item container xs={12} sm={6} md={5} lg={7}
-                   spacing={0}
             wrap="nowrap" direction="column">
 
-          <ProjectCard item
-                       title={'How to check the website before releasing it?'}
-                       imgSrc={ p } />
+        {
+          edges.map( ({
+                        node: {
+                          id, frontmatter: {
+                            tags, thumbnail, title
+                          }
+                        }
+                      }) => <ProjectCard item
+                                         key={id}
+                                         title={title}
+                                         tags={tags}
+                                         imgSrc={ thumbnail } />
+           )
+        }
 
-          <ProjectCard item
-                       title={'Halo Lab Named Top ethiopian b2b company'}
-                       imgSrc={ p2 } />
-
-          <ProjectCard item
-                       title={'Brand analysis: seconde step to the brand identity'}
-                       imgSrc={ p3 } />
 
       </CardWrapper>
 

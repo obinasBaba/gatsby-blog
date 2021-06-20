@@ -1,9 +1,7 @@
 import React from "react";
 import ArticleCard from "../scenes/ArticlesPage/components/ArticleCard";
-import Divider from "@material-ui/core/Divider";
 import { graphql, Link } from "gatsby";
 import styled, { useTheme } from "styled-components";
-import {motion} from "framer-motion";
 import { useMediaQuery } from "@material-ui/core";
 
 const PageLinks = styled.div`
@@ -22,12 +20,10 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('sm'))
 
-  function truncateText(txt){
-    return txt.substr(0, 270)
-  }
+
 
   return (
-    <motion.div >
+    < >
 
         {
           data.allMarkdownRemark.edges.map( ({
@@ -71,7 +67,7 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
       </PageLinks>
 
-    </motion.div>
+    </>
   );
 };
 

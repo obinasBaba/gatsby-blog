@@ -171,7 +171,7 @@ const ArticleWrapper = styled ( Container ) `
     
     ${ mediumUp( css`
       letter-spacing: .5px;
-      line-height: 161%;
+      line-height: 149%;
 
     ` ) };
     

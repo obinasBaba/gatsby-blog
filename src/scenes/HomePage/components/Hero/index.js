@@ -9,9 +9,9 @@ const Hero = () => {
   // const media = useMediaQuery( "(min-width: 632px) and (max-width: 960px)" );
 
   const theme = useTheme();
-  const media2 = useMediaQuery( theme.breakpoints.up( "md" ) );
-
-  const { heroImg } = useHeroAssets();
+  // const media2 = useMediaQuery( theme.breakpoints.up( "md" ) );
+  //
+  // const { heroImg } = useHeroAssets();
 
 
   return (

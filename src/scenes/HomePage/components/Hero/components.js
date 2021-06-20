@@ -3,11 +3,11 @@ import { Container, Typography } from "@material-ui/core";
 import { heightWidth, mediumUp, smallUp, spacing, text } from "../../../../styles/mixins";
 
 export const PaddingContainer = styled( Container )`
-  margin-bottom: 3.5rem;
+  margin-bottom: 4.5rem;
   margin-top: 6rem;
   
   ${mediumUp(css`
-      ${ spacing('mt', 9) };
+      ${ spacing('mt', 10) };
   `)};
 `;
 
@@ -23,7 +23,7 @@ export const HeroWrapperGird = styled.section`
           'img'
           'aboutS'
           'aboutL';
-  
+
   ${ smallUp( css`
     grid-template-areas: 
               'hello-txt   hello-txt'
@@ -50,7 +50,8 @@ export const HeroWrapperGird = styled.section`
     z-index: -1;
     border-radius: 1em;
 
-    background-image: linear-gradient(to bottom right, #1c1b1b -10%, #ebf9ff 130%);
+    border: thin solid rgba(238, 232, 170, 0.71);
+    background-image: linear-gradient(to right, rgba(238, 232, 170, 0.56) -70%, var(--clr-bg) 90%);
 
     ${ smallUp( css`
       grid-row: 2/3;
@@ -69,14 +70,14 @@ export const HeroWrapperGird = styled.section`
     margin: 1rem;
     display: block;
     background: white;
-    
-    img{
+
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: .5em;
     }
-    
+
   }
 
 `;
@@ -88,7 +89,7 @@ export const HelloTxt = styled.div`
   grid-area: hello-txt;
   
   ${ smallUp( css`
-    ${ spacing('mb', 2) };
+    ${ spacing('mb', 5) };
 
   ` ) };
 

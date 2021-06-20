@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import styled, { css } from "styled-components";
 import { Link } from "gatsby";
-import { smallUp, spacing, text } from "../../../../../styles/mixins";
+import { smallDown, smallUp, spacing, text } from "../../../../../styles/mixins";
 import { Button } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
@@ -51,6 +51,11 @@ const ReadMoreBtn = styled( Button )`
   margin-top: calc(20px * var(--indent)) !important; //to kill specificity the in cardContent
   align-self: start;
   letter-spacing: 1px;
+  
+  ${ smallDown( css`
+    margin: 0 auto;
+  ` ) };
+  
 `;
 
 const ContentWrapper = styled( CardContent )`

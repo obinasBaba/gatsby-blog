@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { heightWidth, mediumUp, smallUp, spacing } from "../../../../styles/mixins";
 import { Link } from "gatsby";
 import { Grid, Typography } from "@material-ui/core";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 
 const CardContainer = styled( Grid )`
@@ -34,7 +35,7 @@ const CardContainer = styled( Grid )`
 
       left: 50%;
       transform: translateX(-50%);
-      background-color: #9a9797;
+      background-color: var(--clr-accent);
 
 
       ${ smallUp( css`
@@ -49,16 +50,24 @@ const ImageBox = styled.div`
   transform: translateX(-24px);
   height: 100%;
   
+  
   ${ smallUp( css`
     ${ heightWidth('max-width', 20 ) };
     width: calc(100%);
     transform: translateX(0);
+    //flex: 1 1;
+    
   ` ) };
   
   img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  
+  .image-wrapper{
+    width: 100%;
+    height: 100%;
   }
 `
 
@@ -68,36 +77,48 @@ const Description = styled.div`
   ${ mediumUp( css`
     margin-top: 0;
     ${ spacing('ml', 4) };
-    
+    flex: 1 1;
+
+
   ` ) };
 `
 
 const Tag = styled( Typography )`
-  font-family: var(--gramatika);
-  font-weight: 700;
-  text-transform: capitalize;
+  //font-family: var(--gramatika);
+  //font-weight: 700;
+  //text-transform: capitalize;
   color: gray;
-  opacity: .7;
+  opacity: .9;
+  font-size: .75rem;
+  letter-spacing: .5px;
 `
 
 const Title = styled( Typography )`
   font-weight: bolder;
 `
 
-export default function ProjectCard({ imgSrc, title }) {
+export default function ProjectCard({ imgSrc, title, tags }) {
 
   return (
     <CardContainer >
 
       <ImageBox>
-        <Link to={'/'}>
-          <img src={imgSrc} />
-        </Link>
+          <GatsbyImage alt={title}
+                       className={'image-wrapper'}
+                       objectFit={'cover'}
+                       image={getImage(imgSrc)}/>
       </ImageBox>
 
       <Description>
 
-        <Tag variant='subtitle2' >#react</Tag>
+        <Tag >{
+
+          tags ? tags.map(({tag}) => tag + ', ') : 'no-tags'
+
+
+        }</Tag>
+
+
         <Title>
           {title}
         </Title>

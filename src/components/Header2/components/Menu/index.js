@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { MenuContainer, MenuList, Overlay } from './components'
 import CloseBtn from './CloseBtn'
 import BackgroundSvg from './components/BgSvg'
+import Typography from "@material-ui/core/Typography";
+import { Link } from "gatsby";
 
 const menuVariants = {}
 
@@ -84,7 +86,7 @@ const innerBtnVariant = {
 }
 
 const LogoBg = styled(motion.div)`
-  max-width: 100%;
+  max-width: 120%;
   width: 440px;
   position: absolute;
   opacity: 0.2;
@@ -159,19 +161,24 @@ const Menu = ({ toggleMenu: { setMenuIsOpen, menuIsOpen } }) => {
       />
 
       <MenuList variants={menuListVariants} key={3}>
-        {['Works', 'Recent Designs', 'Blogs', 'Experiments'].map((txt, i) => (
+
+        {[{ txt: "Articles", link: '/blog' },
+          { txt: "Timeline", link: '/' },
+          { txt: "About", link: '/' }].map(({ txt, link }, i) => (
           <motion.div
             key={i}
             variants={motionBtnVariant}
             style={{ overflow: 'hidden' }}
+            onClick={() => setMenuIsOpen(!menuIsOpen)}
           >
             <motion.div variants={innerBtnVariant}>
-              <button>{txt}</button>
+              <Link to={link}>
+                <Typography className='menu-txt' >{txt}</Typography>
+              </Link>
             </motion.div>
           </motion.div>
         ))}
 
-        <BackgroundSvg />
 
         <LogoBg variants={logoVariants}>
           <svg

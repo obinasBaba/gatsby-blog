@@ -14,7 +14,7 @@ const Btn = styled(motion.button)`
   outline: none;
   box-shadow: ${({ isWhite }) =>
           isWhite
-                  ? 'inset 0 0 0 1px rgba(2, 2, 30, 0.2)'
+                  ? 'inset 0 0 0 1px var(--clr-txt)'
                   : 'inset 0 0 0 1px rgba(255, 255, 255, 0.2)'};
   border: none;
   border-radius: 50%;
@@ -47,29 +47,28 @@ const Btn = styled(motion.button)`
     isWhite
       ? css`
           & > :first-child {
-            background-color: #02021e;
+            background-color: var(--clr-title);
 
             &::after,
             &::before {
-              background-color: #02021e;
+              background-color: var(--clr-title);
             }
           }
         `
       : ''};
 
-  &:hover,
-  &:focus {
+  &:hover {
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.palette.secondary.main};
     background-color: ${({ theme, open }) => theme.palette.secondary.main};
 
     & > :first-child {
       //bars
-      background-color: #fff;
+      //background-color: #fff;
 
       &:after,
       &:before {
         //bars after and before sudo
-        background-color: #fff;
+        //background-color: #fff;
       }
     }
   }
@@ -81,7 +80,7 @@ const Bars = styled.span`
   height: 1px;
   left: 0;
   right: 0;
-  width: 40%;
+  width: 50%;
   top: 50%;
   display: block;
   background-color: #fff;
@@ -103,11 +102,12 @@ const Bars = styled.span`
   }
 
   &::before {
-    margin-top: -0.5rem;
+    margin-top: calc(-0.5rem * var(--indent));
   }
 
   &::after {
-    margin-top: 0.5rem;
+    margin-top: calc(0.5rem * var(--indent));
+
   }
 
   ${({ opened }) =>

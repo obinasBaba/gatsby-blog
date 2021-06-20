@@ -9,7 +9,7 @@ const HeadLineContainer = styled( Container )`
   //border: thick solid red;
   max-width: 1600px;
   font-family: var(--sofia-pro);
-  ${ spacing( "mt", 8 ) };
+  ${ spacing( "mt", 15 ) };
 
   display: flex;
   flex-flow: column;
@@ -133,11 +133,9 @@ const Category = styled.div`
   font-weight: 900;
   letter-spacing: 1px;
   line-height: 1.55em;
-  text-transform: uppercase;
-  //@include hl-font-size-text(12px);
-  ${ text( 1.4 ) };
   ${ spacing( "mb", 3 ) };
 
+  
   
   .link {
     text-decoration: none;
@@ -158,7 +156,6 @@ const Category = styled.div`
 
 const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
 
-  console.log(tags);
 
   return (
     <HeadLineContainer>
@@ -169,6 +166,7 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
         <DateAndTags>
           <Typography variant='subtitle2' noWrap={true}
                       className='published-date' > { date }  &#183; &#128339;30 min read    </Typography>
+
           <div className='tags'>
             {
               tags
@@ -202,13 +200,6 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
       <ImageBox>
         <GatsbyImage alt={ "thisis sk si s" } image={ getImage( thumbnail ) } className="img-container" />
       </ImageBox>
-      <div className='tags'>
-        {
-          tags
-            .map(( {tag}, i ) => <Typography variant='subtitle2' noWrap={true}
-                                             key={i}>{`${tag},`}&nbsp;</Typography>)
-        }
-      </div>
 
 
     </HeadLineContainer>

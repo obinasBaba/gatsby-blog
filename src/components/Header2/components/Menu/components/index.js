@@ -18,31 +18,38 @@ export const MenuContainer = styled(motion.div)`
 export const MenuList = styled(motion.div)`
   position: relative;
   overflow: hidden;
-  background-color: transparent;
+  background-color: rgba(238, 232, 170, 0.6);
+  border: thin solid var(--clr-accent);
   z-index: 130;
-  flex-basis: 90%;
+  flex-basis: 70%;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
   //clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
-  ${ spacing('pl', 25) };
+    // ${ spacing( 'pl', 25 ) };
 
-${ css`
-    
-    ${ smallUp( css`
-      flex-basis: 70%;
-      ${ spacing('pl', 15) };
+  ${ smallUp( css`
+    flex-basis: 70%;
+      // ${ spacing( 'pl', 5 ) };
 
-    ` ) };
-    
-    ${ largeUp( css`
-      flex-basis: 63%;
-      ${ spacing('pl', 10) };
+  ` ) };
 
-    ` ) }
-    
-  ` };
+  ${ largeUp( css`
+    flex-basis: 63%;
+    ${ spacing( 'pl', 10 ) };
+
+  ` ) }
+  & .menu-txt {
+    color: var(--clr-title);
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
 `
 
 export const Overlay = styled(motion.div)`
@@ -55,6 +62,6 @@ export const Overlay = styled(motion.div)`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(4px);
 `

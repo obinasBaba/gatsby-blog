@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -17,15 +17,11 @@ export default function TopLayout({
                                     data, navigate, pageContext, pageResources
                                   }) {
 
-  const [filterBar, setFilterBar] = useState( false );
-
-  const Ctx = React.createContext( true );
-
-  console.log('TOP_LAYOUT :: ---', );
-  console.log('Path ---', path, ', data: ', data, 'page Resources : ', pageResources,
-    ', pageContext: ', pageContext );
-
-  console.log();
+  // console.log('TOP_LAYOUT :: ---', );
+  // console.log('Path ---', path, ', data: ', data, 'page Resources : ', pageResources,
+  //   ', pageContext: ', pageContext );
+  //
+  // console.log();
 
   return (
     <React.Fragment>
