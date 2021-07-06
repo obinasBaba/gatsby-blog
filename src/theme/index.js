@@ -52,9 +52,7 @@ let theme = createMuiTheme({
       secondary: {
         main: '#EEE8AAFF'
       },
-    text: {
-        // primary: '#939393'
-    }
+
   },
 
   typography: {

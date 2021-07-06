@@ -6,9 +6,9 @@ import NavLinks from "../Header2/components/NavLinks";
 
 const PaddingContainer = styled( Grid )`
   padding: 4rem  0;
-  z-index: 1300;
+  z-index: 991300;
   position: relative;
-  //background-color: white;
+  background-color: var(--clr-bg);
 `;
 
 const CopyRightWrapper = styled.div`
@@ -22,7 +22,7 @@ const CopyRightWrapper = styled.div`
 `;
 
 const LetsTalkContainer = styled( Container )`
-  background-color: #ebf9ff;
+  background-color: var(--clr-accent);
   border-radius: 1rem;
   padding: 1rem;
   //border: thick solid red;

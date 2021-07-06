@@ -9,8 +9,9 @@ import "../styles/index.css";
 import { GlobalStyle, Main } from "../styles/globalStyle";
 import Page from "./components/Page";
 import Header from "../components/Header2";
-import DrawerLayout from "../scenes/ArticlesPage";
 import Footer from "../components/Footer";
+import AppStateProvider from "../contexts/AppStateContext";
+import DrawerLayout from "./components/DrawerLayout";
 
 export default function TopLayout({
                                     path, children, location,
@@ -21,7 +22,7 @@ export default function TopLayout({
   // console.log('Path ---', path, ', data: ', data, 'page Resources : ', pageResources,
   //   ', pageContext: ', pageContext );
   //
-  // console.log();
+  // console.log(  location.pathname === '/tags/' );
 
   return (
     <React.Fragment>
@@ -30,30 +31,35 @@ export default function TopLayout({
 
       </Helmet>
 
-      <StyledThemeProvider theme={ theme }>
-        <ThemeProvider theme={ theme }>
-          <GlobalStyle />
-          <CssBaseline />
+      <AppStateProvider>
 
-          <Page>
-            <Header />
+        <StyledThemeProvider theme={ theme }>
+          <ThemeProvider theme={ theme }>
+            <GlobalStyle />
+            <CssBaseline />
 
-            <Main>
-              {
-                (() => {
-                  if (pageContext.layout === 'drawer')
-                    return <DrawerLayout children={ children } />;
+            <Page>
+              <Header />
 
-                  return children;
-                })()
-              }
-            </Main>
+              <Main>
+                {
+                  (() => {
+                    if ((pageContext.layout === "drawer") || (location.pathname === "/tags/"))
+                      return <DrawerLayout children={ children } />;
 
-            <Footer />
-          </Page>
+                    return children;
+                  })()
+                }
+              </Main>
 
-        </ThemeProvider>
-      </StyledThemeProvider>
+              <Footer />
+            </Page>
+
+          </ThemeProvider>
+        </StyledThemeProvider>
+
+      </AppStateProvider>
+
     </React.Fragment>
   );
 }

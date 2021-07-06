@@ -1,32 +1,22 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { heightWidth, largeUp, spacing } from "../../../../styles/mixins";
+import { heightWidth, largeUp, spacing } from "../../../../../styles/mixins";
 import { motion } from "framer-motion";
-import { TextField } from "@material-ui/core";
+import { Checkbox, TextField } from "@material-ui/core";
 import TagChips from "./TagChips";
 import SeriesPosts from "./SeriesPosts";
 
 const drawerWidth = 300;
 
 const containerVariant = {
-  initial: {
-
-  },
+  initial: {},
   animate(custom){
-    if (custom.open)
       return {
-      x: 0,
+      x: custom.open ? 0 : 300,
         transition: {
-          delay: .2
+          delay: custom.open ? .2 : .3
         }
     };
-
-    return {
-      x: 300,
-      transition: {
-        delay: .3
-      }
-    }
   },
   exit: {
     x: 300,
@@ -35,7 +25,7 @@ const containerVariant = {
 
 const DrawerContainer = styled( motion.div )`
   width: 0;
-  z-index: 999;
+  z-index: 2;
 
   ${ largeUp( css`
     width: ${ drawerWidth }px;
@@ -78,6 +68,7 @@ const FilterDrawer = ( {open} ) => {
                    variant='outlined'
                    fullWidth={true}
         />
+
 
 
         <TagChips />

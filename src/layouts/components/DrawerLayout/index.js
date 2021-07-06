@@ -5,7 +5,7 @@ import PageContent from "./components/PageContent";
 import FilterDrawer from "./components/FilterDrawer";
 import styled, { useTheme } from "styled-components";
 import { motion } from "framer-motion";
-import { spacing } from "../../styles/mixins";
+import { spacing } from "../../../styles/mixins";
 
 
 const ArticleEffect = styled( Typography )`

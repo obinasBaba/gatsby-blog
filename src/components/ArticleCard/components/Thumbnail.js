@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from "styled-components";
 import CardMedia from "@material-ui/core/CardMedia";
-import { largeUp, mediumUp, smallUp, spacing } from "../../../../../styles/mixins";
+import { largeUp, mediumUp, smallUp, spacing } from "../../../styles/mixins";
 
 const StyledThumbnail = styled( CardMedia )`
   width: 88%;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
-import { largeUp, mediumUp, smallUp, text } from "../../../../styles/mixins";
+import { largeUp, mediumUp, smallUp, text } from "../../../../../styles/mixins";
 
 const drawerWidth = 300;
 

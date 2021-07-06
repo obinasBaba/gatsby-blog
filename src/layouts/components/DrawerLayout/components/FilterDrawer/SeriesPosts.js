@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Chip, Typography } from "@material-ui/core";
 import styled from "styled-components";
-import { spacing } from "../../../../styles/mixins";
+import { spacing } from "../../../../../styles/mixins";
 
 const SeriesPostsContainer = styled.div`
  

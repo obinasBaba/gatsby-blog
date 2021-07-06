@@ -112,4 +112,5 @@ export const GlobalStyle = createGlobalStyle`
 export const Main = styled.main`
   flex: 1;
   position: relative;
+  min-height: 100vh;
 `

@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import styled, { css } from "styled-components";
 import { Link } from "gatsby";
-import { smallDown, smallUp, spacing, text } from "../../../../../styles/mixins";
+import { smallDown, smallUp, spacing, text } from "../../../styles/mixins";
 import { Button } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
@@ -31,7 +31,7 @@ const Heading = styled( Typography )`
 `;
 
 const Body = styled( Typography )`
-  color: rgba(0, 0, 0, .7);
+  //color: rgba(0, 0, 0, .7);
   line-height: 1.4;
 
   ${ text( 1 ) };
@@ -64,6 +64,7 @@ const ContentWrapper = styled( CardContent )`
   z-index: 11;
   //border: thin solid blue;
   align-self: stretch;
+  color: black;
 
   flex: 1.5;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import ArticleCard from "../scenes/ArticlesPage/components/ArticleCard";
 import { graphql, Link } from "gatsby";
 import styled, { useTheme } from "styled-components";
 import { useMediaQuery } from "@material-ui/core";
+import ArticleCard from "../components/ArticleCard";
 
 const PageLinks = styled.div`
   padding: 1rem;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { shadow, smallUp, spacing } from "../../../../../styles/mixins";
+import { shadow, smallUp, spacing} from "../../../styles/mixins";
 import { motion } from "framer-motion";
 
 
@@ -11,19 +11,18 @@ const StyledBlogCard = styled( motion.div )`
   position: relative;
   width: calc(100% + 20px);
   transform: translateX(-10px) !important; //killing framer-motion x specificity
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
   //backdrop-filter: blur(10px);
   //background-color: rgba( 255, 255, 255 , .2);
-   //border: solid 2px transparent;
+  //border: solid 2px transparent;
   background-clip: padding-box;
-  background-image: url( ${ ({media}) => media } );
+  background-image: url(${ ({ media }) => media });
   background-position: 80% 1%;
   background-repeat: no-repeat;
   background-size: cover;
-  
 
 
   ${ spacing( "br", 3 ) };
@@ -40,7 +39,7 @@ const StyledBlogCard = styled( motion.div )`
     right: 0;
     ${ spacing( "br", 3 ) };
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(238, 232, 170, 0.80);
     overflow: hidden;
     //z-index: -1;
   }
@@ -72,7 +71,7 @@ const StyledBlogCard = styled( motion.div )`
     flex-direction: row;
     width: clamp(500px, 75vw, 785px);
     transform: translateX(0);
-    
+
     ${ shadow() };
     ${ spacing( "pv", 3 ) };
     ${ spacing( 'ml', 1 ) };
