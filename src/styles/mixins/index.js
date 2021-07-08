@@ -34,7 +34,7 @@ export const shadow = depth => {
   `
 }
 
-export const spacing = (key, value, halo = false) => {
+export const spacing = (key, value, halo = false, important = false) => {
   let propKey;
   let temp;
 
@@ -80,12 +80,6 @@ export const spacing = (key, value, halo = false) => {
     case 'ph':
       temp = value * 10
 
-      if (halo)
-        return css`
-          padding-right: calc(${value}rem * var(--halo));
-          padding-left: calc(${value}rem * var(--halo));
-        `
-
       return css`
         padding-right: calc(${temp}px * var(--indent));
         padding-left: calc(${temp}px * var(--indent));
@@ -93,11 +87,6 @@ export const spacing = (key, value, halo = false) => {
 
     case 'pv':
       temp = value * 10;
-      if (halo)
-        return css`
-          padding-top: calc(${value}rem * var(--halo));
-          padding-bottom: calc(${value}rem * var(--halo));
-        `
 
       return css`
         padding-top: calc(${temp}px * var(--indent));
@@ -110,11 +99,6 @@ export const spacing = (key, value, halo = false) => {
     default:
       propKey = key
   }
-
-  if (halo)
-    return css`
-      ${propKey}: calc(${value}rem * var(--halo));
-    `
 
   return css`
     ${propKey}: calc(${value * 10}px * var(--indent));
