@@ -57,12 +57,6 @@ export const spacing = (key, value, halo = false) => {
   case 'mv':
     temp = value * 10;
 
-    if (halo)
-      return css`
-        margin-top: calc(${value}rem * var(--halo));
-        margin-bottom: calc(${value}rem * var(--halo));
-      `
-
     return css`
         margin-top: calc(${temp}px * var(--indent));
         margin-bottom: calc(${temp}px * var(--indent));

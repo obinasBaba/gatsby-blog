@@ -34,7 +34,7 @@ const MyArticles = styled( Typography )`
   
   ${ largeUp( css`
     transform: translateX( -50px );
-    ${ text(5) };
+    ${ text(5.6) };
 
 
   ` ) }

@@ -19,13 +19,17 @@ const StyledBlogCard = styled( motion.div )`
   background-position: 80% 1%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgba(238, 232, 170, 0.80);
+  border: 2px solid palegoldenrod;
 
 
   ${ spacing( "br", 3 ) };
-  ${ spacing( "mv", 11 ) };
-  // ${ spacing( "mb", 15 ) };
+  
+  ${ spacing( "mt", 11 ) };
+  ${ spacing( "mb", 11 ) };
 
-  &:before {
+  /* background for blur effect */
+  &::before {
     content: '';
     display: block;
     position: absolute;
@@ -37,14 +41,12 @@ const StyledBlogCard = styled( motion.div )`
     backdrop-filter: blur(10px);
     background-color: rgba(238, 232, 170, 0.80);
     overflow: hidden;
-    //z-index: -1;
   }
 
-  &::after {
+  /* divider line */
+  &::after {  
     content: '';
-    display: none;
     position: absolute;
-    //width: 100%;
     background-color: var(--clr-accent);
     height: 1px;
     opacity: .2;
@@ -77,9 +79,13 @@ const StyledBlogCard = styled( motion.div )`
 
 const topVariant = {
   initial: {
-
+    opacity: 0,
+  },
+  animate :{
+    opacity: 1,
   },
   hover: {
+
   }
 }
 
@@ -96,6 +102,7 @@ const BlogCard = ({ children, media }) => {
   return (
       <motion.div variants={topVariant}
                   initial='initial'
+                  animate='animate'
                   whileHover='hover'>
 
         <StyledBlogCard variants={innerVariant} media={media}>

@@ -1,8 +1,9 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import ArticleCard from "../components/ArticleCard";
 import queryString from 'query-string'
+import { AppStateContext } from "../contexts/AppStateContext";
 
 export const query = graphql`
   query{
@@ -16,7 +17,9 @@ export const query = graphql`
           excerpt(pruneLength: 350, truncate: false)
           frontmatter {
             date(formatString: "MMMM D, YYYY")
-           
+            tags {
+              tag
+            }
             title
             thumbnail {
               publicURL
@@ -37,39 +40,50 @@ export const query = graphql`
 `;
 
 const TagsContainer = styled.div`
-
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 
 const Tags = ({ location, data }) => {
 
+  const lastRef = useRef( null );
   const [tagsArr, setTagsArr] = useState( [] );
+  const { queryString, setQueryString } = useContext( AppStateContext );
+
 
 
 
 
   useEffect( () => {
+
     let urlParams = new URLSearchParams( location.search );
-    setTagsArr(urlParams.get('tag').split(','))
 
-    console.log( queryString.parse( location.search ) );
+    setTagsArr(queryString.split(','))
 
-    // console.log( urlParams.get( "tag" ).split(',') );
-    console.log('tagsArrays: ', tagsArr);
-  }, [] );
+    // console.log( queryString.parse( location.search ) );
+
+    // console.log('tagsArrays: ------- ******** * * ** * * * **\n', tagsArr, 'qS : ', queryString.split(','));
+
+    window.scrollTo(lastRef.current && {
+      top: 600
+    })
+
+  }, [queryString] );
 
 
   return (
-    <TagsContainer>
+    <>
       {
+
         data.allBlogs.edges.map( ({
                                     node: {
                                       id, excerpt, fields: { slug },
                                       frontmatter: {
                                         title,
-                                        thumbnail: {
-                                          publicURL
-                                        },
+                                        thumbnail,
                                         date,
                                         tags
                                       }
@@ -77,16 +91,20 @@ const Tags = ({ location, data }) => {
                                   }, index) => {
 
           if (tags){
+
+
             let mappedTags = tags.map(({tag}) => tag)
-            console.log('mapped: ', mappedTags, 'targes: ', tagsArr);
             let includes = tagsArr.some((t, i) => {
-              return mappedTags.includes(t)
+              return mappedTags.includes(`#${t}`)
             })
+
+            console.log('mapped: ', mappedTags, 'targes: ', tagsArr, 'includes: ', includes);
 
             if (includes)
               return (
                 <ArticleCard title={ title } date={ date } key={ excerpt }
-                             featuredMedia={ publicURL }
+                             featuredMedia={ thumbnail }
+                             ref={ index === data.allBlogs.edges.length - 1 ? lastRef : null }
                              tags={mappedTags}
                              body={ excerpt } slug={ slug } />
 
@@ -97,7 +115,7 @@ const Tags = ({ location, data }) => {
 
         } )
       }
-    </TagsContainer>
+    </>
   );
 };
 

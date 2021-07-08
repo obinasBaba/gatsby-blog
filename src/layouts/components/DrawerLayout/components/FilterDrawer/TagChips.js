@@ -12,11 +12,18 @@ const ChipsContainer = styled.div`
 
   }
 
+  //& .MuiChip-outlined:focus{
+  //  background-color: rgba(238, 232, 170, 0.48) !important;
+  //}
+
+
   & .MuiTouchRipple-root {
     z-index: -2;
   }
 
   .MuiChip-outlined:hover {
+    border: 1.5px solid palegoldenrod;
+    
     & .MuiAvatar-img {
       filter: initial;
     }
@@ -26,8 +33,8 @@ const ChipsContainer = styled.div`
     }
   }
 
-  .MuiChip-outlined:focus {
-    ${ ({ isactive }) => isactive ? "rgb(238, 232, 170)" : "transparent" };
+  & .MuiChip-outlined:focus {
+    background-color: rgba(238, 232, 170, .48);
   }
 
 
@@ -42,9 +49,14 @@ const StyledChip = styled( Chip )`
   margin: .3rem .2rem;
   user-select: text;
 
+  .MuiChip-outlined:focus {
+    background-color: initial;
+  }
 
   ${ ({ isactive }) => isactive && css`
-    background-color: rgba(238, 232, 170, 0.71);
+    background-color: rgba(238, 232, 170, 0.48);
+    
+    border: 1.5px solid palegoldenrod;
 
     & .MuiAvatar-img {
       filter: initial;
@@ -109,7 +121,7 @@ const TagChips = () => {
     return (
       <ChipsContainer>
 
-        <Typography variant={ "h6" }> Tagged with:  </Typography>
+        <Typography variant={ "h6" }> Tagged with :  </Typography>
 
 
         {
@@ -128,16 +140,12 @@ const TagChips = () => {
                           clickable={ true }
                           isactive={ queryString.includes( tag ) }
                           onClick={ () => {
+
                             if (queryString.includes( tag )) {
                               setQueryString( queryString.replace( tag + ",", "" ) );
 
-
-                              return;
-                              // selectedTags.delete(index)
-                              // return setSelectedTags(  selectedTags )
-                            }
-
-                            setQueryString( `${ queryString + tag },` );
+                            }else
+                              setQueryString( `${ queryString + tag },` );
 
                             // console.log(queryString);
                             // navigate(`/tags/?tag=${queryString}`)

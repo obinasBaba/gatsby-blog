@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { heightWidth, largeUp, spacing, xLargeUp } from "../../../../../styles/mixins";
+import { heightWidth, mediumUp, spacing, xLargeUp } from "../../../../../styles/mixins";
 import { motion } from "framer-motion";
-import { Checkbox, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import TagChips from "./TagChips";
 import SeriesPosts from "./SeriesPosts";
 
@@ -26,6 +26,7 @@ const containerVariant = {
 const DrawerContainer = styled( motion.div )`
   width: 0;
   z-index: 2;
+  color: black;
 
   ${ xLargeUp( css`
     width: ${ drawerWidth }px;
@@ -33,18 +34,25 @@ const DrawerContainer = styled( motion.div )`
 
 
   & .inner-container {
-    background: rgba(238, 232, 170, 0.8);
+    background: rgba(238, 232, 170, 0.6);
+    backdrop-filter: blur(10px);
     padding-top: 4rem;
-    ${ heightWidth( 'width', 30 ) };
     position: fixed;
     right: 0;
     bottom: 0;
     top: 0;
 
     ${ spacing( 'ph', 2 ) };
+    ${ heightWidth( 'width', 40 ) };
 
-    & > :nth-child( n + 1 ) {
-      ${ spacing('mt', 3) };
+    ${ mediumUp( css`
+      ${ heightWidth( 'width', 30 ) };
+
+    ` ) };
+
+
+    & > :not( :first-child ) {
+      ${ spacing('mt', 2) };
     }
 
   }

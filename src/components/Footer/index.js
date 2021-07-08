@@ -5,12 +5,13 @@ import ContactForm from "./ContactForm";
 import NavLinks from "../Header2/components/NavLinks";
 
 const PaddingContainer = styled( Grid )`
-  padding: 4rem  0;
+  padding: 4rem 0;
   z-index: 991300;
   position: relative;
   //background-color: var(--clr-bg);
-  background: linear-gradient( 180deg , rgba(255, 255, 255, 0) -140%, var(--clr-bg)  28%);
-
+  background: linear-gradient(180deg, rgba(28, 27, 27, 0.53) 0%, var(--clr-bg) 88%);
+  
+  backdrop-filter: blur(10px);
 `;
 
 const CopyRightWrapper = styled.div`
