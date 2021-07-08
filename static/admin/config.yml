@@ -12,29 +12,19 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - name: "contentKey"
-        widget: "hidden"
-        default: "blog"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
+      - { name: "contentKey", widget: "hidden", default: "blog" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime"}
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - label: "Tags"
         label_singular: "Tags"
         name: "tags"
         widget: "list"
         fields:
-          - label: "Tag"
-            name: "tag"
+          - name: "tag"
             widget: "string"
-      - label: "Featured Image"
-        name: "thumbnail"
-        widget: "image"
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+      - { label: "Body", name: "body", widget: "markdown" }
+
   - name: "pages"
     label: "Pages"
     files:
@@ -51,6 +41,7 @@ collections:
           - label: "Hero Image"
             name: "heroImage"
             widget: "image"
+
       - file: "src/cms/pageData/menu.md"
         label: "Menu"
         name: "menu"

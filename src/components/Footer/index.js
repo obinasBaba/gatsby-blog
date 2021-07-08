@@ -8,7 +8,9 @@ const PaddingContainer = styled( Grid )`
   padding: 4rem  0;
   z-index: 991300;
   position: relative;
-  background-color: var(--clr-bg);
+  //background-color: var(--clr-bg);
+  background: linear-gradient( 180deg , rgba(255, 255, 255, 0) -140%, var(--clr-bg)  28%);
+
 `;
 
 const CopyRightWrapper = styled.div`

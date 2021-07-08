@@ -58,7 +58,7 @@ const ReadMoreBtn = styled( Button )`
   
 `;
 
-const ContentWrapper = styled( CardContent )`
+const ContentWrapper = styled.div `
   display: flex;
   flex-flow: column;
   z-index: 11;
@@ -81,7 +81,7 @@ const ContentWrapper = styled( CardContent )`
 `;
 
 
-const CardContents = ({ overline, title, body, slug }) => {
+const CardContents = ({ overline, title, body, slug, tags }) => {
 
   return (
     <ContentWrapper>
@@ -89,7 +89,9 @@ const CardContents = ({ overline, title, body, slug }) => {
 
       <Overline variant="subtitle2" color="textSecondary">
         <MetaTxt>{ overline }</MetaTxt>
-        <MetaTxt> #React, #Js </MetaTxt>
+        <MetaTxt> {
+          tags && tags.join(', ')
+        } </MetaTxt>
       </Overline>
 
       <Heading variant="h4"> <Link to={ slug }>{ title }</Link> </Heading>

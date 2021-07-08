@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaAdobe, FaExpand } from "react-icons/all";
 import { Fab, Typography, useMediaQuery, Zoom } from "@material-ui/core";
 import PageContent from "./components/PageContent";
 import FilterDrawer from "./components/FilterDrawer";
 import styled, { useTheme } from "styled-components";
 import { motion } from "framer-motion";
-import { spacing } from "../../../styles/mixins";
+import { heightWidth, spacing } from "../../../styles/mixins";
+import { AppStateContext } from "../../../contexts/AppStateContext";
 
 
 const ArticleEffect = styled( Typography )`
@@ -26,20 +27,20 @@ const DrawerContainer = styled( motion.div )`
   display: flex;
   position: relative;
   min-height: 100vh;
-  ${ spacing('mt', 16) };
+  ${ heightWidth('margin-top', 16) };
 `
 
 export default function DrawerLayout({ children }) {
 
-  const [open, setOpen] = React.useState( false );
   const [fabIndex, setFabIndex] = React.useState( 0 );
+  const { isDrawerOpen, setDrawerOpen } = useContext( AppStateContext );
   // let fabIndex = 0;
 
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerOpen = (index) => {
-    setOpen( !open );
+    setDrawerOpen( !isDrawerOpen );
     setFabIndex(index)
   };
 
@@ -47,7 +48,8 @@ export default function DrawerLayout({ children }) {
     color: "primary",
     icon: <FaExpand />,
     label: "expand"
-  }, {
+  },
+    {
     color: "#123",
     icon: <FaAdobe />,
     label: "colapse"
@@ -63,9 +65,9 @@ export default function DrawerLayout({ children }) {
 
       <DrawerContainer >
 
-        <PageContent open={ open } children={ children } />
+        <PageContent open={ isDrawerOpen } children={ children } />
 
-        <FilterDrawer open={ open } />
+        <FilterDrawer open={ isDrawerOpen } />
 
 
 
@@ -97,7 +99,7 @@ export default function DrawerLayout({ children }) {
           ) )
         }
 
-        <ArticleEffect variant="h1" open={ open }>
+        <ArticleEffect variant="h1" open={ isDrawerOpen }>
           BLOG
         </ArticleEffect>
 

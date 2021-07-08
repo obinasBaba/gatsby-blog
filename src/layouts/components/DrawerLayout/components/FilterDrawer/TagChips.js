@@ -109,7 +109,7 @@ const TagChips = () => {
     return (
       <ChipsContainer>
 
-        <Typography variant={ "h6" }> { queryString } </Typography>
+        <Typography variant={ "h6" }> Tagged with:  </Typography>
 
 
         {
@@ -119,6 +119,7 @@ const TagChips = () => {
               // <Link to={ `/tags/?tag=${ queryString }` } key={ tag + index }>
 
               <StyledChip variant="outlined"
+                          key={tag + index}
                           avatar={
                             icon ? <Avatar className="icon" src={ icon.publicURL } /> :
                               <Avatar>{ tag.charAt( 1 ).toUpperCase() }</Avatar>

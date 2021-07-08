@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styled, { css } from "styled-components";
-import { largeUp, mediumUp, smallUp, text } from "../../../../../styles/mixins";
+import { largeUp, mediumUp, smallUp, text, xLargeUp } from "../../../../../styles/mixins";
 
 const drawerWidth = 300;
 
@@ -13,7 +13,7 @@ const ContentContainer = styled.div`
   transition: all .5s;
   
 
-  ${ largeUp( css`
+  ${ xLargeUp( css`
       margin-right: ${ ({ open }) => open ? 0 : -drawerWidth + "px" };;
   ` ) }
 
@@ -50,14 +50,6 @@ const ArticleCardWrapper = styled( Container )`
   ` ) };
 `;
 
-const MyArticles = styled( Typography )`
-  ${ text(4) };
-  
-  ${ mediumUp( css`
-    ${ text(5) };
-
-  ` ) }
-`;
 
 
 const PageContent = ({ open , children}) => {
@@ -67,13 +59,6 @@ const PageContent = ({ open , children}) => {
 
 
       <ArticleCardWrapper fixed={ false } maxWidth={ "md" }>
-
-
-        {/*<ToggleSvg/>*/}
-
-        <MyArticles variant="h1">
-          My Articles
-        </MyArticles>
 
         { children }
 

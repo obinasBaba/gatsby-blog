@@ -4,15 +4,17 @@ import BlogCard from "./components/BlogCard";
 import Thumbnail from "./components/Thumbnail";
 
 
-const ArticleCard = ({ date, title, body, slug, featuredMedia }) => {
+const ArticleCard = ({ date, title, body, slug, featuredMedia, tags }) => {
+
+  const { childImageSharp, publicURL } = featuredMedia;
 
 
   return (
-    <BlogCard  media={featuredMedia}>
+    <BlogCard  media={publicURL}>
 
       <Thumbnail
 
-        media={featuredMedia}
+        media={childImageSharp}
 
         image={
           "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2000px-Git_icon.svg.png"
@@ -24,6 +26,7 @@ const ArticleCard = ({ date, title, body, slug, featuredMedia }) => {
           title={title }
           body={body }
           slug={slug}
+          tags={tags}
         />
 
     </BlogCard>

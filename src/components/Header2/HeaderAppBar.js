@@ -50,12 +50,15 @@ const NavContainer = styled.div`
     bottom: 0;
     z-index: 100;
 
+
     ${transition};
-    backdrop-filter: saturate(180%) blur(11px);
     background: ${({ isWhite }) =>
       isWhite
         ? 'linear-gradient(180deg, var(--clr-nav) 0%, rgba(243, 243, 243, 0) 98%)'
         : 'linear-gradient(0deg, rgba(2, 2, 30, 0.0001) 0%, #02021e 98%)'};
+
+    background: linear-gradient(180deg, var(--clr-bg) 0%, rgba(28, 27, 27, 0) 100%);
+
   }
 
   ${mediumUp(css`

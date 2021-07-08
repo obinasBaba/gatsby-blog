@@ -14,6 +14,7 @@ const AppStateProvider = ( {children} ) => {
   const [isWhite, setIsWhite] = useState(false)
   const [isHeaderGradient, setHeaderGradient] = useState(true)
   const [isContactOpen, setContactModal] = useState(false)
+  const [isDrawerOpen, setDrawerOpen] = useState(true)
 
   const [queryString, setQueryString] = useState( '' );
 
@@ -29,7 +30,8 @@ const AppStateProvider = ( {children} ) => {
       setHeaderGradient,
       isContactOpen,
       setContactModal,
-      queryString, setQueryString
+      queryString, setQueryString,
+      isDrawerOpen, setDrawerOpen
 
 
     }} >

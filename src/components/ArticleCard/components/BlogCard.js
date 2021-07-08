@@ -5,19 +5,15 @@ import { motion } from "framer-motion";
 
 
 const StyledBlogCard = styled( motion.div )`
+  position: relative;
   margin: auto;
   box-shadow: 0 5px 20px rgba(34, 45, 58, 0.2);
-  //transition: 0.3s;
-  position: relative;
   width: calc(100% + 20px);
   transform: translateX(-10px) !important; //killing framer-motion x specificity
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  //backdrop-filter: blur(10px);
-  //background-color: rgba( 255, 255, 255 , .2);
-  //border: solid 2px transparent;
   background-clip: padding-box;
   background-image: url(${ ({ media }) => media });
   background-position: 80% 1%;
@@ -26,8 +22,8 @@ const StyledBlogCard = styled( motion.div )`
 
 
   ${ spacing( "br", 3 ) };
-  ${ spacing( "mv", 10 ) };
-  ${ spacing( "mb", 15 ) };
+  ${ spacing( "mv", 11 ) };
+  // ${ spacing( "mb", 15 ) };
 
   &:before {
     content: '';
@@ -48,13 +44,14 @@ const StyledBlogCard = styled( motion.div )`
     content: '';
     display: none;
     position: absolute;
-    width: 100%;
-    transform: translateX(-50%);
-    background-color: rgba(191, 191, 191, 0.9);
+    //width: 100%;
+    background-color: var(--clr-accent);
     height: 1px;
-    left: 50%;
+    opacity: .2;
+    left: -10%;
+    right: -8%;
 
-    ${ spacing( 'bottom', -7.5 ) };
+    ${ spacing( 'bottom', -11 ) };
 
 
     ${ smallUp( css`
@@ -69,12 +66,11 @@ const StyledBlogCard = styled( motion.div )`
 
   ${ smallUp( css`
     flex-direction: row;
-    width: clamp(500px, 75vw, 785px);
+    width: clamp(500px, 76vw, 800px);
     transform: translateX(0);
 
     ${ shadow() };
-    ${ spacing( "pv", 3 ) };
-    ${ spacing( 'ml', 1 ) };
+    ${ spacing( "pv", 2 ) };
 
   ` ) };
 `;
@@ -93,20 +89,6 @@ const innerVariant = {
     x: 0
   },
   hover: {
-    x: 1,
-    y: 1,
-    scale: .99 ,
-    ['box-shadow']: '0 4px 20px 0 rgba(0, 0, 0, 0.12)',
-    transition: {
-      ease: 'easeOut',
-      type: 'tween',
-
-      ['box-shadow']: {
-        type: 'tween',
-        duration: .05
-      }
-    }
-
   }
 }
 
@@ -114,13 +96,10 @@ const BlogCard = ({ children, media }) => {
   return (
       <motion.div variants={topVariant}
                   initial='initial'
-                  whileHover='hover'
-      >
+                  whileHover='hover'>
 
-        <StyledBlogCard variants={innerVariant}
-                        media={media}
-        >
-        { children }
+        <StyledBlogCard variants={innerVariant} media={media}>
+          { children }
         </StyledBlogCard>
 
       </motion.div>

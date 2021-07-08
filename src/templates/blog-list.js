@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
-import styled, { useTheme } from "styled-components";
-import { useMediaQuery } from "@material-ui/core";
+import styled, { css, useTheme } from "styled-components";
+import { Typography, useMediaQuery } from "@material-ui/core";
 import ArticleCard from "../components/ArticleCard";
+import { largeUp, mediumUp, spacing, text, xLargeUp } from "../styles/mixins";
+import { AppStateContext } from "../contexts/AppStateContext";
 
 const PageLinks = styled.div`
   padding: 1rem;
@@ -12,6 +14,41 @@ const PageLinks = styled.div`
   }
 `
 
+const MyArticles = styled( Typography )`
+  ${ text(4) };
+  transition: ${ ({ theme, isOpen }) => isOpen ?
+          theme.transitions.create( "transform", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+            delay: 280
+          } )
+
+          :
+
+          theme.transitions.create( "transform", {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+            delay: 200
+
+          } ) };
+  
+  ${ largeUp( css`
+    transform: translateX( -50px );
+    ${ text(5) };
+
+
+  ` ) }
+  
+  ${ xLargeUp( css`
+
+    ${ ({isOpen}) => isOpen ?
+            'transform: translateX( 0 )' :
+            'transform: translateX( calc(-130px * var(--size) ) )' };
+  
+  ` ) };
+`;
+
+
 const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
 
   const previousPage = currentPage === 2 ? "/blog" : `/blog/${ currentPage - 1 }`;
@@ -19,11 +56,17 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
   const nextPage = `/blog/${ currentPage + 1 }`;
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('sm'))
+  const { isDrawerOpen, setDrawerOpen } = useContext( AppStateContext );
+
 
 
 
   return (
     < >
+
+      <MyArticles variant="h1" isOpen={isDrawerOpen}>
+        My Articles
+      </MyArticles>
 
         {
           data.allMarkdownRemark.edges.map( ({
@@ -31,16 +74,17 @@ const BlogListTemplate = ({ data, pageContext: {currentPage, pageCount} }) => {
                                                  id, excerpt, fields: { slug },
                                                  frontmatter: {
                                                    title,
-                                                   thumbnail: {
-                                                     publicURL
-                                                   },
-                                                   date
+                                                   thumbnail,
+                                                   date,
+                                                   tags
                                                  }
                                                }
                                              }, index) => {
-            return (
+
+              return (
                 <ArticleCard title={ title } date={ date } key={excerpt}
-                             featuredMedia={publicURL}
+                             featuredMedia={thumbnail}
+                             tags={tags && tags.map(({tag}) => tag)}
                              body={ match ? excerpt : `${excerpt.substr(0, 220)}...` } slug={ slug } />
 
             );
@@ -91,6 +135,9 @@ export const query = graphql`
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
+          tags {
+            tag
+          }
           thumbnail {
             publicURL
             childImageSharp {

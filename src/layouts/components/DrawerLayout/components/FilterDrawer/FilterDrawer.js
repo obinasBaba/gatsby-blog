@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { heightWidth, largeUp, spacing } from "../../../../../styles/mixins";
+import { heightWidth, largeUp, spacing, xLargeUp } from "../../../../../styles/mixins";
 import { motion } from "framer-motion";
 import { Checkbox, TextField } from "@material-ui/core";
 import TagChips from "./TagChips";
@@ -27,7 +27,7 @@ const DrawerContainer = styled( motion.div )`
   width: 0;
   z-index: 2;
 
-  ${ largeUp( css`
+  ${ xLargeUp( css`
     width: ${ drawerWidth }px;
   ` ) };
 
