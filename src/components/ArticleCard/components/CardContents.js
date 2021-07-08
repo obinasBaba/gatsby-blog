@@ -13,12 +13,7 @@ const ContentWrapper = styled.div `
   //border: thin solid blue;
   align-self: stretch;
   color: black;
-
   flex: 1.5;
-
-  ${ smallUp( css`
-    max-width: 67%;
-  ` ) };
 
   & > :not(:first-child) {
     ${ spacing( "mt", 1 ) };
@@ -26,6 +21,14 @@ const ContentWrapper = styled.div `
 
   ${ spacing( "p", 2.5 ) };
   ${ spacing( "ph", 3 ) };
+  
+  ${ ({small}) => !small && css`
+
+    ${ smallUp( css`
+    max-width: 67%;
+  ` ) };
+  
+  ` };
 `;
 
 
@@ -33,7 +36,6 @@ const Overline = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${ spacing( "ph", 2 ) };
 `;
 
 const MetaTxt = styled( Typography )`
@@ -63,10 +65,10 @@ const Body = styled( Typography )`
 
 
 
-const CardContents = ({ overline, title, body, slug, tags }) => {
+const CardContents = ({ overline, title, body, slug='/', tags, small }) => {
 
   return (
-    <ContentWrapper>
+    <ContentWrapper small={small} >
 
 
       <Overline variant="subtitle2" color="textSecondary">

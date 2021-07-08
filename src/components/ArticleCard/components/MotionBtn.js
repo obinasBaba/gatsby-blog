@@ -1,5 +1,4 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import { smallDown, spacing } from "../../../styles/mixins";

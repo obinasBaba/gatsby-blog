@@ -30,8 +30,23 @@ const StyledThumbnail = styled.div`
 
   ${ spacing( "mt", -5 ) };
   ${ spacing( "br", 2 ) };
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(137.81deg, #e7a28f 3.52%, #f9d6ac 41.89%, #fbfefc 96.77%);
+    opacity: 0.3;
 
-  ${ smallUp( css`
+    ${ spacing( "br", 2 ) };
+  }
+  
+  ${ ({small}) => !small && css`
+
+    ${ smallUp( css`
     flex: 1 0;
     margin-top: 0;
     ${ spacing( "ml", -3 ) };
@@ -47,24 +62,13 @@ const StyledThumbnail = styled.div`
   ${ largeUp( css`
     ${ spacing( "ml", -7 ) };
   ` ) }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(137.81deg, #e7a28f 3.52%, #f9d6ac 41.89%, #fbfefc 96.77%);
-    opacity: 0.3;
-
-    ${ spacing( "br", 2 ) };
-  }
+    
+  ` };
 
 `;
 
 
-const Thumbnail = ({ media }) => {
+const Thumbnail = ({ media, small }) => {
 
 
   return (
@@ -72,6 +76,8 @@ const Thumbnail = ({ media }) => {
       image={
         media
       }
+
+      small={small}
     >
       <GatsbyImage alt={ "featured image" } objectFit="cover"
                    objectPosition="center"

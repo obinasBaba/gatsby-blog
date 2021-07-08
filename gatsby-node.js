@@ -21,7 +21,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   actions.createPage(page)
 }*/
 
-//creating post Page
+ //creating post Page
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   const result = await graphql( `
@@ -45,9 +45,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     .forEach(({node : {fields: {slug}}}) => {
       createPage({
         path: slug,
-        component: path.resolve('./src/templates/blog/blog.js'),
+
+        component: path.resolve('./src/templates/Blog/index.js'),
         context: {
           slug: slug,
+          allPost: result.data.allMarkdownRemark.edges,
         }
       })
     });

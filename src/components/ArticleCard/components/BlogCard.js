@@ -45,10 +45,11 @@ const StyledBlogCard = styled( motion.div )`
 
   /* divider line */
   &::after {  
-    content: '';
+    content: ${ ({line}) => line ? '' : null };
     position: absolute;
     background-color: var(--clr-accent);
     height: 1px;
+
     opacity: .2;
     left: -10%;
     right: -8%;
@@ -75,6 +76,22 @@ const StyledBlogCard = styled( motion.div )`
     ${ spacing( "pv", 2 ) };
 
   ` ) };
+  
+  ${ ({small}) => small && css`
+
+    flex-direction: column;
+    width: calc(100% + 10px);
+    transform: translateX(-5px) !important;
+
+    ${ smallUp( css`
+
+      max-width: 400px;
+      width: 100%;
+      flex-direction: column;
+      
+  ` ) };
+  
+  ` };
 `;
 
 const topVariant = {
@@ -98,14 +115,14 @@ const innerVariant = {
   }
 }
 
-const BlogCard = ({ children, media }) => {
+const BlogCard = ({ children, media, small }) => {
   return (
       <motion.div variants={topVariant}
                   initial='initial'
                   animate='animate'
                   whileHover='hover'>
 
-        <StyledBlogCard variants={innerVariant} media={media}>
+        <StyledBlogCard variants={innerVariant} media={media} small={small}>
           { children }
         </StyledBlogCard>
 
