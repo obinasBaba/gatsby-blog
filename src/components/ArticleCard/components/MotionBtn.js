@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import { smallDown, spacing } from "../../../styles/mixins";
+import { Link } from "gatsby";
 
 const ReadMoreBtn = styled( motion.div ) `
   //box-shadow: 0 4px 32px rgba(252, 56, 56, 0.4);
@@ -33,6 +34,16 @@ const ReadMoreBtn = styled( motion.div ) `
   .txt{
     margin: 0;
     padding: .7rem 1rem;
+  }
+  
+  a{
+    text-decoration: none;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left :0;
+    right: 0;
   }
   
 `;
@@ -104,11 +115,13 @@ const arrowVariant = {
     opacity: 0,
     rotate: '-90deg',
     x: -30,
-
+    scale: 1,
   },
 
   hover: {
     x: 0,
+    scale: .9,
+
     opacity: 1,
     transition :{
       opacity: {
@@ -146,14 +159,15 @@ const arrowTransition = {
 }
 
 
-const MotionBtn = () => {
+const MotionBtn = ({slug}) => {
   return (
+
     <ReadMoreBtn variants={parentVariant}
                  initial='initial'
                  animate='animate'
                  whileHover='hover'
     >
-
+      <Link to={slug}/>
 
       <Background variants={bgVariant} transition={transition} />
 

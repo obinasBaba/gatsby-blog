@@ -82,7 +82,7 @@ const CardContents = ({ overline, title, body, slug='/', tags, small }) => {
 
       <Body gutterBottom={ true }>{ body }</Body>
 
-      <MotionBtn />
+      <MotionBtn slug={slug} />
 
 
     </ContentWrapper>

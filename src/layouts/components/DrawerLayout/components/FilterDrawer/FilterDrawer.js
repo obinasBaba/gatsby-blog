@@ -34,7 +34,14 @@ const DrawerContainer = styled( motion.div )`
 
 
   & .inner-container {
-    background: rgba(238, 232, 170, 0.6);
+    //background: rgba(238, 232, 170, 0.6);
+    background: linear-gradient(
+            217.81deg,
+            rgba(238, 232, 170, 1) 3.52%,
+            rgba(238, 232, 170, 0.6) 47.89%,
+            rgba(238, 232, 170, 0) 120%
+    );
+
     backdrop-filter: blur(10px);
     padding-top: 4rem;
     position: fixed;

@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #3719ca #1e213d;
+    scrollbar-color: var(--clr-accent) var(--clr-nav);
   }
 
   /* Works on Chrome, Edge, and Safari */
@@ -33,13 +33,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   *::-webkit-scrollbar-track {
-    background: #072142;
+    background: var(--clr-nav);
     transition: background-color 1s ease-in-out;
 
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #3719ca;
+    background-color: var(--clr-accent);
     border-radius: 100px;
     transition: background-color 1s ease-in-out;
   }
