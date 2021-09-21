@@ -3,6 +3,7 @@ import { Grid, Typography } from "@material-ui/core";
 import ProjectCard from "./ProjectCard";
 import { CardWrapper, Header, PaddingContainer, ReadMoreBtn, TextWrapper } from "./components";
 import { useFeaturedArticlesAssets } from "../../../../hooks/queries/useFeaturedArticlesAssets";
+import SlideButton from "../../../../components/SlideButton";
 
 
 const Articles = () => {
@@ -38,9 +39,9 @@ const Articles = () => {
           i share these little bits of information through my articles.
         </Typography>
 
-        <ReadMoreBtn variant="outlined" color='secondary' >
-          EXPLORE More
-        </ReadMoreBtn>
+
+
+        <SlideButton slug={'/blog'} text='Explore More' />
 
       </TextWrapper>
 
@@ -53,13 +54,16 @@ const Articles = () => {
         {
           edges.map( ({
                         node: {
-                          id, frontmatter: {
+                          id,
+                          fields: { slug },
+                          frontmatter: {
                             tags, thumbnail, title
                           }
                         }
                       }) => <ProjectCard item
                                          key={id}
                                          title={title}
+                                         link={slug}
                                          tags={tags}
                                          imgSrc={ thumbnail } />
            )

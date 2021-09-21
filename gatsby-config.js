@@ -6,11 +6,11 @@ module.exports = {
 
   plugins: [
 
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
-    "gatsby-plugin-layout",
+    `gatsby-plugin-layout`,
 
-    "gatsby-plugin-styled-components",
+    `gatsby-plugin-styled-components`,
 
     // `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
@@ -24,27 +24,28 @@ module.exports = {
         name: `img`,
         path: `${__dirname}/static/img`
       }
-    }, { //blog
+    },
+    { //blog
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `cms`,
         path: `${__dirname}/src/cms`
       }
-    },{
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`
       }
-    },{
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `icons`,
         path: `${__dirname}/src/assets/icons`
       }
     },
-
-
 
     {  // markdown file transformer
       resolve: `gatsby-transformer-remark`,
@@ -65,7 +66,12 @@ module.exports = {
       }
     },
 
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/components/cms.js`
+      }
+    },
 
 
     {

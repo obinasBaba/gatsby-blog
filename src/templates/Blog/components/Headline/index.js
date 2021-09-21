@@ -176,25 +176,6 @@ const HeadLine = ({ categories, title, imgData, date, tags, thumbnail }) => {
           </div>
         </DateAndTags>
 
-        <Category>
-          <Typography variant={"subtitle2"} className="all-posts">
-            <Link to="/">
-              Home
-            </Link>
-          </Typography>
-          <span>&nbsp;/&nbsp;</span>
-          <Typography variant={"subtitle2"}   className="all-posts">
-            <Link to="/blog">
-              Articles
-            </Link>
-          </Typography>
-          <span>&nbsp;/&nbsp;</span>
-          <Typography variant={"subtitle1"}  className="item">
-            <Link to="/blog">
-              2021-06 ...
-            </Link>
-          </Typography>
-        </Category>
       </TextAlign>
 
       <ImageBox>

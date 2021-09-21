@@ -12,6 +12,7 @@ export function useFeaturedArticlesAssets() {
         edges {
           node {
             id
+            fields { slug }
             frontmatter {
               tags {
                 tag

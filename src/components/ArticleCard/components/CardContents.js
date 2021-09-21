@@ -3,8 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 import { smallDown, smallUp, spacing, text } from "../../../styles/mixins";
-import {motion} from "framer-motion";
-import MotionBtn from "./MotionBtn";
+import SlideButton from "../../SlideButton";
 
 const ContentWrapper = styled.div `
   display: flex;
@@ -82,7 +81,7 @@ const CardContents = ({ overline, title, body, slug='/', tags, small }) => {
 
       <Body gutterBottom={ true }>{ body }</Body>
 
-      <MotionBtn slug={slug} />
+      <SlideButton slug={slug} color='#000000' />
 
 
     </ContentWrapper>

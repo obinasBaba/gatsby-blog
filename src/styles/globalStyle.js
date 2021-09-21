@@ -106,6 +106,14 @@ export const GlobalStyle = createGlobalStyle`
       padding-left: 4.28rem;
     }
   }
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
 
 `;
 

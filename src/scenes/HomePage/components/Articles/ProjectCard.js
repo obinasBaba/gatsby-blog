@@ -12,7 +12,7 @@ const CardContainer = styled( Grid )`
   flex-direction: column;
   //border: thin solid greenyellow;
   //padding-top: 2rem;
-  
+
   ${ mediumUp( css`
     flex-direction: row;
     align-items: center;
@@ -23,7 +23,7 @@ const CardContainer = styled( Grid )`
 
   &:not(:first-child) {
     position: relative;
-    ${ spacing( 'mt', 8 ) };
+    ${ spacing( "mt", 8 ) };
 
     &::before {
       content: '';
@@ -31,7 +31,7 @@ const CardContainer = styled( Grid )`
       position: absolute;
       width: calc(100% + (40px * var(--indent)));
       height: 1px;
-      ${ spacing( 'top', -4 ) };
+      ${ spacing( "top", -4 ) };
 
       left: 50%;
       transform: translateX(-50%);
@@ -43,45 +43,45 @@ const CardContainer = styled( Grid )`
       ` ) };
     }
   }
-`
+`;
 
 const ImageBox = styled.div`
   width: calc(100% + 48px);
   transform: translateX(-24px);
   height: 100%;
-  
-  
+
+
   ${ smallUp( css`
-    ${ heightWidth('max-width', 20 ) };
+    ${ heightWidth( "max-width", 20 ) };
     width: calc(100%);
     transform: translateX(0);
     //flex: 1 1;
-    
+
   ` ) };
-  
-  img{
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
-  .image-wrapper{
+
+  .image-wrapper {
     width: 100%;
     height: 100%;
   }
-`
+`;
 
 const Description = styled.div`
-  margin-top: calc( 1rem * var(--indent) );
-  
+  margin-top: calc(1rem * var(--indent));
+
   ${ mediumUp( css`
     margin-top: 0;
-    ${ spacing('ml', 4) };
+    ${ spacing( "ml", 4 ) };
     flex: 1 1;
 
 
   ` ) };
-`
+`;
 
 const Tag = styled( Typography )`
   //font-family: var(--gramatika);
@@ -91,37 +91,39 @@ const Tag = styled( Typography )`
   opacity: .9;
   font-size: .75rem;
   letter-spacing: .5px;
-`
+`;
 
 const Title = styled( Typography )`
   font-weight: bolder;
-`
+`;
 
-export default function ProjectCard({ imgSrc, title, tags }) {
+export default function ProjectCard({ imgSrc, title, tags, link }) {
 
   return (
-    <CardContainer >
+    <CardContainer>
 
       <ImageBox>
-          <GatsbyImage alt={title}
-                       className={'image-wrapper'}
-                       objectFit={'cover'}
-                       image={getImage(imgSrc)}/>
+        <GatsbyImage alt={ title }
+                     className={ "image-wrapper" }
+                     objectFit={ "cover" }
+                     image={ getImage( imgSrc ) } />
       </ImageBox>
 
       <Description>
 
-        <Tag >{
+        <Link to={ link }>
+          <Tag>{
 
-          tags ? tags.map(({tag}) => tag + ', ') : 'no-tags'
-
-
-        }</Tag>
+            tags ? tags.map( ({ tag }) => tag + ", " ) : "no-tags"
 
 
-        <Title>
-          {title}
-        </Title>
+          }</Tag>
+
+
+          <Title>
+            { title }
+          </Title>
+        </Link>
 
       </Description>
 

@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import HeadLine from "./components/Headline";
 import Article from "./components/Article";
 import MoreBlog from "./components/MoreBlog";
-import { useRecommendedAssets } from "../../hooks/queries/useRecommendedAssets";
 
 function getRecommendedPosts(allPosts = [], currentPost) {
   const RECOMMENDED_POSTS_LIMIT = 4;
@@ -33,7 +32,8 @@ const Blog = ({ data, pageContext }) => {
 
   // const recommendedPosts = getRecommendedPosts( all.edges, data, [allPost, data] )
 
-  console.log( 'context- - -- - -----',  allPost, data);
+  console.log( "context- - -- - -----", allPost, data );
+
 
   return (
     < >
@@ -43,9 +43,9 @@ const Blog = ({ data, pageContext }) => {
 
       <Article html={ data.markdownRemark.html } />
 
-      <MoreBlog frontmatter={data.markdownRemark.frontmatter}
-                slug={slug}
-                excerpt={data.markdownRemark.excerpt} />
+      <MoreBlog frontmatter={ data.markdownRemark.frontmatter }
+                slug={ slug }
+                excerpt={ data.markdownRemark.excerpt } />
     </>
   );
 };

@@ -3,6 +3,8 @@ import { Avatar, Divider } from "@material-ui/core";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/all";
 import styled from "styled-components";
 import { heightWidth } from "../../../styles/mixins";
+import img from './img_1.png';
+import { Link } from "gatsby";
 
 const AvatarSocial = styled.div`
   display: inline-flex;
@@ -26,7 +28,9 @@ const AvatarWithSocial = () => {
 
     <AvatarSocial>
 
-      <Avatar src="https://i0.wp.com/tilomitra.com/wp-content/uploads/2019/10/1P0A8024.jpg?resize=627%2C940" />
+      <Link to='/' >
+        <Avatar src={img} />
+      </Link>
 
       <div className="divider"/>
 
